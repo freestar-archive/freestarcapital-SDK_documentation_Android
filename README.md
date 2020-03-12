@@ -59,6 +59,8 @@ repositories {
     maven { url 'https://jitpack.io' }
     maven { url "https://dl.bintray.com/vdopiacorp/fsdk" }
     maven { url 'https://tapjoy.bintray.com/maven' }
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+    
     // If you're using a version of Gradle greater than or equal to 4.1, you must use:
     google()
 
