@@ -22,7 +22,7 @@ public class MediationPartners {
 
     public static final int ADTYPE_INTERSTITIAL = 0;
     public static final int ADTYPE_REWARDED = 1;
-    public static final int ADTYPE_INVIEW = 2;
+    public static final int ADTYPE_BANNER = 2;
     public static final int ADTYPE_PREROLL = 3;
 
     /**
@@ -178,7 +178,7 @@ public class MediationPartners {
      * @param context
      * @param listener
      */
-    static void choosePartners(final Context context, final AdRequest adRequest, final int adUnitType, final DialogInterface.OnClickListener listener) {
+    public static void choosePartners(final Context context, final AdRequest adRequest, final int adUnitType, final DialogInterface.OnClickListener listener) {
         String[] partners;
         boolean[] selected;
         String title;
@@ -190,7 +190,7 @@ public class MediationPartners {
             partners = rewarded_partners;
             selected = rewarded_parters_selected;
             title = "Rewarded";
-        } else if (adUnitType == ADTYPE_INVIEW) {
+        } else if (adUnitType == ADTYPE_BANNER) {
             partners = inview_partners;
             selected = inview_parters_selected;
             title = "Display";
@@ -214,7 +214,7 @@ public class MediationPartners {
                         case ADTYPE_INTERSTITIAL:
                             setInterstitialPartners(adRequest);
                             break;
-                        case ADTYPE_INVIEW:
+                        case ADTYPE_BANNER:
                             setInviewPartners(adRequest);
                             break;
                         case ADTYPE_PREROLL:
@@ -260,7 +260,7 @@ public class MediationPartners {
             selected = rewarded_parters_selected;
             total = numRewarded;
             chosen = new String[numRewarded];
-        } else if (adUnitType == ADTYPE_INVIEW) {
+        } else if (adUnitType == ADTYPE_BANNER) {
             partners = inview_partners;
             selected = inview_parters_selected;
             total = numInview;

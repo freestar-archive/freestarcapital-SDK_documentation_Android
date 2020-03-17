@@ -22,6 +22,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -77,5 +81,8 @@ dependencies {
     implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.11.2'
     //end, FreeStar
 
+
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation "com.google.code.gson:gson:2.8.5"
 
 }

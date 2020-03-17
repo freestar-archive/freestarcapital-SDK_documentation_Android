@@ -18,6 +18,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.freestar.android.sample.recyclerview.RecyclerViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
+        </activity>
+
         <activity
             android:name="com.freestar.android.sample.SamplePrerollAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"

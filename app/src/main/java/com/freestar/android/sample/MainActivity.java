@@ -31,6 +31,7 @@ import com.freestar.android.ads.PrerollAd;
 import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
 import com.freestar.android.ads.RewardedAdListener;
+import com.freestar.android.sample.recyclerview.RecyclerViewActivity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +43,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener {
 
-    private static final String API_KEY = "XqjhRR"; //test key
+    public static final String API_KEY = "XqjhRR"; //test key
     private static final String TAG = "MainActivity";
     private static final boolean DO_CHOOSE_PARTNERS = true; //purely for demonstration purposes.  set false later.
 
@@ -243,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         });
 
         if (DO_CHOOSE_PARTNERS) {
-            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_INVIEW, new DialogInterface.OnClickListener() {
+            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     bannerAd.loadAd(adRequest);
@@ -296,7 +297,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         });
 
         if (DO_CHOOSE_PARTNERS) {
-            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_INVIEW, new DialogInterface.OnClickListener() {
+            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (pageNum == 0) {
@@ -638,7 +639,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.page1, menu);
+        inflater.inflate(R.menu.choose_pages, menu);
         return true;
     }
 
@@ -657,6 +658,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
             case R.id.page3:
                 setTitle("FreeStar Page 3");
                 pageNum = 2;
+                return true;
+            case R.id.menu_recyclerview:
+                startActivity(new Intent(this, RecyclerViewActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

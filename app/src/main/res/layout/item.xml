@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="sample.inline.RecyclerViewActivity">
+
+    <data>
+        <variable
+            name="item"
+            type="com.freestar.android.sample.recyclerview.Item"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:background="@android:color/holo_purple"
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:scaleType="fitXY"
+            app:imageUrl="@{item.url}"
+            />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@{item.title}"/>
+
+    </LinearLayout>
+</layout>
