@@ -334,7 +334,14 @@ When the user has closed the rewarded ad, the following callback will occur:
 ❗⚠ Please assume that ads will expire in about 1 hour after the loaded callback.  Meaning, you may <i>cache</i> an ad 
   in your app or game, but must be displayed with the alloted hour.
 </blockquote>
- 
+
+<h2>Proguard</h2>
+If you choose to use <code>Proguard</code> in your app, please add our
+<a href="https://github.com/freestarcapital/SDK_documentation_Android/blob/master/app/proguard-rules.pro">proguard settings</a>.
+
+https://github.com/freestarcapital/SDK_documentation_Android/blob/master/app/proguard-rules.pro
+
+
 <h2>Sample Project</h2>
 <b>
 All of this and more, such as <i>Preroll Ads</i> can be seen in the sample <a href="https://github.com/freestarcapital/SDK_documentation_Android/blob/master/app/src/main/java/com/freestar/android/sample/MainActivity.java">MainActivity</a>:
