@@ -45,31 +45,31 @@ dependencies {
 
     //begin FreeStar
     //implementation 'com.freestar.android.ads:freestar-staging:3.2.0.a'  //staging
-    implementation 'com.freestar.android.ads:freestar:3.2.1'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.8.5'
+    implementation 'com.freestar.android.ads:freestar:3.2.2'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.1'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.11.6'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:5.9.0'
-    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.1.1'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0'
+    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.1.2'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0.1'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:3.4.0'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.4.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.4.11'
-    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:1.0.7'
+    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:5.8.0'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
     implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0'
 
-    implementation 'com.applovin:applovin-sdk:9.8.4'
+    implementation 'com.applovin:applovin-sdk:9.11.6'
     implementation 'com.google.android.gms:play-services-ads:17.2.1' //11.0.4 minimum is required, 16.0.0 or newer recommended!
     implementation('com.google.android.ads.consent:consent-library:1.0.7') {
         exclude group: 'com.android.support'
         exclude group: 'com.google.code.gson', module: 'gson'
     }
-    implementation('com.facebook.android:audience-network-sdk:4.99.3') {
+    implementation('com.facebook.android:audience-network-sdk:5.8.0') {
         exclude group: 'com.google.android.exoplayer'
         exclude group: 'com.google.android.gms'
         exclude group: 'com.android.support'
     }
-    implementation 'com.tapjoy:tapjoy-android-sdk:12.2.1@aar'
+    implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
     implementation('com.github.vungle:vungle-android-sdk:6.4.11') {
         exclude group: 'com.android.support'
     }
