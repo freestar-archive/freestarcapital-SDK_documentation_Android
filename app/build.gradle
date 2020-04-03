@@ -56,7 +56,7 @@ dependencies {
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.4.11'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:5.8.0'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
-    implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0'
+    implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0.1'
 
     implementation 'com.applovin:applovin-sdk:9.11.6'
     implementation 'com.google.android.gms:play-services-ads:17.2.1' //11.0.4 minimum is required, 16.0.0 or newer recommended!
