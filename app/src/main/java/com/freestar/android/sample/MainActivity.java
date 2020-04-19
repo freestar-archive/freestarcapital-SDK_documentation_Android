@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         adRequest = new AdRequest(this);
         FreeStarAds.enableLogging(true);  //don't set true for production
         FreeStarAds.enableTestAds(true);  //don't set true for production
-        FreeStarAds.init(this, API_KEY);
         pageNum = savedInstanceState != null ? savedInstanceState.getInt("page",0) : 0;
         setTitle("FreeStar Page "+(pageNum+1));
     }
