@@ -46,10 +46,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adRequest = new AdRequest(this);
-        FreeStarAds.enableTestAds(true);
-        FreeStarAds.enableLogging(true);
-        FreeStarAds.init(this, MainActivity.API_KEY);
-
+        adRequest.addCustomTargeting("my custom target", "value");
         adapter = new Adapter(this);
         DataBindingUtil.setContentView(this, R.layout.activity_recyclerview);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);

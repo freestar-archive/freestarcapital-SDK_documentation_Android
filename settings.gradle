@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='FreeStarSample'
+rootProject.name='FreestarSample'

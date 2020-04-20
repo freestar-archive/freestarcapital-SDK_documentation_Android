@@ -24,7 +24,6 @@ import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.AdSize;
 import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
-import com.freestar.android.ads.FreeStarAds;
 import com.freestar.android.ads.InterstitialAd;
 import com.freestar.android.ads.InterstitialAdListener;
 import com.freestar.android.ads.PrerollAd;
@@ -66,10 +65,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         setContentView(R.layout.activity_main);
         isLargeLayout = false;// getResources().getBoolean(R.bool.large_layout);
         adRequest = new AdRequest(this);
-        FreeStarAds.enableLogging(true);  //don't set true for production
-        FreeStarAds.enableTestAds(true);  //don't set true for production
+        adRequest.addCustomTargeting("my custom target", "value");
         pageNum = savedInstanceState != null ? savedInstanceState.getInt("page",0) : 0;
-        setTitle("FreeStar Page "+(pageNum+1));
+        setTitle("Freestar Page "+(pageNum+1));
     }
 
     @Override
@@ -648,14 +646,14 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         switch (item.getItemId()) {
             case R.id.page1:
                 pageNum = 0;
-                setTitle("FreeStar Page 1");
+                setTitle("Freestar Page 1");
                 return true;
             case R.id.page2:
-                setTitle("FreeStar Page 2");
+                setTitle("Freestar Page 2");
                 pageNum = 1;
                 return true;
             case R.id.page3:
-                setTitle("FreeStar Page 3");
+                setTitle("Freestar Page 3");
                 pageNum = 2;
                 return true;
             case R.id.menu_recyclerview:
