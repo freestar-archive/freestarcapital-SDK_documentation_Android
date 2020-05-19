@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "com.freestar.android.sample"
-        minSdkVersion 17
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -74,7 +74,7 @@ dependencies {
     implementation('com.github.vungle:vungle-android-sdk:6.4.11') {
         exclude group: 'com.android.support'
     }
-    implementation('com.mopub:mopub-sdk:5.8.0@aar') {
+    implementation('com.mopub:mopub-sdk:5.12.0@aar') {
         transitive = true
         exclude group: 'com.android.support'
     }
