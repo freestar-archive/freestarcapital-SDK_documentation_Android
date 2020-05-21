@@ -65,7 +65,7 @@ dependencies {
         exclude group: 'com.android.support'
         exclude group: 'com.google.code.gson', module: 'gson'
     }
-    implementation('com.facebook.android:audience-network-sdk:5.8.0') {
+    implementation('com.facebook.android:audience-network-sdk:5.9.0') {
         exclude group: 'com.google.android.exoplayer'
         exclude group: 'com.google.android.gms'
         exclude group: 'com.android.support'
