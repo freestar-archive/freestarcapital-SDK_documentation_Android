@@ -13,4 +13,4 @@ This repo is a native Android sample of Freestar Ads:
 <img src="images/fs_recyclerview.gif"/>
 
 This is just one way to dynamically place ads in a RecyclerView based on a scroll listener approach.  Of course, you can come up with your own way.
-Our RecyclerView implementation is <a href="https://github.com/freestarcapital/SDK_documentation_Android/tree/master/app/src/main/java/com/freestar/android/sample/recyclerview">here</>.
+Our RecyclerView implementation is <a href="https://github.com/freestarcapital/SDK_documentation_Android/tree/master/app/src/main/java/com/freestar/android/sample/recyclerview">here</a>.
