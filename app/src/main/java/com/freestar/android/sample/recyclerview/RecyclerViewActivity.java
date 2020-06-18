@@ -117,7 +117,12 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
         bannerAd = new BannerAd(this);
         bannerAd.setBannerAdListener(this);
         bannerAd.setAdSize(AdSize.MEDIUM_RECTANGLE_300_250);
-        bannerAd.loadAd(adRequest);
+        String placement = BannerPlacementHelper.getNextPlacement();
+        if (placement != null) {
+            bannerAd.loadAd(adRequest, placement);
+        } else {
+            bannerAd.loadAd(adRequest);
+        }
     }
 
     @Override
