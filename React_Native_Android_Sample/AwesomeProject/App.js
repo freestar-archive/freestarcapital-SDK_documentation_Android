@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 });
 
-FreestarReactBridge.initWithAdUnitID();
+FreestarReactBridge.initWithAdUnitID('XqjhRR');
 
 FreestarReactBridge.subscribeToInterstitialCallbacks((eventName) => {
        if(eventName === "onInterstitialLoaded") {
