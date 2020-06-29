@@ -30,18 +30,36 @@ export default function App(props) {
         title={"Load Rewarded Ad"}
       />
 
+      <Text> {'\n'} Small banner ad 320x50 should show below {'\n'} </Text>
+
+      <BannerAd
+         style={{width: 320, height: 50}}
+         requestOptions={
+            {
+               size:'BANNER',
+               targetingParams: {
+                     'someparam1': 'somevalue1',
+                     'someparam2': 'somevalue2',
+                     'someparam3': 'somevalue3',
+               }
+            }
+         }
+         onBannerAdLoaded={bannerLoaded}
+         onBannerAdFailedToLoad={bannerFailed}
+      />
+
+      <Text> {'\n'} MREC banner ad 300x250 should show below {'\n'} </Text>
+
       <BannerAd
          style={{width: 300, height: 250}}
          requestOptions={
             {
                size:'MREC',
-               isCoppaEnabled: false,
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
                      'someparam3': 'somevalue3',
-               },
-               testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
+               }
             }
          }
          onBannerAdLoaded={bannerLoaded}
@@ -59,7 +77,7 @@ function bannerLoaded({ nativeEvent }) {
 
 function bannerFailed({ nativeEvent }) {
    console.log('failed ' + nativeEvent.errorDesc + ' ' + nativeEvent.size + ' placement: ' + nativeEvent.placement);
-   Alert.alert('failed ' + nativeEvent.errorDesc + ' ' + nativeEvent.size + ' placement: ' + nativeEvent.placement);
+   //Alert.alert('failed ' + nativeEvent.errorDesc + ' ' + nativeEvent.size + ' placement: ' + nativeEvent.placement);
 }
 
 const styles = StyleSheet.create({
