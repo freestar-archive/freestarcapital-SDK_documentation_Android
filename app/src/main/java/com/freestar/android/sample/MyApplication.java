@@ -1,11 +1,12 @@
 package com.freestar.android.sample;
 
-import android.app.Application;
 
 import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.FreeStarAds;
 
-public class MyApplication extends Application {
+import androidx.multidex.MultiDexApplication;
+
+public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
