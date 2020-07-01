@@ -46,7 +46,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:3.2.5'
+    implementation 'com.freestar.android.ads:freestar:3.2.6'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.2'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.11.6.1'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:5.9.0.1'
