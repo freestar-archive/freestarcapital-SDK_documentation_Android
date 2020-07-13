@@ -47,15 +47,15 @@ dependencies {
 
     //begin Freestar
     implementation 'com.freestar.android.ads:freestar:3.2.6'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.2'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.11.6.1'
-    implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:5.9.0.1'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.3'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.11.6.2'
+    implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:5.9.0.2'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.1.4.1'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0.2'
-    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:3.4.0.1'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0.4'
+    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:3.4.0.2'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.4.2.2'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.4.11'
-    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:5.8.0.2'
+    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:5.8.0.3'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
     implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0.2'
 
