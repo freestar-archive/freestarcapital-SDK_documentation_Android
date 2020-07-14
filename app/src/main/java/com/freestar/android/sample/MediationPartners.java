@@ -144,8 +144,8 @@ public class MediationPartners {
 
     static {
         preroll_partners[0] = LVDOConstants.PARTNER.AMAZON.name();
-        preroll_partners[2] = LVDOConstants.PARTNER.CRITEO.name();
-        preroll_partners[3] = LVDOConstants.PARTNER.GOOGLE.name();
+        preroll_partners[1] = LVDOConstants.PARTNER.CRITEO.name();
+        preroll_partners[2] = LVDOConstants.PARTNER.GOOGLE.name();
     }
 
     private static boolean[] preroll_parters_selected = new boolean[numPreroll];
