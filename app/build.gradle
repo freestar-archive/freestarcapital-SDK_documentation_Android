@@ -13,8 +13,16 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
             useProguard true
+
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -46,9 +54,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:3.2.6'
+    implementation 'com.freestar.android.ads:freestar:3.2.7'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.3'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.11.6.2'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.13.1.1'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:5.9.0.2'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.1.4.1'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0.4'
@@ -59,7 +67,7 @@ dependencies {
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
     implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0.2'
 
-    implementation 'com.applovin:applovin-sdk:9.11.6'
+    implementation 'com.applovin:applovin-sdk:9.13.1'
     implementation 'com.google.android.gms:play-services-ads:17.2.1' //11.0.4 minimum is required, 16.0.0 or newer recommended!
     implementation('com.google.android.ads.consent:consent-library:1.0.7') {
         exclude group: 'com.android.support'

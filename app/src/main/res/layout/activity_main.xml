@@ -60,14 +60,19 @@
             android:onClick="loadPrerollAdAsActivity"
             android:text="Load Preroll Ad (New Activity)" />
 
-<!--        <com.freestar.android.ads.BannerAd xmlns:ads="http://schemas.android.com/apk/res-auto"-->
-<!--            android:id="@+id/freestarBannerAd_1"-->
-<!--            android:layout_width="300dp"-->
-<!--            android:layout_height="250dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            ads:FreeStarAdSize="MEDIUM_RECTANGLE" />-->
+        <!--
+        NOTE: If you choose to embed Freestar ads in your xml layout
+        as follows please note the ad will be automatically loaded and displayed.
+        You do not need to write any code in this case.
+
+        <com.freestar.android.ads.BannerAd xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/freestarBannerAd_1"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            ads:FreeStarAdSize="MEDIUM_RECTANGLE" />
 
         <com.freestar.android.ads.BannerAd xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/freestarBannerAd_2"
@@ -76,6 +81,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             ads:FreeStarAdSize="BANNER" />
+            -->
 
         <FrameLayout
             android:id="@+id/banner_container"
