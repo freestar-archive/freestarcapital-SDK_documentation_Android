@@ -34,7 +34,6 @@
         <!-- Publishers will need to replace with their own application id
              in the android manifest before they go into production. -->
         <meta-data
-            tools:replace="android:value"
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
 
