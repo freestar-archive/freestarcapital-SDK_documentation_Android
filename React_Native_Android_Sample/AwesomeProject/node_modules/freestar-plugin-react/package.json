@@ -1,0 +1,52 @@
+{
+  "_from": "freestar-plugin-react",
+  "_inBundle": false,
+  "_integrity": "sha512-0NPp+ZQNbY5NcQitoXGn+BdxzNgJsTelRCbDO8pFcL8Q/7CErZkSxKVffvk2YdWrNf+jKc4qtzZQcT+bXYfVdQ==",
+  "_location": "/freestar-plugin-react",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "freestar-plugin-react",
+    "name": "freestar-plugin-react",
+    "escapedName": "freestar-plugin-react",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/freestar-plugin-react/-/freestar-plugin-react-1.1.1.tgz",
+  "_shasum": "7e4600ee435924c5c6c62413a5822d98357a430b",
+  "_spec": "freestar-plugin-react",
+  "_where": "C:\\Users\\kevin\\temp",
+  "author": "Freestar",
+  "deprecated": false,
+  "description": "A plugin to enable Freestar ads to be displayed in ReactNative apps",
+  "devDependencies": {
+    "react-native": "^0.62.2"
+  },
+  "dummy": 4,
+  "files": [
+    "ios",
+    "android",
+    "FreestarReact.js",
+    "BannerAd.js",
+    "freestar-plugin-react.podspec"
+  ],
+  "homepage": "https://gitlab.com/freestar/freestar-react-native-plugin",
+  "keywords": [
+    "Freestar",
+    "Ads",
+    "ReactNative"
+  ],
+  "license": "Apache-2.0",
+  "main": "FreestarReact.js",
+  "name": "freestar-plugin-react",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.1.1"
+}
