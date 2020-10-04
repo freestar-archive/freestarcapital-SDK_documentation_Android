@@ -20,36 +20,39 @@ import com.freestar.android.ads.RewardedAdListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FreestarReactBridge extends ReactContextBaseJavaModule implements InterstitialAdListener, RewardedAdListener {
 
     private static final String TAG = "FreestarReactBridge";
 
-    public static final String EVENT_INTERSTITIAL_LOADED    = "onInterstitialLoaded";
-    public static final String EVENT_INTERSTITIAL_FAILED    = "onInterstitialFailed";
-    public static final String EVENT_INTERSTITIAL_CLICKED   = "onInterstitialClicked";
-    public static final String EVENT_INTERSTITIAL_SHOWN     = "onInterstitialShown";
+    public static final String EVENT_INTERSTITIAL_LOADED = "onInterstitialLoaded";
+    public static final String EVENT_INTERSTITIAL_FAILED = "onInterstitialFailed";
+    public static final String EVENT_INTERSTITIAL_CLICKED = "onInterstitialClicked";
+    public static final String EVENT_INTERSTITIAL_SHOWN = "onInterstitialShown";
     public static final String EVENT_INTERSTITIAL_DISMISSED = "onInterstitialDismissed";
 
-    public static final String EVENT_REWARDED_LOADED    = "onRewardedLoaded";
-    public static final String EVENT_REWARDED_FAILED    = "onRewardedFailed";
-    public static final String EVENT_REWARDED_SHOW_FAILED    = "onRewardedShowFailed";
-    public static final String EVENT_REWARDED_SHOWN     = "onRewardedShown";
+    public static final String EVENT_REWARDED_LOADED = "onRewardedLoaded";
+    public static final String EVENT_REWARDED_FAILED = "onRewardedFailed";
+    public static final String EVENT_REWARDED_SHOW_FAILED = "onRewardedShowFailed";
+    public static final String EVENT_REWARDED_SHOWN = "onRewardedShown";
     public static final String EVENT_REWARDED_DISMISSED = "onRewardedDismissed";
     public static final String EVENT_REWARDED_COMPLETED = "onRewardedCompleted";
 
     public static final String NOT_DEFINED = "not defined";
 
-    private RewardedAd rewardedAd;
-    private InterstitialAd interstitialAd;
     private AdRequest adRequest;
+    private Map<String, InterstitialAd> interstitialAdMap = new HashMap<>();
+    private Map<String, RewardedAd> rewardedAdMap = new HashMap<>();
 
     public FreestarReactBridge(ReactApplicationContext reactContext) {
         super(reactContext);
+        ChocolateLogger.i(TAG, "instantiated");
     }
 
     @ReactMethod
-    public void initWithAdUnitID(final String appKey){
+    public void initWithAdUnitID(final String appKey) {
         /*
         This will be documented to go into MainApplication; not here anymore.
 
@@ -72,12 +75,12 @@ public class FreestarReactBridge extends ReactContextBaseJavaModule implements I
     public void setDemographics(int age, String birthdayISO, String gender, String maritalStatus, String ethnicity) {
         AdRequest adRequest = getAdRequest();
         try {
-            adRequest.setAge(""+age);
+            adRequest.setAge("" + age);
             adRequest.setBirthday(convert(birthdayISO));
             adRequest.setGender(gender);
             adRequest.setMaritalStatus(maritalStatus);
             adRequest.setEthnicity(convertEthnicity(ethnicity));
-        }catch (Throwable t) {
+        } catch (Throwable t) {
             ChocolateLogger.e(TAG, "", t);
         }
     }
@@ -89,7 +92,7 @@ public class FreestarReactBridge extends ReactContextBaseJavaModule implements I
             adRequest.setDmaCode(dmaCode);
             adRequest.setPostalCode(postalCode);
             adRequest.setCurrPostal(currPostalCode);
-        }catch (Throwable t) {
+        } catch (Throwable t) {
             ChocolateLogger.e(TAG, "", t);
         }
     }
@@ -108,7 +111,7 @@ public class FreestarReactBridge extends ReactContextBaseJavaModule implements I
     public void subjectToGDPR(boolean isSubjectToGDPR, String gdprConsentString) {
         try {
             FreeStarAds.setGDPR(getCurrentActivity(), isSubjectToGDPR, gdprConsentString);
-        }catch(Throwable t) {
+        } catch (Throwable t) {
             ChocolateLogger.e(TAG, "", t);
         }
     }
@@ -130,68 +133,87 @@ public class FreestarReactBridge extends ReactContextBaseJavaModule implements I
         try {
             //yyyy-MM-dd
             if (dateISO != null && dateISO.length() >= "yyyy-MM-dd".length()) {
-                dateISO = dateISO.substring(0,"yyyy-MM-dd".length());
+                dateISO = dateISO.substring(0, "yyyy-MM-dd".length());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 return sdf.parse(dateISO);
             }
 
-        }catch(Throwable t) {
+        } catch (Throwable t) {
             ChocolateLogger.e(TAG, "", t);
         }
         return null;
     }
 
     @ReactMethod
-    public void loadInterstitialAd(String placement) {
-        if (interstitialAd == null) {
-            interstitialAd = new InterstitialAd(getCurrentActivity(), this);
-        }
-        interstitialAd.loadAd(getAdRequest(), placement);
-    }
-
-    @ReactMethod
-    public void showInterstitialAd(){
+    public void loadInterstitialAd(final String placement) {
 
         LVDOAdUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (interstitialAd != null){
-                    try {
+                InterstitialAd interstitialAd = new InterstitialAd(getCurrentActivity(), FreestarReactBridge.this);
+                interstitialAdMap.put(placement + "", interstitialAd);
+                interstitialAd.loadAd(getAdRequest(), placement);
+            }
+        });
+    }
 
+    @ReactMethod
+    public void showInterstitialAd(final String placement) {
+
+        LVDOAdUtil.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                InterstitialAd interstitialAd = interstitialAdMap.get(placement + "");
+                if (interstitialAd != null) {
+                    try {
                         interstitialAd.show();
-                    }catch (Exception e) {
-                        onInterstitialFailed(null, ErrorCodes.NO_FILL);
+                    } catch (Exception e) {
+                        onInterstitialFailed(placement, ErrorCodes.VIDEO_PLAYBACK_ERROR);
+                        ChocolateLogger.e(TAG,"show interstitial failed in playback",e);
                     }
+                }  else {
+                    onInterstitialFailed(placement, ErrorCodes.INTERNAL_ERROR);
+                    ChocolateLogger.e(TAG,"show interstitial internal error");
                 }
             }
         });
     }
 
     @ReactMethod
-    public void loadRewardAd(String placement) {
-        if (rewardedAd == null) {
-            rewardedAd = new RewardedAd(getCurrentActivity(), this);
-        }
-        rewardedAd.loadAd(getAdRequest(), placement);
+    public void loadRewardAd(final String placement) {
+
+        LVDOAdUtil.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                RewardedAd rewardedAd = new RewardedAd(getCurrentActivity(), FreestarReactBridge.this);
+                rewardedAdMap.put(placement + "", rewardedAd);
+                rewardedAd.loadAd(getAdRequest(), placement);
+            }
+        });
     }
 
     private String rewardName;
     private int rewardAmount;
 
     @ReactMethod
-    public void showRewardAd(final String rewardName, final int rewardAmount, final String userId, final String secret) {
+    public void showRewardAd(final String placement, final String rewardName, final int rewardAmount, final String userId, final String secret) {
 
         LVDOAdUtil.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (rewardedAd != null){
+                RewardedAd rewardedAd = rewardedAdMap.get(placement + "");
+                if (rewardedAd != null) {
                     try {
                         FreestarReactBridge.this.rewardName = rewardName;
                         FreestarReactBridge.this.rewardAmount = rewardAmount;
-                        rewardedAd.showRewardAd(secret, userId, rewardName, rewardAmount+"");
-                    }catch (Exception e) {
-                        onRewardedVideoShownError(null, ErrorCodes.VIDEO_PLAYBACK_ERROR);
+                        rewardedAd.showRewardAd(secret, userId, rewardName, rewardAmount + "");
+                    } catch (Exception e) {
+                        onRewardedVideoShownError(placement, ErrorCodes.VIDEO_PLAYBACK_ERROR);
+                        ChocolateLogger.e(TAG,"show rewarded playback error",e);
                     }
+                } else {
+                    onRewardedVideoShownError(placement, ErrorCodes.INTERNAL_ERROR);
+                    ChocolateLogger.e(TAG,"show rewarded internal error");
                 }
             }
         });

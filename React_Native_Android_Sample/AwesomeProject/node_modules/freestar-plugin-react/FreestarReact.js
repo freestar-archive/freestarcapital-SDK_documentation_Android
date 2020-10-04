@@ -49,14 +49,15 @@ module.exports = {
     FreestarReactBridge.subjectToGDPR(gdprApplies,gdprConsentString),
   setCoppaStatus: (coppa: boolean) => FreestarReactBridge.setCoppaStatus(coppa),
   loadInterstitialAd: (placement: string) => FreestarReactBridge.loadInterstitialAd(placement),
-  showInterstitialAd: () => FreestarReactBridge.showInterstitialAd(),
+  showInterstitialAd: (placement: string) => FreestarReactBridge.showInterstitialAd(placement),
   loadRewardAd: (placement: string) => FreestarReactBridge.loadRewardAd(placement),
   showRewardAd: (
+    placement: string,
     rewardName: string,
     rewardAmount: int,
     userID: string,
     secretKey: string
-  ) => FreestarReactBridge.showRewardAd(rewardName,rewardAmount,userID,secretKey),
+  ) => FreestarReactBridge.showRewardAd(placement, rewardName,rewardAmount,userID,secretKey),
   subscribeToInterstitialCallbacks: (callback: Function) => {
     INTERSTITIAL_CALLBACKS.map((event) => {
       emitter.removeAllListeners(event);
