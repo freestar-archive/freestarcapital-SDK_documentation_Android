@@ -60,7 +60,7 @@ dependencies {
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.1.4.2'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:17.2.0.5'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:3.4.0.3'
-    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.4.2.3'
+    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.5.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.7.0'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:5.8.0.4'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
