@@ -46,8 +46,8 @@
 -keep class com.facebook.** {*;}
 -keep interface com.facebook.** {*;}
 
--keep interface com.freestar.android.ads.** {*;}
--keep class com.freestar.android.ads.** { *; }
+-keep interface com.freestar.** {*;}
+-keep class com.freestar.** { *; }
 
 -keep interface com.iab.** {*;}
 -keep class com.iab.** { *; }
@@ -68,8 +68,8 @@
 -dontwarn com.squareup.picasso.**
 -dontwarn com.squareup.okhttp.**
 
--keep class com.unity3d.ads.** {*;}
--keep interface com.unity3d.ads.** {*;}
+-keep class com.unity3d.** {*;}
+-keep interface com.unity3d.** {*;}
 
 -keep class com.vungle.** {*;}
 -keep interface com.vungle.** {*;}
