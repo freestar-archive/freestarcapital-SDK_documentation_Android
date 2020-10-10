@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import { Alert, AppRegistry, Button } from 'react-native';
 import FreestarReactBridge from 'freestar-plugin-react';
 import BannerAd from 'freestar-plugin-react/BannerAd';
@@ -91,10 +91,12 @@ const styles = StyleSheet.create({
 
 FreestarReactBridge.initWithAdUnitID('XqjhRR');
 
-FreestarReactBridge.subscribeToInterstitialCallbacks((eventName) => {
+FreestarReactBridge.subscribeToInterstitialCallbacks((eventName, placement) => {
        if(eventName === "onInterstitialLoaded") {
 
-         FreestarReactBridge.showInterstitialAd();
+         if (placement == 'not defined')
+            placement = null;
+         FreestarReactBridge.showInterstitialAd(placement);
 
        } else if (eventName === "onInterstitialClicked") {
 
@@ -112,7 +114,7 @@ FreestarReactBridge.subscribeToInterstitialCallbacks((eventName) => {
      });
 
 
-FreestarReactBridge.subscribeToRewardCallbacks((eventName, rewardName = '', rewardAmount = 0) => {
+FreestarReactBridge.subscribeToRewardCallbacks((eventName, placement, rewardName = '', rewardAmount = 0) => {
      if (eventName === "onRewardedFailed") {
 
           Alert.alert('Reward Ad not available');
@@ -121,7 +123,9 @@ FreestarReactBridge.subscribeToRewardCallbacks((eventName, rewardName = '', rewa
 
      } else if(eventName === "onRewardedLoaded") {
 
-         FreestarReactBridge.showRewardAd("Coins", 50, "myuserId", "12345678");
+         if (placement == 'not defined')
+            placement = null;
+         FreestarReactBridge.showRewardAd(placement, "Coins", 50, "myuserId", "12345678");
 
      } else if (eventName === "onRewardedCompleted") {
 
