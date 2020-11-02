@@ -39,7 +39,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -53,8 +53,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:3.2.9'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:17.2.0.4'
+    implementation 'com.freestar.android.ads:freestar-staging:3.3.0-staging01'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:19.5.0.0-beta01'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.13.1.2'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:6.0.0.0'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.3.0.0'
@@ -67,7 +67,7 @@ dependencies {
     implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.8.0.3'
 
     implementation 'com.applovin:applovin-sdk:9.13.1'
-    implementation 'com.google.android.gms:play-services-ads:19.3.0' //11.0.4 minimum is required, 16.0.0 or newer recommended!
+    implementation 'com.google.android.gms:play-services-ads:19.5.0' //11.0.4 minimum is required, 16.0.0 or newer recommended!
     implementation('com.google.android.ads.consent:consent-library:1.0.8') {
         exclude group: 'com.android.support'
         exclude group: 'com.google.code.gson', module: 'gson'
