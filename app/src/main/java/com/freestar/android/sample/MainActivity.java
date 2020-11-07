@@ -32,7 +32,8 @@ import com.freestar.android.ads.PrerollAd;
 import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
 import com.freestar.android.ads.RewardedAdListener;
-import com.freestar.android.sample.recyclerview.RecyclerViewActivity;
+import com.freestar.android.sample.recyclerview.RecyclerViewInfiniteAdsActivity;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -701,7 +702,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                 pageNum = 2;
                 return true;
             case R.id.menu_recyclerview:
-                startActivity(new Intent(this, RecyclerViewActivity.class));
+                startActivity(new Intent(this, RecyclerViewInfiniteAdsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
