@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <item name="fs_nt_medium_template_bottom_weight" format="float" type="dimen">0.4</item>
+  <item name="fs_nt_text_row_weight" format="float" type="dimen">0.25</item>
+  <item name="fs_nt_media_view_weight" format="float" type="dimen">1.0</item>
+  <item name="fs_nt_medium_template_top_weight" format="float" type="dimen">0.2</item>
+
+  <dimen name="fs_nt_default_margin">10dp</dimen>
+  <dimen name="fs_nt_no_margin">0dp</dimen>
+  <dimen name="fs_nt_no_size">0dp</dimen>
+  <dimen name="fs_nt_medium_ad_template_height">350dp</dimen>
+  <dimen name="fs_nt_ad_media_height">200dp</dimen>
+  <dimen name="fs_nt_ad_icon_size">62dp</dimen>
+  <dimen name="fs_nt_ad_notification_side_padding">6dp</dimen>
+  <dimen name="fs_nt_ad_indicator_height">20dp</dimen>
+  <dimen name="fs_nt_text_size_large">15sp</dimen>
+  <dimen name="fs_nt_ad_indicator_text_size">10sp</dimen>
+  <dimen name="fs_nt_text_size_small">12sp</dimen>
+  <dimen name="fs_nt_cta_button_height">26dp</dimen>
+  <dimen name="fs_nt_ad_indicator_top_margin">0dp</dimen>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="fs_nt_white">#FFFFFF</color>
+    <color name="fs_nt_blue">#4285f4</color>
+    <color name="fs_nt_ad_green">#3A6728</color>
+    <color name="fs_nt_outline">#E0E0E0</color>
+    <color name="fs_nt_gray">#808080</color>
+    <color name="fs_nt_headline_bg_color">#00F4F4F4</color>
+
+</resources>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/native_ad_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/fs_nt_medium_ad_template_height"
+    android:layout_centerInParent="true"
+    android:background="@drawable/freestar_native_outline_shape"
+    android:padding="5dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <FrameLayout
+        android:id="@+id/media_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fs_nt_ad_media_height"
+        android:layout_margin="@dimen/fs_nt_no_size"
+        android:layout_marginTop="@dimen/fs_nt_no_margin"
+        app:layout_constraintBottom_toTopOf="@id/middle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/mopub_media"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
+
+    <!-- facebook -->
+    <LinearLayout
+        android:id="@+id/ad_choices_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- mopub -->
+    <ImageView
+        android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="privacy info icon"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/middle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="@dimen/fs_nt_default_margin"
+        app:layout_constraintBottom_toTopOf="@+id/body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/media_view_container">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="@dimen/fs_nt_no_size"
+            android:layout_height="@dimen/fs_nt_no_size"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/icon_container"
+                android:layout_width="@dimen/fs_nt_ad_icon_size"
+                android:layout_height="@dimen/fs_nt_ad_icon_size"
+                android:layout_marginStart="@dimen/fs_nt_default_margin"
+                android:layout_marginTop="@dimen/fs_nt_no_margin"
+                android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                android:layout_weight="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toStartOf="@id/content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/mopub_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content"
+                android:layout_width="@dimen/fs_nt_no_size"
+                android:layout_height="@dimen/fs_nt_no_size"
+                android:layout_marginLeft="@dimen/fs_nt_default_margin"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/icon_container"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/headline"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fs_nt_no_size"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/row_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/primary"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/fs_nt_no_margin"
+                        android:layout_marginTop="@dimen/fs_nt_no_margin"
+                        android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                        android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                        android:background="@color/fs_nt_white"
+                        android:lines="1"
+                        android:textColor="@color/fs_nt_gray"
+                        android:textSize="@dimen/fs_nt_text_size_large"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fs_nt_no_size"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/headline">
+
+                    <TextView
+                        android:id="@+id/ad_notification_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/fs_nt_ad_indicator_height"
+                        android:layout_marginStart="@dimen/fs_nt_no_margin"
+                        android:layout_marginTop="@dimen/fs_nt_ad_indicator_top_margin"
+                        android:layout_marginEnd="@dimen/fs_nt_default_margin"
+                        android:background="@drawable/freestar_native_rounded_corners_shape"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/fs_nt_ad_notification_side_padding"
+                        android:paddingRight="@dimen/fs_nt_ad_notification_side_padding"
+                        android:text="Ad"
+                        android:textColor="@color/fs_nt_ad_green"
+                        android:textSize="@dimen/fs_nt_ad_indicator_text_size"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <RatingBar
+                        android:id="@+id/rating_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/fs_nt_no_margin"
+                        android:layout_marginTop="@dimen/fs_nt_no_margin"
+                        android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                        android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                        android:background="@color/fs_nt_white"
+                        android:lines="1"
+                        android:numStars="0"
+                        android:textColor="@color/fs_nt_gray"
+                        android:textSize="@dimen/fs_nt_text_size_small"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ad_notification_view"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </RatingBar>
+
+                    <TextView
+                        android:id="@+id/secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/fs_nt_no_margin"
+                        android:layout_marginTop="@dimen/fs_nt_no_margin"
+                        android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                        android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                        android:background="@color/fs_nt_white"
+                        android:gravity="top"
+                        android:lines="1"
+                        android:textColor="@color/fs_nt_gray"
+                        android:textSize="@dimen/fs_nt_text_size_small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ad_notification_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fs_nt_no_size"
+        android:layout_marginBottom="@dimen/fs_nt_default_margin"
+        android:paddingLeft="@dimen/fs_nt_default_margin"
+        android:paddingBottom="@dimen/fs_nt_default_margin"
+        app:layout_constraintBottom_toTopOf="@+id/cta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/middle" />
+
+    <Button
+        android:id="@+id/cta"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fs_nt_cta_button_height"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/fs_nt_blue"
+        android:gravity="center"
+        android:lines="1"
+        android:textColor="@color/fs_nt_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/body" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
