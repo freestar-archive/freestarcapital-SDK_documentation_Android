@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.freestar.android.sample.recyclerview.RecyclerViewActivity"
+        <activity android:name="com.freestar.android.sample.recyclerview.RecyclerViewInfiniteAdsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
         </activity>
 

@@ -26,11 +26,14 @@ import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
 import com.freestar.android.ads.InterstitialAd;
 import com.freestar.android.ads.InterstitialAdListener;
+import com.freestar.android.ads.NativeAd;
+import com.freestar.android.ads.NativeAdListener;
 import com.freestar.android.ads.PrerollAd;
 import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
 import com.freestar.android.ads.RewardedAdListener;
-import com.freestar.android.sample.recyclerview.RecyclerViewActivity;
+import com.freestar.android.sample.recyclerview.RecyclerViewInfiniteAdsActivity;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     private InterstitialAd interstitialAd;
     private BannerAd bannerAd;
     private BannerAd mrecBannerAd;
+    private NativeAd nativeAd;
     private PrerollAd preRollVideoAd;
     private boolean doPrerollAdFragment;
 
@@ -168,6 +172,47 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         } else {
             interstitialAd.loadAd(adRequest);
         }
+    }
+
+    private void loadNativeAd(int template) {
+        nativeAd = new NativeAd(this);
+        nativeAd.setTemplate(template);
+        nativeAd.setNativeAdListener(new NativeAdListener() {
+            @Override
+            public void onNativeAdLoaded(View nativeAdView, String placement) {
+                ((ViewGroup)findViewById(R.id.native_container)).removeAllViews();
+                ((ViewGroup)findViewById(R.id.native_container)).addView(nativeAdView);
+            }
+
+            @Override
+            public void onNativeAdFailed(String placement, int errorCode) {
+                Toast.makeText(MainActivity.this, "native ad failed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNativeAdClicked(String placement) {
+
+            }
+        });
+
+        if (DO_CHOOSE_PARTNERS) {
+            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    nativeAd.loadAd(adRequest);
+                }
+            });
+        } else {
+            nativeAd.loadAd(adRequest);
+        }
+    }
+
+    public void loadNativeMedium(View view) {
+        loadNativeAd(NativeAd.TEMPLATE_MEDIUM);
+    }
+
+    public void loadNativeSmall(View view) {
+        loadNativeAd(NativeAd.TEMPLATE_SMALL);
     }
 
     /**
@@ -657,7 +702,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                 pageNum = 2;
                 return true;
             case R.id.menu_recyclerview:
-                startActivity(new Intent(this, RecyclerViewActivity.class));
+                startActivity(new Intent(this, RecyclerViewInfiniteAdsActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

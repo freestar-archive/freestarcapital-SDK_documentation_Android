@@ -13,8 +13,8 @@ import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.AdSize;
 import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
-import com.freestar.android.ads.FreeStarAds;
-import com.freestar.android.sample.MainActivity;
+import com.freestar.android.ads.NativeAd;
+import com.freestar.android.ads.NativeAdListener;
 import com.freestar.android.sample.MediationPartners;
 import com.freestar.android.sample.R;
 import com.google.gson.Gson;
@@ -31,23 +31,27 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewActivity extends AppCompatActivity implements BannerAdListener {
 
-    public static final String TAG = "RecyclerViewActivity";
+public class RecyclerViewInfiniteAdsActivity extends AppCompatActivity implements BannerAdListener,
+        NativeAdListener {
+
+    private static final String TAG = "RecyclerView";
 
     private Adapter adapter;
     private LinearLayoutManager lm;
     private BannerAd bannerAd;
+    private NativeAd nativeAd;
     private boolean isAdRequestInProgress;
     private int scrollDy;
     private AdRequest adRequest;
+    private boolean flip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adRequest = new AdRequest(this);
-        adRequest.addCustomTargeting("my custom target", "value");
-        adapter = new Adapter(this);
+
+        adapter = new Adapter(this, true);
         DataBindingUtil.setContentView(this, R.layout.activity_recyclerview);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager((lm = new LinearLayoutManager(this)));
@@ -80,10 +84,20 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
             }
         });
         loadData();
+        setTitle("RecyclerView Infinite Ads");
     }
 
     private void loadData() {
         new AsyncTask<Void, Void, List<Item>>() {
+            @Override
+            protected List<Item> doInBackground(Void... voids) {
+                try {
+                    return Arrays.asList(new Gson().fromJson(new InputStreamReader(RecyclerViewInfiniteAdsActivity.this.getAssets().open("media_list.json")), Item[].class));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
             @Override
             protected void onPostExecute(List<Item> items) {
                 ArrayList<Adapter.ItemWrapper> list = new ArrayList<>(items.size());
@@ -92,16 +106,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
                 }
                 adapter.setItemWrappers(list);
                 requestAd();
-            }
-
-            @Override
-            protected List<Item> doInBackground(Void... voids) {
-                try {
-                    return Arrays.asList(new Gson().fromJson(new InputStreamReader(RecyclerViewActivity.this.getAssets().open("media_list.json")), Item[].class));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
-                }
             }
         }.execute();
     }
@@ -114,14 +118,18 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
             Log.d(TAG, "requestAd");
             isAdRequestInProgress = true;
         }
-        bannerAd = new BannerAd(this);
-        bannerAd.setBannerAdListener(this);
-        bannerAd.setAdSize(AdSize.MEDIUM_RECTANGLE_300_250);
-        String placement = BannerPlacementHelper.getNextPlacement();
-        if (placement != null) {
-            bannerAd.loadAd(adRequest, placement);
-        } else {
+        if (!flip) {
+            flip = true;
+            bannerAd = new BannerAd(this);
+            bannerAd.setBannerAdListener(this);
+            bannerAd.setAdSize(AdSize.MEDIUM_RECTANGLE_300_250);
             bannerAd.loadAd(adRequest);
+        } else {
+            flip = false;
+            nativeAd = new NativeAd(this);
+            nativeAd.setTemplate(NativeAd.TEMPLATE_MEDIUM);
+            nativeAd.setNativeAdListener(this);
+            nativeAd.loadAd(adRequest);
         }
     }
 
@@ -141,7 +149,8 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
             }
             vis = vis < Config.AD_DISTANCE ? Config.AD_DISTANCE : vis;
             Log.d(TAG, "onBannerAdLoaded and inserted");
-            adapter.insertAd(vis, banner, bannerAd);
+            adapter.cleanupLastAd();
+            adapter.insertAd(vis, (BannerAd)banner, null);
         }
     }
 
@@ -159,14 +168,45 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
     @Override
     public void onBannerAdClosed(View view, String placement) {
         Log.d(TAG, "onBannerAdClosed");
-        adapter.cleanUp();
         isAdRequestInProgress = false;
+    }
+
+    @Override
+    public void onNativeAdLoaded(View nativeAdView, String placement) {
+        Log.d(TAG, "onNativeAdLoaded");
+        isAdRequestInProgress = false;
+        if (nativeAdView != null) {
+            int vis = scrollDy >= 0 ? lm.findLastVisibleItemPosition() : lm.findFirstVisibleItemPosition();
+
+            int adPos = adapter.getAdPosition();
+            if (adPos != -1) {
+                if (Math.abs(vis - adPos) < Config.AD_DISTANCE) {
+                    Log.d(TAG, "onNativeAdLoaded but there's already an ad nearby.  dont ad to list");
+                    return;//there's already an ad nearby in the list
+                }
+            }
+            vis = vis < Config.AD_DISTANCE ? Config.AD_DISTANCE : vis;
+            Log.d(TAG, "onNativeAdLoaded and inserted");
+            adapter.cleanupLastAd();
+            adapter.insertAd(vis, null, (NativeAd)nativeAdView);
+        }
+    }
+
+    @Override
+    public void onNativeAdFailed(String placement, int errorCode) {
+        Log.d(TAG, "onNativeAdFailed: " + errorCode);
+        isAdRequestInProgress = false;
+    }
+
+    @Override
+    public void onNativeAdClicked(String placement) {
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.cleanUp();
+        adapter.cleanupAll();
     }
 
     @Override
@@ -184,7 +224,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
                 return true;
             case R.id.menu_show_current_winner:
                 if (bannerAd != null) {
-                    new AlertDialog.Builder(this).setMessage("Current Winning Partner: " + bannerAd.getWinningPartnerName()).show();
+                    new AlertDialog.Builder(this).setMessage("Last Winning Partner: " + bannerAd.getWinningPartnerName()).show();
                 }
                 return true;
             default:
@@ -193,10 +233,10 @@ public class RecyclerViewActivity extends AppCompatActivity implements BannerAdL
     }
 
     private void choosePartners() {
-        MediationPartners.choosePartners( this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
+        MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                //not implemented
             }
         });
     }
