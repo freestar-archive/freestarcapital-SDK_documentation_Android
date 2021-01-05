@@ -86,13 +86,15 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
-    //Note: if you are using Pre-roll, un-comment the following line:
+    //Note: if you are using Preroll, un-comment the following lines:
+    //start preroll
     implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.21.4'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.12.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.1'
     implementation 'com.google.android.exoplayer:extension-ima:2.12.1'
-    //end, FreeStar
+    //end preroll
 
+    //end, FreeStar
 
     implementation "com.github.bumptech.glide:glide:4.11.0"
     implementation "com.google.code.gson:gson:2.8.5"
