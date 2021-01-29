@@ -3,8 +3,9 @@ import { Text, TextInput, View, Button, StyleSheet, Alert } from 'react-native';
 import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import FreestarReactBridge from 'freestar-plugin-react';
-import BannerAd from 'freestar-plugin-react/BannerAd';
+import FreestarReactBridge from '@freestar/freestar-plugin-react-native';
+import BannerAd from '@freestar/freestar-plugin-react-native/BannerAd';
+import MrecBannerAd from '@freestar/freestar-plugin-react-native/MrecBannerAd';
 
 
 function SettingsScreen({ navigation }) {
@@ -60,11 +61,10 @@ function BigBannerScreen({ navigation }) {
 
      <Text style={styles.text}> {'\n'} MREC banner ad 300x250 should show below {'\n'} </Text>
 
-      <BannerAd
+      <MrecBannerAd
          style={{width: 300, height: 250}}
          requestOptions={
             {
-               size:'MREC',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
@@ -100,11 +100,10 @@ function BigBannerPlacementScreen({ navigation }) {
 
      <Text style={styles.text}> {'\n'} MREC Placement banner ad 300x250 should show below {'\n'} </Text>
 
-      <BannerAd
+      <MrecBannerAd
          style={{width: 300, height: 250}}
          requestOptions={
             {
-               size:'MREC',
                placement: 'MREC_p1', 
                targetingParams: {
                      'someparam1': 'somevalue1',
@@ -145,7 +144,6 @@ function SmallBannerScreen({ navigation }) {
          style={{width: 320, height: 50}}
          requestOptions={
             {
-               size:'BANNER',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
@@ -184,7 +182,6 @@ function SmallBannerPlacementScreen({ navigation }) {
          style={{width: 320, height: 50}}
          requestOptions={
             {
-               size:'BANNER',
                placement: 'banner_p1',
                targetingParams: {
                      'someparam1': 'somevalue1',
