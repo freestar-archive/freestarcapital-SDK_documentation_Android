@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Alert } from 'react-native';
-import { Alert, AppRegistry, Button } from 'react-native';
-import FreestarReactBridge from 'freestar-plugin-react';
-import BannerAd from 'freestar-plugin-react/BannerAd';
+import { AppRegistry, Button } from 'react-native';  //may need to include Alert in production builds
+import FreestarReactBridge from '@freestar/freestar-plugin-react-native';
+import BannerAd from '@freestar/freestar-plugin-react-native/BannerAd';
+import MrecBannerAd from '@freestar/freestar-plugin-react-native/MrecBannerAd';
 
 export default function App(props) {
 
@@ -36,7 +37,6 @@ export default function App(props) {
          style={{width: 320, height: 50}}
          requestOptions={
             {
-               size:'BANNER',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
@@ -50,11 +50,10 @@ export default function App(props) {
 
       <Text> {'\n'} MREC banner ad 300x250 should show below {'\n'} </Text>
 
-      <BannerAd
+      <MrecBannerAd
          style={{width: 300, height: 250}}
          requestOptions={
             {
-               size:'MREC',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
