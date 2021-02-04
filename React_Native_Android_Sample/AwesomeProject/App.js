@@ -37,6 +37,7 @@ export default function App(props) {
          style={{width: 320, height: 50}}
          requestOptions={
             {
+               size: 'BANNER',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
@@ -50,10 +51,11 @@ export default function App(props) {
 
       <Text> {'\n'} MREC banner ad 300x250 should show below {'\n'} </Text>
 
-      <MrecBannerAd
+      <BannerAd
          style={{width: 300, height: 250}}
          requestOptions={
             {
+               size: 'MREC',
                targetingParams: {
                      'someparam1': 'somevalue1',
                      'someparam2': 'somevalue2',
