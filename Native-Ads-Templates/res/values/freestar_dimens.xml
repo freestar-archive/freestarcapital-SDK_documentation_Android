@@ -10,6 +10,7 @@
   <dimen name="fs_nt_no_margin">0dp</dimen>
   <dimen name="fs_nt_no_size">0dp</dimen>
   <dimen name="fs_nt_medium_ad_template_height">350dp</dimen>
+  <dimen name="fs_nt_small_ad_template_height">100dp</dimen>
   <dimen name="fs_nt_ad_media_height">200dp</dimen>
   <dimen name="fs_nt_ad_icon_size">62dp</dimen>
   <dimen name="fs_nt_ad_notification_side_padding">6dp</dimen>
