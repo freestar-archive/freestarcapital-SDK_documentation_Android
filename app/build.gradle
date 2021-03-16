@@ -68,6 +68,7 @@ dependencies {
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.9.1.0'
 
     implementation 'com.applovin:applovin-sdk:9.14.8'
+    implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
     implementation 'com.google.android.gms:play-services-ads:19.6.0' //11.0.4 minimum is required, 16.0.0 or newer recommended!
     implementation('com.google.android.ads.consent:consent-library:1.0.8') {
         exclude group: 'com.android.support'
