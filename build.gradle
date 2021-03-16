@@ -26,10 +26,7 @@ allprojects {
 
         maven {
             url  "https://timehop.bintray.com/nimbus-android"
-            credentials {
-                username "freestar-stocktwits@timehop"
-                password "82d36f46b76d8f98f10536ec41463157fd724574"
-            }
+
             metadataSources {
                 mavenPom()
                 artifact()
@@ -38,10 +35,6 @@ allprojects {
         }
         maven {
             url  "https://timehop.bintray.com/nimbus-openrtb"
-            credentials {
-                username "freestar-stocktwits@timehop"
-                password "82d36f46b76d8f98f10536ec41463157fd724574"
-            }
 
             metadataSources {
                 mavenPom()
