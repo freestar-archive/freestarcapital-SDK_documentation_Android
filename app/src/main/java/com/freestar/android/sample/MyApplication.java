@@ -13,13 +13,13 @@ public class MyApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
 
-        String countyCode;
+        String countryCode;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            countyCode = getResources().getConfiguration().getLocales().get(0).getCountry();
+            countryCode = getResources().getConfiguration().getLocales().get(0).getCountry();
         } else {
-            countyCode = getResources().getConfiguration().locale.getCountry();
+            countryCode = getResources().getConfiguration().locale.getCountry();
         }
-        FreeStarAds.setCustomSegmentProperty(this, countyCode, "true");
+        FreeStarAds.setCustomSegmentProperty(this, "CountryCode", countryCode);
 
         AdRequest adRequest = new AdRequest(this);
         adRequest.addCustomTargeting("some target", "my value");
