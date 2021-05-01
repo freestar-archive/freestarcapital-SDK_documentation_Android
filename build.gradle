@@ -18,27 +18,20 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven { url "https://adcolony.bintray.com/AdColony" }
         maven { url "https://dl.bintray.com/vdopiacorp/fsdk" }
         maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
-        maven { url 'https://tapjoy.bintray.com/maven' }
+        maven { url "https://sdk.tapjoy.com/" }
 
         maven {
-            url  "https://timehop.bintray.com/nimbus-android"
-
-            metadataSources {
-                mavenPom()
-                artifact()
-                ignoreGradleMetadataRedirection()
+            url = uri("https://adsbynimbus-public.s3.amazonaws.com/android/sdks")
+            credentials {
+                username = "*"
             }
-        }
-        maven {
-            url  "https://timehop.bintray.com/nimbus-openrtb"
-
+            // Publisher on SDK versions below 1.10.0 must add the following block
             metadataSources {
                 mavenPom()
-                artifact()
                 ignoreGradleMetadataRedirection()
             }
         }
