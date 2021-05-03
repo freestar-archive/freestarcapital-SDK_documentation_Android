@@ -90,7 +90,7 @@ dependencies {
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
-    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.4'
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.0'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
     implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
