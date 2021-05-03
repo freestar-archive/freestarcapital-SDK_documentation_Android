@@ -55,16 +55,16 @@ dependencies {
     //begin Freestar
     implementation 'com.freestar.android.ads:freestar:4.0.0'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:19.5.0.0'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.13.1.2'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.14.8.1'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:6.0.0.0'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.4.1.0'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:19.6.0.0'
-    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.0'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:19.6.0.3'
+    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter-beta:4.2.1.1-beta02'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.1.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.7.0'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.1.0.0'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1'
-    implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.12.0.0'
+    implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.16.4.0'
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.9.1.0'
 
     implementation 'com.applovin:applovin-sdk:9.14.8'
@@ -83,17 +83,17 @@ dependencies {
     implementation('com.github.vungle:vungle-android-sdk:6.7.0') {
         exclude group: 'com.android.support'
     }
-    implementation('com.mopub:mopub-sdk:5.12.0@aar') {
+    implementation('com.mopub:mopub-sdk:5.16.4@aar') {
         transitive = true
         exclude group: 'com.android.support'
     }
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
-    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.21.4'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.12.1'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.1'
-    implementation 'com.google.android.exoplayer:extension-ima:2.12.1'
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.4'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
+    implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
     //end preroll
 
     //end, FreeStar
