@@ -54,7 +54,7 @@ dependencies {
 
     //begin Freestar
     implementation 'com.freestar.android.ads:freestar:4.1.0'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:19.5.0.0'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:19.6.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:9.14.8.1'
     implementation 'com.freestar.android.ads.amazon:freestar-amazon-adapter:6.0.0.0'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.4.1.0'
