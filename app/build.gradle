@@ -89,6 +89,8 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
     implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.0'
