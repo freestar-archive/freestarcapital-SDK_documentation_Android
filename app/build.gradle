@@ -99,13 +99,14 @@ dependencies {
     implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
     //end preroll
 
-    //end, FreeStar
-
     implementation "com.github.bumptech.glide:glide:4.11.0"
     implementation "com.google.code.gson:gson:2.8.5"
 
     //nimbus
     implementation "com.adsbynimbus.android:nimbus:1.9.1" // Full Nimbus SDK with NimbusAdManager
     implementation "com.adsbynimbus.android:extension-okhttp:1.9.1" // Use OkHttp with NimbusAdManager
+    implementation "com.adsbynimbus.android:extension-facebook:1.9.1"
+
+    //end, FreeStar
 
 }
