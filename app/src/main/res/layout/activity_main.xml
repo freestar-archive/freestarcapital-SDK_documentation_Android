@@ -45,14 +45,24 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="loadBannerAdMREC"
-            android:text="Load 300x250 Banner Ad" />
+            android:onClick="loadBannerAd"
+            android:text="Load 320x50 Banner Ad" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="loadBannerAd"
-            android:text="Load 320x50 Banner Ad" />
+            android:onClick="loadBannerAdMREC"
+            android:text="Load 300x250 Banner Ad" />
+
+        <TextView
+            android:text="Put phone in landscape mode before requesting 728x90 LEADERBOARD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="loadBannerAdLEADERBOARD"
+            android:text="Load 728x90 Banner Ad" />
 
         <Button
             android:layout_width="wrap_content"
@@ -109,8 +119,15 @@
             android:layout_gravity="center" />
 
         <FrameLayout
+            android:id="@+id/leaderboard_container"
+            android:layout_width="728dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp" />
+
+        <FrameLayout
             android:id="@+id/native_container"
-            android:layout_width="match_parent"
+            android:layout_width="v"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp" />

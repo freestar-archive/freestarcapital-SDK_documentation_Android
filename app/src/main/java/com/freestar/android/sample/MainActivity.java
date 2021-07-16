@@ -24,6 +24,7 @@ import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.AdSize;
 import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
+import com.freestar.android.ads.ErrorCodes;
 import com.freestar.android.ads.InterstitialAd;
 import com.freestar.android.ads.InterstitialAdListener;
 import com.freestar.android.ads.NativeAd;
@@ -347,6 +348,54 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                     } else {
                         mrecBannerAd.loadAd(adRequest, "banner_p"+pageNum);
                     }
+                }
+            });
+        } else {
+            mrecBannerAd.loadAd(adRequest);
+        }
+
+    }
+
+    public void loadBannerAdLEADERBOARD(View view) {
+
+        if (mrecBannerAd != null)
+            mrecBannerAd.destroyView();
+
+        mrecBannerAd = new BannerAd(this);
+        mrecBannerAd.setAdSize(AdSize.LEADERBOARD_728_90);
+        mrecBannerAd.setBannerAdListener(new BannerAdListener() {
+            @Override
+            public void onBannerAdLoaded(View view, String placement) {
+
+                if (preRollVideoAd != null)
+                    preRollVideoAd.destroyView();
+
+                ((ViewGroup) findViewById(R.id.leaderboard_container)).removeAllViews();
+                ((ViewGroup) findViewById(R.id.leaderboard_container)).addView(view);
+                ((TextView) findViewById(R.id.textView)).setText("LEADERBOARD Banner winner: " + mrecBannerAd.getWinningPartnerName());
+            }
+
+            @Override
+            public void onBannerAdFailed(View view, String placement, int errorCode) {
+                ((TextView) findViewById(R.id.textView)).setText("LEADERBOARD Banner No-Fill: " + ErrorCodes.getErrorDescription(errorCode));
+            }
+
+            @Override
+            public void onBannerAdClicked(View view, String placement) {
+
+            }
+
+            @Override
+            public void onBannerAdClosed(View view, String placement) {
+
+            }
+        });
+
+        if (DO_CHOOSE_PARTNERS) {
+            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mrecBannerAd.loadAd(adRequest);
                 }
             });
         } else {
