@@ -25,6 +25,11 @@ public class MyApplication extends MultiDexApplication {
         adRequest.addCustomTargeting("some target", "my value");
         FreeStarAds.enableLogging(true);  //set false for production or don't call
         FreeStarAds.enableTestAds(true);  //set false for production or don't call
+
+        //Turn off automated test mode just OMIT the next line
+        FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
+        //Also try:
+        //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.BYPASS_ALL_ADS);
         FreeStarAds.init(this, MainActivity.API_KEY, adRequest);
 
     }
