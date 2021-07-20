@@ -16,9 +16,9 @@ import java.util.List;
 public class MediationPartners {
 
     private static int numInterstitial = 12;
-    private static int numRewarded = 12;
+    private static int numRewarded = 11;
     private static int numInview = 9;
-    private static int numPreroll = 4;
+    private static int numPreroll = 2;
 
     public static final int ADTYPE_INTERSTITIAL = 0;
     public static final int ADTYPE_REWARDED = 1;
@@ -31,7 +31,7 @@ public class MediationPartners {
     private static String[] interstitial_partners = new String[numInterstitial];
 
     static {
-        interstitial_partners[0] = LVDOConstants.PARTNER.AMAZON.name();
+        interstitial_partners[0] = LVDOConstants.PARTNER.TAM.name();
         interstitial_partners[1] = LVDOConstants.PARTNER.ADCOLONY.name();
         interstitial_partners[2] = LVDOConstants.PARTNER.APPLOVIN.name();
         interstitial_partners[3] = LVDOConstants.PARTNER.CRITEO.name();
@@ -71,18 +71,17 @@ public class MediationPartners {
     private static String[] rewarded_partners = new String[numRewarded];
 
     static {
-        rewarded_partners[0] = LVDOConstants.PARTNER.AMAZON.name();
-        rewarded_partners[1] = LVDOConstants.PARTNER.ADCOLONY.name();
-        rewarded_partners[2] = LVDOConstants.PARTNER.APPLOVIN.name();
-        rewarded_partners[3] = LVDOConstants.PARTNER.CRITEO.name();
-        rewarded_partners[4] = LVDOConstants.PARTNER.FACEBOOK.name();
-        rewarded_partners[5] = LVDOConstants.PARTNER.GOOGLEADMOB.name();
-        rewarded_partners[6] = LVDOConstants.PARTNER.GOOGLE.name();
-        rewarded_partners[7] = LVDOConstants.PARTNER.MOPUB.name();
-        rewarded_partners[8] = LVDOConstants.PARTNER.NIMBUS.name();
-        rewarded_partners[9] = LVDOConstants.PARTNER.TAPJOY.name();
-        rewarded_partners[10] = LVDOConstants.PARTNER.UNITY.name();
-        rewarded_partners[11] = LVDOConstants.PARTNER.VUNGLE.name();
+        rewarded_partners[0] = LVDOConstants.PARTNER.ADCOLONY.name();
+        rewarded_partners[1] = LVDOConstants.PARTNER.APPLOVIN.name();
+        rewarded_partners[2] = LVDOConstants.PARTNER.CRITEO.name();
+        rewarded_partners[3] = LVDOConstants.PARTNER.FACEBOOK.name();
+        rewarded_partners[4] = LVDOConstants.PARTNER.GOOGLEADMOB.name();
+        rewarded_partners[5] = LVDOConstants.PARTNER.GOOGLE.name();
+        rewarded_partners[6] = LVDOConstants.PARTNER.MOPUB.name();
+        rewarded_partners[7] = LVDOConstants.PARTNER.NIMBUS.name();
+        rewarded_partners[8] = LVDOConstants.PARTNER.TAPJOY.name();
+        rewarded_partners[9] = LVDOConstants.PARTNER.UNITY.name();
+        rewarded_partners[10] = LVDOConstants.PARTNER.VUNGLE.name();
     }
 
     private static boolean[] rewarded_parters_selected = new boolean[numRewarded];
@@ -110,7 +109,7 @@ public class MediationPartners {
     private static String[] inview_partners = new String[numInview];
 
     static {
-        inview_partners[0] = LVDOConstants.PARTNER.AMAZON.name();
+        inview_partners[0] = LVDOConstants.PARTNER.TAM.name();
         inview_partners[1] = LVDOConstants.PARTNER.APPLOVIN.name();
         inview_partners[2] = LVDOConstants.PARTNER.CRITEO.name();
         inview_partners[3] = LVDOConstants.PARTNER.FACEBOOK.name();
@@ -146,10 +145,8 @@ public class MediationPartners {
     private static String[] preroll_partners = new String[numPreroll];
 
     static {
-        preroll_partners[0] = LVDOConstants.PARTNER.AMAZON.name();
-        preroll_partners[1] = LVDOConstants.PARTNER.CRITEO.name();
-        preroll_partners[2] = LVDOConstants.PARTNER.GOOGLE.name();
-        preroll_partners[3] = LVDOConstants.PARTNER.NIMBUS.name();
+        preroll_partners[0] = LVDOConstants.PARTNER.GOOGLE.name();
+        preroll_partners[1] = LVDOConstants.PARTNER.NIMBUS.name();
     }
 
     private static boolean[] preroll_parters_selected = new boolean[numPreroll];
