@@ -126,17 +126,5 @@
 }
 
 # pangle
--keep, allowobfuscation class com.freestar.android.ads.pangle.*
--keepclassmembers, allowobfuscation class * {
-    *;
-}
-
--keepnames class com.freestar.android.ads.pangle.*
--keepclassmembernames class com.freestar.android.ads.pangle.* {
-    public <methods>;
-    public <fields>;
-    #!private *; also tried this but it didn't work
-}
-
 -keep class com.bytedance.sdk.** { *; }
 -keep class com.pgl.sys.ces.* {*;}
