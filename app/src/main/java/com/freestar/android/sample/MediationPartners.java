@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class MediationPartners {
 
-    private static int numInterstitial = 12;
-    private static int numRewarded = 11;
-    private static int numInview = 9;
-    private static int numPreroll = 2;
+    private static final int numInterstitial = 13;
+    private static final int numRewarded = 12;
+    private static final int numInview = 10;
+    private static final int numPreroll = 2;
 
     public static final int ADTYPE_INTERSTITIAL = 0;
     public static final int ADTYPE_REWARDED = 1;
@@ -28,7 +28,7 @@ public class MediationPartners {
     /**
      * INTERSTITIAL
      */
-    private static String[] interstitial_partners = new String[numInterstitial];
+    private static final String[] interstitial_partners = new String[numInterstitial];
 
     static {
         interstitial_partners[0] = LVDOConstants.PARTNER.TAM.name();
@@ -43,9 +43,10 @@ public class MediationPartners {
         interstitial_partners[9] = LVDOConstants.PARTNER.TAPJOY.name();
         interstitial_partners[10] = LVDOConstants.PARTNER.UNITY.name();
         interstitial_partners[11] = LVDOConstants.PARTNER.VUNGLE.name();
+        interstitial_partners[12] = LVDOConstants.PARTNER.PANGLE.name();
     }
 
-    private static boolean[] interstitial_parters_selected = new boolean[numInterstitial];
+    private static final boolean[] interstitial_parters_selected = new boolean[numInterstitial];
 
     static {
         for (int i = 0; i < numInterstitial; i++) {
@@ -68,7 +69,7 @@ public class MediationPartners {
     /**
      * REWARDED
      */
-    private static String[] rewarded_partners = new String[numRewarded];
+    private static final String[] rewarded_partners = new String[numRewarded];
 
     static {
         rewarded_partners[0] = LVDOConstants.PARTNER.ADCOLONY.name();
@@ -82,9 +83,10 @@ public class MediationPartners {
         rewarded_partners[8] = LVDOConstants.PARTNER.TAPJOY.name();
         rewarded_partners[9] = LVDOConstants.PARTNER.UNITY.name();
         rewarded_partners[10] = LVDOConstants.PARTNER.VUNGLE.name();
+        rewarded_partners[11] = LVDOConstants.PARTNER.PANGLE.name();
     }
 
-    private static boolean[] rewarded_parters_selected = new boolean[numRewarded];
+    private static final boolean[] rewarded_parters_selected = new boolean[numRewarded];
 
     static {
         for (int i = 0; i < numRewarded; i++) {
@@ -106,7 +108,7 @@ public class MediationPartners {
     /**
      * NATIVE INVIEW
      */
-    private static String[] inview_partners = new String[numInview];
+    private static final String[] inview_partners = new String[numInview];
 
     static {
         inview_partners[0] = LVDOConstants.PARTNER.TAM.name();
@@ -118,9 +120,10 @@ public class MediationPartners {
         inview_partners[6] = LVDOConstants.PARTNER.MOPUB.name();
         inview_partners[7] = LVDOConstants.PARTNER.NIMBUS.name();
         inview_partners[8] = LVDOConstants.PARTNER.UNITY.name();
+        inview_partners[9] = LVDOConstants.PARTNER.PANGLE.name();
     }
 
-    private static boolean[] inview_parters_selected = new boolean[numInview];
+    private static final boolean[] inview_parters_selected = new boolean[numInview];
 
     static {
         for (int i = 0; i < numInview; i++) {
@@ -142,14 +145,14 @@ public class MediationPartners {
     /**
      * PRE-ROLL
      */
-    private static String[] preroll_partners = new String[numPreroll];
+    private static final String[] preroll_partners = new String[numPreroll];
 
     static {
         preroll_partners[0] = LVDOConstants.PARTNER.GOOGLE.name();
         preroll_partners[1] = LVDOConstants.PARTNER.NIMBUS.name();
     }
 
-    private static boolean[] preroll_parters_selected = new boolean[numPreroll];
+    private static final boolean[] preroll_parters_selected = new boolean[numPreroll];
 
     static {
         for (int i = 0; i < numPreroll; i++) {
@@ -202,35 +205,35 @@ public class MediationPartners {
 
             }
         })
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    switch (adUnitType) {
-                        case ADTYPE_INTERSTITIAL:
-                            setInterstitialPartners(adRequest);
-                            break;
-                        case ADTYPE_BANNER:
-                            setInviewPartners(adRequest);
-                            break;
-                        case ADTYPE_PREROLL:
-                            setPrerollPartners(adRequest);
-                            break;
-                        case ADTYPE_REWARDED:
-                            setRewardedPartners(adRequest);
-                            break;
-                        default:
-                        break;
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (adUnitType) {
+                            case ADTYPE_INTERSTITIAL:
+                                setInterstitialPartners(adRequest);
+                                break;
+                            case ADTYPE_BANNER:
+                                setInviewPartners(adRequest);
+                                break;
+                            case ADTYPE_PREROLL:
+                                setPrerollPartners(adRequest);
+                                break;
+                            case ADTYPE_REWARDED:
+                                setRewardedPartners(adRequest);
+                                break;
+                            default:
+                                break;
+                        }
+                        listener.onClick(dialog,which);
                     }
-                    listener.onClick(dialog,which);
-                }
-            })
-            .setNegativeButton("CANCEL", dummyOnClick)
-            .setTitle(title)
-            .show();
+                })
+                .setNegativeButton("CANCEL", dummyOnClick)
+                .setTitle(title)
+                .show();
 
     }
 
-    private static DialogInterface.OnClickListener dummyOnClick = new DialogInterface.OnClickListener() {
+    private static final DialogInterface.OnClickListener dummyOnClick = new DialogInterface.OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
 
