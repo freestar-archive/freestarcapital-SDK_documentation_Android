@@ -35,9 +35,6 @@ allprojects {
                 includeGroup("com.adsbynimbus.android")
             }
         }
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle'
-        }
     }
 }
 
