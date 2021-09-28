@@ -6,8 +6,9 @@
     tools:context="com.freestar.android.sample.MainActivity">
 
     <LinearLayout
+        android:background="@android:color/holo_orange_light"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingTop="80dp">
@@ -41,6 +42,38 @@
             android:layout_height="wrap_content"
             android:onClick="loadNativeMedium"
             android:text="Load Medium Native" />
+
+        <CheckBox
+            android:onClick="onShowAdaptiveCheck"
+            android:checked="true"
+            android:text="Show Adaptive Banner when available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:onClick="onBanner320x50Checked"
+                android:text="use banner (320 x 50) container below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/radioBannerWrapWrap"
+                android:onClick="onBannerWrapWrapChecked"
+                android:text="use banner (wrap x wrap) container below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:onClick="onBannerFullWrapChecked"
+                android:text="use banner (fullwidth x wrap) container below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
 
         <Button
             android:layout_width="wrap_content"
@@ -105,32 +138,67 @@
             ads:FreeStarAdSize="BANNER" />
             -->
 
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="banner (320x50) container below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <FrameLayout
-            android:id="@+id/banner_container"
+            android:id="@+id/banner_320_50"
             android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp" />
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="banner (wrap X wrap) container below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/banner_wrap_wrap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="banner (fullwidth X wrap) container below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/banner_fullwidth_wrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="banner (300 x 250) below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <FrameLayout
             android:id="@+id/mrec_container"
             android:layout_width="300dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center" />
+            android:layout_height="250dp"/>
 
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="banner (728 x 90) container below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <FrameLayout
             android:id="@+id/leaderboard_container"
             android:layout_width="728dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp" />
+            android:layout_height="90dp" />
 
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="native (fullwidth x wrap) container below"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <FrameLayout
             android:id="@+id/native_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp" />
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 

@@ -1,11 +1,13 @@
 package com.freestar.android.sample;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,7 +18,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.CheckBox;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +29,9 @@ import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.AdSize;
 import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
+import com.freestar.android.ads.ChocolateLogger;
 import com.freestar.android.ads.ErrorCodes;
+import com.freestar.android.ads.FreeStarAds;
 import com.freestar.android.ads.InterstitialAd;
 import com.freestar.android.ads.InterstitialAdListener;
 import com.freestar.android.ads.NativeAd;
@@ -34,7 +41,6 @@ import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
 import com.freestar.android.ads.RewardedAdListener;
 import com.freestar.android.sample.recyclerview.RecyclerViewInfiniteAdsActivity;
-
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,14 +53,13 @@ import androidx.fragment.app.FragmentTransaction;
 public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener {
 
     public static final String API_KEY = "XqjhRR"; //test key
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "FsMainActivity";
     private static final boolean DO_CHOOSE_PARTNERS = true; //purely for demonstration purposes.  set false later.
 
     private AdRequest adRequest;
     private RewardedAd rewardedAd;
     private InterstitialAd interstitialAd;
     private BannerAd bannerAd;
-    private BannerAd mrecBannerAd;
     private NativeAd nativeAd;
     private PrerollAd preRollVideoAd;
     private boolean doPrerollAdFragment;
@@ -62,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     private VideoHelper videoHelper;
     private boolean isLargeLayout;
     private int pageNum = 0;
+
+    private BannerAdContainer bannerAdContainer = BannerAdContainer.wrapXwrap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +78,14 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         isLargeLayout = false;// getResources().getBoolean(R.bool.large_layout);
         adRequest = new AdRequest(this);
         adRequest.addCustomTargeting("my custom target", "value");
-        pageNum = savedInstanceState != null ? savedInstanceState.getInt("page",0) : 0;
-        setTitle("Freestar Page "+(pageNum+1));
+        pageNum = savedInstanceState != null ? savedInstanceState.getInt("page", 0) : 0;
+        setTitle("Freestar Page " + (pageNum + 1));
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        ((RadioButton) findViewById(R.id.radioBannerWrapWrap)).setChecked(true);
     }
 
     @Override
@@ -92,9 +105,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         }
         if (bannerAd != null) {
             bannerAd.onResume();
-        }
-        if (mrecBannerAd != null) {
-            mrecBannerAd.onResume();
         }
         if (preRollVideoAd != null) {
             preRollVideoAd.onResume();
@@ -136,9 +146,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         if (bannerAd != null) {
             bannerAd.destroyView();
         }
-        if (mrecBannerAd != null) {
-            mrecBannerAd.destroyView();
-        }
         if (preRollVideoAd != null) {
             preRollVideoAd.destroyView();
         }
@@ -166,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                     if (pageNum == 0) {
                         interstitialAd.loadAd(adRequest);
                     } else {
-                        interstitialAd.loadAd(adRequest, "interstitial_p"+pageNum);
+                        interstitialAd.loadAd(adRequest, "interstitial_p" + pageNum);
                     }
                 }
             });
@@ -181,8 +188,8 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         nativeAd.setNativeAdListener(new NativeAdListener() {
             @Override
             public void onNativeAdLoaded(View nativeAdView, String placement) {
-                ((ViewGroup)findViewById(R.id.native_container)).removeAllViews();
-                ((ViewGroup)findViewById(R.id.native_container)).addView(nativeAdView);
+                ((ViewGroup) findViewById(R.id.native_container)).removeAllViews();
+                ((ViewGroup) findViewById(R.id.native_container)).addView(nativeAdView);
             }
 
             @Override
@@ -237,12 +244,75 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                     if (pageNum == 0) {
                         rewardedAd.loadAd(adRequest);
                     } else {
-                        rewardedAd.loadAd(adRequest, "rewarded_p"+pageNum);
+                        rewardedAd.loadAd(adRequest, "rewarded_p" + pageNum);
                     }
                 }
             });
         } else {
             rewardedAd.loadAd(adRequest);
+        }
+    }
+
+    private void clearStandardBannerAds() {
+        int standardWidth = getResources().getDimensionPixelSize(R.dimen.fs_default_banner_width);
+        int standardHeight = getResources().getDimensionPixelSize(R.dimen.fs_default_banner_height);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(standardWidth, standardHeight);
+        ((FrameLayout) findViewById(R.id.banner_320_50)).removeAllViews();
+        ((FrameLayout) findViewById(R.id.banner_320_50)).setLayoutParams(params);
+        ((FrameLayout) findViewById(R.id.banner_320_50)).forceLayout();
+
+        params = new LinearLayout.LayoutParams(-1, -2);
+        ((FrameLayout) findViewById(R.id.banner_fullwidth_wrap)).removeAllViews();
+        ((FrameLayout) findViewById(R.id.banner_fullwidth_wrap)).setLayoutParams(params);
+        ((FrameLayout) findViewById(R.id.banner_fullwidth_wrap)).forceLayout();
+
+        params = new LinearLayout.LayoutParams(-2, -2);
+        ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).removeAllViews();
+        ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).setLayoutParams(params);
+        ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).forceLayout();
+    }
+
+    private void loadBannerAd(final AdSize adSize, final int resBannerContainer) {
+        bannerAd = new BannerAd(this);
+        bannerAd.setAdSize(adSize);
+        bannerAd.setBannerAdListener(new BannerAdListener() {
+            @Override
+            public void onBannerAdLoaded(View view, String placement) {
+                clearStandardBannerAds();
+                ((ViewGroup) findViewById(resBannerContainer)).addView(view);
+                ((TextView) findViewById(R.id.textView)).setText("Banner " + adSize + " winner: " + bannerAd.getWinningPartnerName() + " isAdaptive: " + bannerAd.isAdaptiveBannerAd());
+                ChocolateLogger.i(TAG, "onBannerAdLoaded() " + view.getWidth() + '/' + view.getHeight());
+            }
+
+            @Override
+            public void onBannerAdFailed(View view, String placement, int errorCode) {
+                ((TextView) findViewById(R.id.textView)).setText("Banner " + adSize + ": " + ErrorCodes.getErrorDescription(errorCode));
+            }
+
+            @Override
+            public void onBannerAdClicked(View view, String placement) {
+
+            }
+
+            @Override
+            public void onBannerAdClosed(View view, String placement) {
+
+            }
+        });
+
+        if (DO_CHOOSE_PARTNERS) {
+            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (pageNum == 0) {
+                        bannerAd.loadAd(adRequest);
+                    } else {
+                        bannerAd.loadAd(adRequest, "banner_p" + pageNum);
+                    }
+                }
+            });
+        } else {
+            bannerAd.loadAd(adRequest);
         }
     }
 
@@ -256,152 +326,29 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
      * @param view - onclick view
      */
     public void loadBannerAd(View view) {
-
-        if (bannerAd != null)
-            bannerAd.destroyView();
-
-        bannerAd = new BannerAd(this);
-        bannerAd.setAdSize(AdSize.BANNER_320_50);
-        bannerAd.setBannerAdListener(new BannerAdListener() {
-            @Override
-            public void onBannerAdLoaded(View view, String placement) {
-                ((ViewGroup) findViewById(R.id.banner_container)).removeAllViews();
-                ((ViewGroup) findViewById(R.id.banner_container)).addView(view);
-                ((TextView) findViewById(R.id.textView)).setText("Banner winner: " + bannerAd.getWinningPartnerName());
-            }
-
-            @Override
-            public void onBannerAdFailed(View view, String placement, int errorCode) {
-                ((TextView) findViewById(R.id.textView)).setText("Banner No-Fill");
-            }
-
-            @Override
-            public void onBannerAdClicked(View view, String placement) {
-
-            }
-
-            @Override
-            public void onBannerAdClosed(View view, String placement) {
-
-            }
-        });
-
-        if (DO_CHOOSE_PARTNERS) {
-            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    bannerAd.loadAd(adRequest);
-                    if (pageNum == 0) {
-                        bannerAd.loadAd(adRequest);
-                    } else {
-                        bannerAd.loadAd(adRequest, "banner_p"+pageNum);
-                    }
-                }
-            });
-        } else {
-            bannerAd.loadAd(adRequest);
-
+        int containerRes = R.id.banner_wrap_wrap;
+        switch (bannerAdContainer) {
+            case fullXwrap:
+                containerRes = R.id.banner_fullwidth_wrap;
+                break;
+            case wrapXwrap:
+                containerRes = R.id.banner_wrap_wrap;
+                break;
+            case standard:
+                containerRes = R.id.banner_320_50;
+                break;
+            default:
+                break;
         }
+        loadBannerAd(AdSize.BANNER_320_50, containerRes);
     }
 
     public void loadBannerAdMREC(View view) {
-
-        if (mrecBannerAd != null)
-            mrecBannerAd.destroyView();
-
-        mrecBannerAd = new BannerAd(this);
-        mrecBannerAd.setAdSize(AdSize.MEDIUM_RECTANGLE_300_250);
-        mrecBannerAd.setBannerAdListener(new BannerAdListener() {
-            @Override
-            public void onBannerAdLoaded(View view, String placement) {
-
-                if (preRollVideoAd != null)
-                    preRollVideoAd.destroyView();
-
-                ((ViewGroup) findViewById(R.id.mrec_container)).removeAllViews();
-                ((ViewGroup) findViewById(R.id.mrec_container)).addView(view);
-                ((TextView) findViewById(R.id.textView)).setText("MREC Banner winner: " + mrecBannerAd.getWinningPartnerName());
-            }
-
-            @Override
-            public void onBannerAdFailed(View view, String placement, int errorCode) {
-                ((TextView) findViewById(R.id.textView)).setText("MREC Banner No-Fill");
-            }
-
-            @Override
-            public void onBannerAdClicked(View view, String placement) {
-
-            }
-
-            @Override
-            public void onBannerAdClosed(View view, String placement) {
-
-            }
-        });
-
-        if (DO_CHOOSE_PARTNERS) {
-            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (pageNum == 0) {
-                        mrecBannerAd.loadAd(adRequest);
-                    } else {
-                        mrecBannerAd.loadAd(adRequest, "banner_p"+pageNum);
-                    }
-                }
-            });
-        } else {
-            mrecBannerAd.loadAd(adRequest);
-        }
-
+        loadBannerAd(AdSize.MEDIUM_RECTANGLE_300_250, R.id.mrec_container);
     }
 
     public void loadBannerAdLEADERBOARD(View view) {
-
-        if (mrecBannerAd != null)
-            mrecBannerAd.destroyView();
-
-        mrecBannerAd = new BannerAd(this);
-        mrecBannerAd.setAdSize(AdSize.LEADERBOARD_728_90);
-        mrecBannerAd.setBannerAdListener(new BannerAdListener() {
-            @Override
-            public void onBannerAdLoaded(View view, String placement) {
-
-                if (preRollVideoAd != null)
-                    preRollVideoAd.destroyView();
-
-                ((ViewGroup) findViewById(R.id.leaderboard_container)).removeAllViews();
-                ((ViewGroup) findViewById(R.id.leaderboard_container)).addView(view);
-                ((TextView) findViewById(R.id.textView)).setText("LEADERBOARD Banner winner: " + mrecBannerAd.getWinningPartnerName());
-            }
-
-            @Override
-            public void onBannerAdFailed(View view, String placement, int errorCode) {
-                ((TextView) findViewById(R.id.textView)).setText("LEADERBOARD Banner No-Fill: " + ErrorCodes.getErrorDescription(errorCode));
-            }
-
-            @Override
-            public void onBannerAdClicked(View view, String placement) {
-
-            }
-
-            @Override
-            public void onBannerAdClosed(View view, String placement) {
-
-            }
-        });
-
-        if (DO_CHOOSE_PARTNERS) {
-            MediationPartners.choosePartners(this, adRequest, MediationPartners.ADTYPE_BANNER, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    mrecBannerAd.loadAd(adRequest);
-                }
-            });
-        } else {
-            mrecBannerAd.loadAd(adRequest);
-        }
-
+        loadBannerAd(AdSize.LEADERBOARD_728_90, R.id.leaderboard_container);
     }
 
     private void loadPrerollAd() {
@@ -416,14 +363,13 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                     if (pageNum == 0) {
                         preRollVideoAd.loadAd(adRequest, AdSize.PREROLL_320_480, MainActivity.this);
                     } else {
-                        preRollVideoAd.loadAd(adRequest, AdSize.PREROLL_320_480, "preroll_p"+pageNum, MainActivity.this);
+                        preRollVideoAd.loadAd(adRequest, AdSize.PREROLL_320_480, "preroll_p" + pageNum, MainActivity.this);
                     }
                 }
             });
         } else {
             preRollVideoAd.loadAd(adRequest, AdSize.PREROLL_320_480, MainActivity.this);
         }
-
 
     }
 
@@ -467,7 +413,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     private void cleanupPreroll() {
         if (preRollVideoAd != null)
             preRollVideoAd.destroyView();
-        getSupportFragmentManager().popBackStack();
+        getSupportFragmentManager().popBackStackImmediate();
     }
 
 
@@ -509,6 +455,8 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         ((TextView) findViewById(R.id.textView)).setText("PreRoll Ad winner: " + preRollVideoAd.getWinningPartnerName());
         ((ViewGroup) findViewById(R.id.mrec_container)).removeAllViews();
 
+        ChocolateLogger.i(TAG, "onPrerollAdLoaded");
+
         if (doPrerollAdFragment) {
             showPrerollAdFragment();
         } else {
@@ -519,12 +467,12 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     @Override
     public void onPrerollAdFailed(View view, String placement, int errorCode) {
-        ((TextView) findViewById(R.id.textView)).setText("Preroll No-Fill");
+        ((TextView) findViewById(R.id.textView)).setText("Preroll: " + ErrorCodes.getErrorDescription(errorCode));
     }
 
     @Override
     public void onPrerollAdShown(View view, String placement) {
-
+        ChocolateLogger.i(TAG, "onPrerollAdShown");
     }
 
     @Override
@@ -539,14 +487,16 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     @Override
     public void onPrerollAdCompleted(View view, String placement) {
+        ChocolateLogger.i(TAG, "onPrerollAdCompleted");
         playUserContent();
     }
 
     private void playUserContent() {
         //Let's pretend you want to roll a movie/video when the preroll ad is completed.
-        getSupportFragmentManager().popBackStack();
+        cleanupPreroll();
         videoHelper = new VideoHelper(this, (FrameLayout) findViewById(R.id.mrec_container));
         videoHelper.playContentVideo(0);
+        ChocolateLogger.i(TAG, "playUserContent");
     }
 
     @Override
@@ -585,10 +535,15 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         if (fragment instanceof CustomDialogFragment) {
             CustomDialogFragment frag = (CustomDialogFragment) fragment;
             frag.setAdView(preRollVideoAd);
+            ChocolateLogger.i(TAG, "onAttachFragment");
         }
     }
 
     public static class CustomDialogFragment extends DialogFragment {
+
+        static CustomDialogFragment newInstance() {
+            return new CustomDialogFragment();
+        }
 
         private PrerollAd preRollVideoAd;
 
@@ -610,11 +565,13 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
             frameLayout.addView(preRollVideoAd.getAdView());
             preRollVideoAd.showAd();
             frameLayout.setBackgroundColor(Color.BLACK);
+            ChocolateLogger.i(TAG, "CustomDialogFragment onCreateView");
             return frameLayout;
         }
 
         @Override
         public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            ChocolateLogger.i(TAG, "CustomDialogFragment onActivityCreated");
             super.onActivityCreated(savedInstanceState);
             if (getActivity() != null)
                 ((MainActivity) getActivity()).hideSystemUI();
@@ -623,12 +580,14 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
         @Override
         public void onDetach() {
+            ChocolateLogger.i(TAG, "CustomDialogFragment onDetach");
             super.onDetach();
             if (getActivity() != null)
                 ((MainActivity) getActivity()).showSystemUI();
         }
 
         void setAdView(PrerollAd preRollVideoAd) {
+            ChocolateLogger.i(TAG, "setAdView");
             this.preRollVideoAd = preRollVideoAd;
         }
 
@@ -637,6 +596,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
          */
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            ChocolateLogger.i(TAG, "  onCreateDialog");
             // to modify any dialog characteristics. For example, the dialog includes a
             // title by default, but your custom layout might not need it. So here you can
             // remove the dialog title, but you must call the superclass to get the Dialog.
@@ -667,8 +627,12 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     private void showPrerollAdFragment() {
 
+        ChocolateLogger.i(TAG, "showPrerollAdFragment UI thread? " + (Looper.myLooper() == Looper.getMainLooper()));
+
         FragmentManager fragmentManager = getSupportFragmentManager();
-        CustomDialogFragment newFragment = new CustomDialogFragment();
+        CustomDialogFragment newFragment = CustomDialogFragment.newInstance();
+
+        ChocolateLogger.i(TAG, "showPrerollAdFragment 2");
 
         if (isLargeLayout) {
             // The device is using a large layout, so show the fragment as a dialog
@@ -680,9 +644,14 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
             transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
             // To make it fullscreen, use the 'content' root view as the container
             // for the fragment, which is always the root view for the activity
-            transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
-        }
 
+            ChocolateLogger.i(TAG, "showPrerollAdFragment 3");
+
+            transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
+            getSupportFragmentManager().executePendingTransactions();
+
+            ChocolateLogger.i(TAG, "showPrerollAdFragment 4");
+        }
     }
 
     void hideSystemUI() {
@@ -757,4 +726,41 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    public void onShowAdaptiveCheck(View view) {
+        CheckBox checkBox = (CheckBox) view;
+        FreeStarAds.showAdaptiveBannerAdsWhenAvailable(checkBox.isChecked());
+        ChocolateLogger.i(TAG, "onShowAdaptiveCheck: " + checkBox.isChecked());
+        showAlertDialog("For this it is recommended to restart app and then try; not intended to toggle back-n-forth within same session for small banner.");
+    }
+
+    public void onBanner320x50Checked(View view) {
+        RadioButton radioButton = (RadioButton) view;
+        if (radioButton.isChecked()) {
+            bannerAdContainer = BannerAdContainer.standard;
+        }
+    }
+
+    public void onBannerWrapWrapChecked(View view) {
+        RadioButton radioButton = (RadioButton) view;
+        if (radioButton.isChecked()) {
+            bannerAdContainer = BannerAdContainer.wrapXwrap;
+        }
+    }
+
+    public void onBannerFullWrapChecked(View view) {
+        RadioButton radioButton = (RadioButton) view;
+        if (radioButton.isChecked()) {
+            bannerAdContainer = BannerAdContainer.fullXwrap;
+        }
+    }
+
+    enum BannerAdContainer {
+        standard, wrapXwrap, fullXwrap
+    }
+
+    private void showAlertDialog(String msg) {
+        new AlertDialog.Builder(this).setMessage(msg).show();
+    }
+
 }
