@@ -15,8 +15,8 @@ import java.util.List;
  */
 public class MediationPartners {
 
-    private static final int numInterstitial = 14;
-    private static final int numRewarded = 13;
+    private static final int numInterstitial = 13;
+    private static final int numRewarded = 12;
     private static final int numInview = 11;
     private static final int numPreroll = 2;
 
@@ -44,7 +44,6 @@ public class MediationPartners {
         interstitial_partners[10] = LVDOConstants.PARTNER.UNITY.name();
         interstitial_partners[11] = LVDOConstants.PARTNER.VUNGLE.name();
         interstitial_partners[12] = LVDOConstants.PARTNER.PANGLE.name();
-        interstitial_partners[13] = LVDOConstants.PARTNER.HYPRMX.name();
     }
 
     private static final boolean[] interstitial_parters_selected = new boolean[numInterstitial];
@@ -85,7 +84,6 @@ public class MediationPartners {
         rewarded_partners[9] = LVDOConstants.PARTNER.UNITY.name();
         rewarded_partners[10] = LVDOConstants.PARTNER.VUNGLE.name();
         rewarded_partners[11] = LVDOConstants.PARTNER.PANGLE.name();
-        rewarded_partners[12] = LVDOConstants.PARTNER.HYPRMX.name();
     }
 
     private static final boolean[] rewarded_parters_selected = new boolean[numRewarded];
