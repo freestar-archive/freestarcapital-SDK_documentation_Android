@@ -83,7 +83,7 @@ dependencies {
         exclude group: 'com.android.support'
     }
     implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
-    implementation('com.github.vungle:vungle-android-sdk:6.7.0') {
+    implementation('com.github.vungle:vungle-android-sdk:6.10.2') {
         exclude group: 'com.android.support'
     }
     implementation('com.mopub:mopub-sdk:5.18.0@aar') {
