@@ -17,7 +17,7 @@ public class MediationPartners {
 
     private static final int numInterstitial = 14;
     private static final int numRewarded = 13;
-    private static final int numInview = 10;
+    private static final int numInview = 11;
     private static final int numPreroll = 2;
 
     public static final int ADTYPE_INTERSTITIAL = 0;
@@ -123,6 +123,7 @@ public class MediationPartners {
         inview_partners[7] = LVDOConstants.PARTNER.NIMBUS.name();
         inview_partners[8] = LVDOConstants.PARTNER.UNITY.name();
         inview_partners[9] = LVDOConstants.PARTNER.PANGLE.name();
+        inview_partners[10] = LVDOConstants.PARTNER.VUNGLE.name();
     }
 
     private static final boolean[] inview_parters_selected = new boolean[numInview];

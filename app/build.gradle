@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.freestar.android.sample"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -53,15 +53,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:4.6.0-beta01'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:20.3.0.0-beta04'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter-beta:10.3.1.0-beta05'
+    implementation 'com.freestar.android.ads:freestar:4.6.0'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.3.0.0'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:10.3.1.0'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.2'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.4.1.2'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:20.3.0.0-beta04'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.0'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.1.2'
-    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.7.0.1'
+    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter-beta:6.10.2.1-beta01'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.1.0.1'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1.1'
     implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.18.0.0'
