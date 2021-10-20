@@ -113,6 +113,9 @@ dependencies {
     //pangle; also requires play-services-ads-identifier but already in criteo
     implementation 'com.pangle.global:ads-sdk:3.6.0.4'
 
+    //adcolony
+    implementation 'com.adcolony:sdk:4.6.4'
+
     //end, FreeStar
 
 }
