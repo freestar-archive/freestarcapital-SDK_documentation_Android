@@ -4,7 +4,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.freestar.android.sample"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.12'
@@ -53,7 +54,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:4.6.0'
+    implementation 'com.freestar.android.ads:freestar-beta:4.6.0-beta03'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.3.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:10.3.1.1'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.2'
@@ -69,7 +70,7 @@ dependencies {
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.0'
 
-    implementation 'com.applovin:applovin-sdk:10.3.1'
+    implementation 'com.applovin:applovin-sdk:10.3.4'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
     implementation 'com.google.android.gms:play-services-ads:20.4.0'
     implementation('com.google.android.ads.consent:consent-library:1.0.8') {
@@ -77,11 +78,7 @@ dependencies {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
     implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
-    implementation('com.facebook.android:audience-network-sdk:6.5.1') {
-        exclude group: 'com.google.android.exoplayer'
-        exclude group: 'com.google.android.gms'
-        exclude group: 'com.android.support'
-    }
+    implementation 'com.facebook.android:audience-network-sdk:6.8.0'
     implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
 
     implementation 'com.vungle:publisher-sdk-android:6.10.2'
@@ -112,7 +109,7 @@ dependencies {
     implementation "com.adsbynimbus.openrtb:kotlin:0.7.4"
 
     //pangle; also requires play-services-ads-identifier but already in criteo
-    implementation 'com.pangle.global:ads-sdk:3.6.0.4'
+    implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //adcolony
     implementation 'com.adcolony:sdk:4.6.4'
