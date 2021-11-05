@@ -125,10 +125,14 @@
     !static <methods>;
 }
 
+-keep class com.adsbynimbus.** { *; }
+-keep interface com.adsbynimbus.** { *; }
+
 # pangle
 -keep class com.bytedance.sdk.** { *; }
 -keep class com.pgl.sys.ces.* {*;}
 
-#hyprmx
+# hyprmx
 -keep class com.hyprmx.** { *; }
 -keep interface com.hyprmx.** { *; }
+
