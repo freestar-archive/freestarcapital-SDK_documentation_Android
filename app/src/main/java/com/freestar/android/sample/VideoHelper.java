@@ -1,16 +1,11 @@
 package com.freestar.android.sample;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.ViewGroup;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import com.danikula.videocache.HttpProxyCacheServer;
-
 class VideoHelper {
-
-    private static final String VIDEO_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
 
     private VideoView videoView;
     private Context context;
@@ -26,10 +21,8 @@ class VideoHelper {
         parentWindow.removeAllViews();
         MediaController mediaController = new MediaController(context);
         videoView = new VideoView(context);
-        HttpProxyCacheServer proxy = getProxy(videoView.getContext());
-        String proxyUrl = proxy.getProxyUrl(VIDEO_URL);
         parentWindow.addView(videoView);
-        videoView.setVideoURI(Uri.parse(proxyUrl));
+        videoView.setVideoPath("android.resource://" + context.getPackageName() + "/" + R.raw.sample5s);
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
         mediaController.setMediaPlayer(videoView);
@@ -55,20 +48,5 @@ class VideoHelper {
         if (videoView != null) {
             videoView.stopPlayback();
         }
-    }
-
-    private static HttpProxyCacheServer proxy;
-
-    private static HttpProxyCacheServer getProxy(Context context) {
-        if (proxy == null) {
-            proxy = newProxy(context);
-        }
-        return proxy;
-    }
-
-    private static HttpProxyCacheServer newProxy(Context context) {
-        return new HttpProxyCacheServer.Builder(context)
-                .maxCacheSize(1024 * 1024 * 100)       // 100 mb for cache
-                .build();
     }
 }
