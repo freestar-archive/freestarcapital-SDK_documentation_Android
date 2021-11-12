@@ -92,7 +92,7 @@ dependencies {
     }
 
     //amazon tam
-    implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+    implementation 'com.amazon.android:aps-sdk:9.2.1@aar'
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
