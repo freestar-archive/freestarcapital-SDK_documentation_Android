@@ -120,8 +120,7 @@ dependencies {
     //hyprmx
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
 
-    def lifecycle_version = "2.4.0"
-    //implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    //App Open Ads support
     implementation "androidx.lifecycle:lifecycle-runtime:2.1.0"
     implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
     implementation "androidx.lifecycle:lifecycle-process:2.1.0"
