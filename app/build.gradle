@@ -53,12 +53,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:4.6.1'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.3.0.0'
+    implementation 'com.freestar.android.ads:freestar:4.6.2'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.3.0.1'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:10.3.1.1'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.0'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.1'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.1.2'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.2.2'
@@ -119,6 +119,11 @@ dependencies {
 
     //hyprmx
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
+
+    //App Open Support
+    implementation "androidx.lifecycle:lifecycle-runtime:2.1.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-process:2.4.0"
 
     //end, FreeStar
 
