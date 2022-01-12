@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.freestar.android.sample"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -60,7 +60,7 @@ dependencies {
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.1'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
-    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.1.2'
+    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.5.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.2.2'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.1.0.1'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1.1'
@@ -71,13 +71,13 @@ dependencies {
 
     implementation 'com.applovin:applovin-sdk:10.3.1'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
-    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation('com.google.android.ads.consent:consent-library:1.0.8') {
         exclude group: 'com.android.support'
         exclude group: 'com.google.code.gson', module: 'gson'
     }
     implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
-    implementation('com.facebook.android:audience-network-sdk:6.5.1') {
+    implementation('com.facebook.android:audience-network-sdk:6.8.0') {
         exclude group: 'com.google.android.exoplayer'
         exclude group: 'com.google.android.gms'
         exclude group: 'com.android.support'
@@ -106,9 +106,9 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.5"
 
     //nimbus
-    implementation "com.adsbynimbus.android:nimbus:1.10.4" // Full Nimbus SDK with NimbusAdManager
-    implementation "com.adsbynimbus.android:extension-okhttp:1.10.4" // Use OkHttp with NimbusAdManager
-    implementation "com.adsbynimbus.android:extension-facebook:1.10.4"
+    implementation "com.adsbynimbus.android:nimbus:1.10.10" // Full Nimbus SDK with NimbusAdManager
+    implementation "com.adsbynimbus.android:extension-okhttp:1.10.10" // Use OkHttp with NimbusAdManager
+    implementation "com.adsbynimbus.android:extension-facebook:1.10.10"
     implementation "com.adsbynimbus.openrtb:kotlin:0.7.4"
 
     //pangle; also requires play-services-ads-identifier but already in criteo
@@ -121,7 +121,7 @@ dependencies {
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
 
     //App Open Support
-    implementation "androidx.lifecycle:lifecycle-runtime:2.1.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.4.0"
     implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
     implementation "androidx.lifecycle:lifecycle-process:2.4.0"
 
