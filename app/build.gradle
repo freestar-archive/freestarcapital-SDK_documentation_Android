@@ -62,7 +62,7 @@ dependencies {
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:10.3.1.1'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.1'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:20.5.0.0-beta01'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.5.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.2.2'
@@ -81,6 +81,8 @@ dependencies {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
     implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
+    implementation('com.facebook.android:audience-network-sdk:6.8.0') {
+    implementation 'com.google.ads.mediation:facebook:6.8.0.0' //fb fill via gam
     implementation('com.facebook.android:audience-network-sdk:6.8.0') {
         exclude group: 'com.google.android.exoplayer'
         exclude group: 'com.google.android.gms'
