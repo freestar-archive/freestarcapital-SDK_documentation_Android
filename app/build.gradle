@@ -60,7 +60,7 @@ dependencies {
     implementation 'com.freestar.android.ads:freestar-beta:4.6.3-beta03'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.5.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter-beta:11.0.0.0-beta01'
-    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.0.0.0-beta03'
+    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.0.0.0-beta04'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.5.0.0'
@@ -84,7 +84,7 @@ dependencies {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
     implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
-    implementation('com.facebook.android:audience-network-sdk:6.8.0') {
+     implementation('com.facebook.android:audience-network-sdk:6.8.0') {
         exclude group: 'com.google.android.exoplayer'
         exclude group: 'com.google.android.gms'
         exclude group: 'com.android.support'
