@@ -57,9 +57,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:4.6.3-beta01'
+    implementation 'com.freestar.android.ads:freestar-beta:4.6.3-beta02'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.5.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter-beta:11.0.0.0-beta01'
+    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.0.0.0-beta02'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.5.0.0'
@@ -72,6 +73,7 @@ dependencies {
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.10.4.1'
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.0'
+    implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter-beta:1.14.0.0-beta01'
 
     implementation 'com.applovin:applovin-sdk:11.1.0'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
@@ -89,7 +91,7 @@ dependencies {
     }
     implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
 
-    implementation 'com.vungle:publisher-sdk-android:6.10.2'
+    implementation 'com.vungle:publisher-sdk-android:6.10.4'
 
     implementation('com.mopub:mopub-sdk:5.18.0@aar') {
         transitive = true
@@ -124,6 +126,11 @@ dependencies {
 
     //hyprmx
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
+
+    //yahoo
+    implementation 'com.verizon.ads:android-vas-standard-edition:1.14.0'
+    //implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+    implementation 'androidx.browser:browser:1.4.0'
 
     //App Open Support
     implementation "androidx.lifecycle:lifecycle-runtime:2.4.0"

@@ -136,3 +136,7 @@
 -keep class com.hyprmx.** { *; }
 -keep interface com.hyprmx.** { *; }
 
+-keepclassmembers class com.verizon.ads** {
+public *;
+}
+-keep class com.verizon.ads**
