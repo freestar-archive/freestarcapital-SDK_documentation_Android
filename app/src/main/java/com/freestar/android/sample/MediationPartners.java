@@ -119,18 +119,18 @@ public class MediationPartners {
         inview_partners[0] = LVDOConstants.PARTNER.TAM.name();
         inview_partners[1] = LVDOConstants.PARTNER.ADCOLONY.name();
         inview_partners[2] = LVDOConstants.PARTNER.APPLOVIN.name();
-        inview_partners[2] = LVDOConstants.PARTNER.APPLOVINMAX.name();
-        inview_partners[3] = LVDOConstants.PARTNER.CRITEO.name();
-        inview_partners[4] = LVDOConstants.PARTNER.FACEBOOK.name();
-        inview_partners[5] = LVDOConstants.PARTNER.GOOGLEADMOB.name();
-        inview_partners[6] = LVDOConstants.PARTNER.GOOGLE.name();
-        inview_partners[7] = LVDOConstants.PARTNER.MOPUB.name();
-        inview_partners[8] = LVDOConstants.PARTNER.NIMBUS.name();
-        inview_partners[9] = LVDOConstants.PARTNER.UNITY.name();
-        inview_partners[10] = LVDOConstants.PARTNER.PANGLE.name();
-        inview_partners[11] = LVDOConstants.PARTNER.VUNGLE.name();
-        inview_partners[12] = LVDOConstants.PARTNER.HYPRMX.name();
-        inview_partners[13] = LVDOConstants.PARTNER.YAHOO.name();
+        inview_partners[3] = LVDOConstants.PARTNER.APPLOVINMAX.name();
+        inview_partners[4] = LVDOConstants.PARTNER.CRITEO.name();
+        inview_partners[5] = LVDOConstants.PARTNER.FACEBOOK.name();
+        inview_partners[6] = LVDOConstants.PARTNER.GOOGLEADMOB.name();
+        inview_partners[7] = LVDOConstants.PARTNER.GOOGLE.name();
+        inview_partners[8] = LVDOConstants.PARTNER.MOPUB.name();
+        inview_partners[9] = LVDOConstants.PARTNER.NIMBUS.name();
+        inview_partners[10] = LVDOConstants.PARTNER.UNITY.name();
+        inview_partners[11] = LVDOConstants.PARTNER.PANGLE.name();
+        inview_partners[12] = LVDOConstants.PARTNER.VUNGLE.name();
+        inview_partners[13] = LVDOConstants.PARTNER.HYPRMX.name();
+        inview_partners[14] = LVDOConstants.PARTNER.YAHOO.name();
     }
 
     private static final boolean[] inview_parters_selected = new boolean[numInview];
