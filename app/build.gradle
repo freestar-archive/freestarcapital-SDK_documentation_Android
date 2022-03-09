@@ -57,7 +57,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:4.6.3'
+    implementation 'com.freestar.android.ads:freestar-beta:4.6.4-beta01'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.5.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.1.2.0'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.1.2.0'
@@ -74,6 +74,7 @@ dependencies {
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.0'
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.0'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter-beta:1.13.1.0-beta01'
 
     implementation 'com.applovin:applovin-sdk:11.1.2'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
@@ -99,6 +100,10 @@ dependencies {
 
     //amazon tam
     implementation 'com.amazon.android:aps-sdk:9.2.1@aar'
+
+    //prebid - also requires exoplayer, which is already required by preroll
+    implementation 'org.prebid:prebid-mobile-sdk-core:1.13.1'
+    implementation 'org.prebid:prebid-mobile-sdk:1.13.1'
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
