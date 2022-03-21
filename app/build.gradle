@@ -57,15 +57,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:4.6.4-beta01'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.5.0.0'
+    implementation 'com.freestar.android.ads:freestar-beta:4.6.4-beta02'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:20.6.0.0-beta01'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.1.2.0'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.1.2.0'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
-    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.5.0.0'
+    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter-beta:4.6.5.0-beta01'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:20.6.0.0-beta01'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
-    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.5.0'
+    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter-beta:3.7.5.1-beta01'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.2.2'
     implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.1.0.1'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1.1'

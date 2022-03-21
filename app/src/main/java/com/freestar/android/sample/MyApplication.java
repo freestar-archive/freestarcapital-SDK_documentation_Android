@@ -33,6 +33,9 @@ public class MyApplication extends MultiDexApplication {
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
         //Also try:
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.BYPASS_ALL_ADS);
+        FreeStarAds.setGoogleFamilyPolicyMode(FreeStarAds.GoogleFamilyPolicyMode.app, true);
+        //FreeStarAds.setGoogleFamilyPolicyMode(FreeStarAds.GoogleFamilyPolicyMode.mixed, false);
+        //FreeStarAds.setGoogleFamilyPolicyMode(FreeStarAds.GoogleFamilyPolicyMode.none, false);
         FreeStarAds.init(this, MainActivity.API_KEY, adRequest);
 
     }
