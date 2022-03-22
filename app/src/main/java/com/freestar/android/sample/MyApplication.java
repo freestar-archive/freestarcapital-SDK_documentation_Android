@@ -33,8 +33,12 @@ public class MyApplication extends MultiDexApplication {
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
         //Also try:
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.BYPASS_ALL_ADS);
+
+
         /*
-         * FreeStarAds.GoogleFamilyPolicyMode.app       -- this app is child directed
+         * Google Family Policy Compliance
+         *
+         * FreeStarAds.GoogleFamilyPolicyMode.app       -- this app is child-directed
          *
          * FreeStarAds.GoogleFamilyPolicyMode.mixed     -- this app is directed at both children
          * as well as adults, such as parents.
@@ -43,7 +47,8 @@ public class MyApplication extends MultiDexApplication {
          * by Google to comply with the Google Family Policy.
          *
          * The second boolean parameter 'onlyNonPersonalizedAds' -- if true will only serve
-         * non personalized, non contextual ads.  This can affect revenue.
+         * non-personalized or non-contextual ads.  This can affect revenue.
+         * NOTE: This parameter only has effect under 'mixed' mode.
          */
         FreeStarAds.setGoogleFamilyPolicyMode(FreeStarAds.GoogleFamilyPolicyMode.app, true);
         //FreeStarAds.setGoogleFamilyPolicyMode(FreeStarAds.GoogleFamilyPolicyMode.mixed, false);
