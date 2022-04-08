@@ -125,6 +125,7 @@
     !static <methods>;
 }
 
+# adsbynimbus
 -keep class com.adsbynimbus.** { *; }
 -keep interface com.adsbynimbus.** { *; }
 
@@ -136,7 +137,6 @@
 -keep class com.hyprmx.** { *; }
 -keep interface com.hyprmx.** { *; }
 
--keepclassmembers class com.verizon.ads** {
-public *;
-}
--keep class com.verizon.ads**
+# verizon
+-keep class com.verizon.** { *; }
+-keep interface com.verizon.** { *; }
