@@ -72,6 +72,7 @@ dependencies {
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.10.4.1'
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.0'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:1.13.1.0'
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter-beta:1.14.0.1-beta02'
 
     implementation 'com.applovin:applovin-sdk:11.3.1'
