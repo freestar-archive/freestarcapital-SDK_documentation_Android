@@ -136,6 +136,10 @@ dependencies {
     implementation 'com.google.ads.mediation:tapjoy:12.9.1.0'
     implementation 'com.google.ads.mediation:facebook:6.10.0.0'
 
+    //prebid
+    implementation 'org.prebid:prebid-mobile-sdk-core:1.13.1'
+    implementation 'org.prebid:prebid-mobile-sdk:1.13.1'
+
     //end, FreeStar
 
 }
