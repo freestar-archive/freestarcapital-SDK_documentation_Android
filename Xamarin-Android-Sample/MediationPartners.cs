@@ -5,9 +5,9 @@ namespace fs_sample
 {
     public class MediationPartners
     {
-        private static int NUM_INTERSTITIAL = 9;
-        private static int NUM_REWARDED = 9;
-        private static int NUM_BANNER = 8;
+        private static int NUM_INTERSTITIAL = 16;
+        private static int NUM_REWARDED = 14;
+        private static int NUM_BANNER = 15;
 
         private static string[] rewarded_partners = new string[NUM_REWARDED];
         private static string[] interstitial_partners = new string[NUM_INTERSTITIAL];
@@ -21,41 +21,53 @@ namespace fs_sample
 
         public static void init()
         {
-            rewarded_partners[0] = LVDOConstants.PARTNER.Amazon.Name();
-            rewarded_partners[1] = LVDOConstants.PARTNER.Adcolony.Name();
-            rewarded_partners[2] = LVDOConstants.PARTNER.Applovin.Name();
+            rewarded_partners[0] = LVDOConstants.PARTNER.Adcolony.Name();
+            rewarded_partners[1] = LVDOConstants.PARTNER.Applovin.Name();
+            rewarded_partners[2] = LVDOConstants.PARTNER.Applovinmax.Name();
             rewarded_partners[3] = LVDOConstants.PARTNER.Criteo.Name();
-            rewarded_partners[4] = LVDOConstants.PARTNER.Chocolate.Name();
-            rewarded_partners[5] = LVDOConstants.PARTNER.Facebook.Name();
-            rewarded_partners[6] = LVDOConstants.PARTNER.Googleadmob.Name();
-            rewarded_partners[7] = LVDOConstants.PARTNER.Google.Name();
-            //rewarded_partners[8] = LVDOConstants.PARTNER.Mopub.Name();
-            //rewarded_partners[9] = LVDOConstants.PARTNER.Tapjoy.Name();
-            rewarded_partners[8] = LVDOConstants.PARTNER.Unity.Name();
-            //rewarded_partners[11] = LVDOConstants.PARTNER.Vungle.Name();
+            rewarded_partners[4] = LVDOConstants.PARTNER.Facebook.Name();
+            rewarded_partners[5] = LVDOConstants.PARTNER.Googleadmob.Name();
+            rewarded_partners[6] = LVDOConstants.PARTNER.Google.Name();
+            rewarded_partners[7] = LVDOConstants.PARTNER.Nimbus.Name();
+            rewarded_partners[8] = LVDOConstants.PARTNER.Tapjoy.Name();
+            rewarded_partners[9] = LVDOConstants.PARTNER.Unity.Name();
+            rewarded_partners[10] = LVDOConstants.PARTNER.Vungle.Name();
+            rewarded_partners[11] = LVDOConstants.PARTNER.Pangle.Name();
+            rewarded_partners[12] = LVDOConstants.PARTNER.Hyprmx.Name();
+            rewarded_partners[13] = LVDOConstants.PARTNER.Prebid.Name();
 
-            interstitial_partners[0] = LVDOConstants.PARTNER.Amazon.Name();
+            interstitial_partners[0] = LVDOConstants.PARTNER.Tam.Name();
             interstitial_partners[1] = LVDOConstants.PARTNER.Adcolony.Name();
             interstitial_partners[2] = LVDOConstants.PARTNER.Applovin.Name();
-            interstitial_partners[3] = LVDOConstants.PARTNER.Criteo.Name();
-            interstitial_partners[4] = LVDOConstants.PARTNER.Chocolate.Name();
+            interstitial_partners[3] = LVDOConstants.PARTNER.Applovinmax.Name();
+            interstitial_partners[4] = LVDOConstants.PARTNER.Criteo.Name();
             interstitial_partners[5] = LVDOConstants.PARTNER.Facebook.Name();
             interstitial_partners[6] = LVDOConstants.PARTNER.Googleadmob.Name();
             interstitial_partners[7] = LVDOConstants.PARTNER.Google.Name();
-            //interstitial_partners[8] = LVDOConstants.PARTNER.Mopub.Name();
-            //interstitial_partners[9] = LVDOConstants.PARTNER.Tapjoy.Name();
-            interstitial_partners[8] = LVDOConstants.PARTNER.Unity.Name();
-            //interstitial_partners[11] = LVDOConstants.PARTNER.Vungle.Name();
+            interstitial_partners[8] = LVDOConstants.PARTNER.Nimbus.Name();
+            interstitial_partners[9] = LVDOConstants.PARTNER.Tapjoy.Name();
+            interstitial_partners[10] = LVDOConstants.PARTNER.Unity.Name();
+            interstitial_partners[11] = LVDOConstants.PARTNER.Vungle.Name();
+            interstitial_partners[12] = LVDOConstants.PARTNER.Pangle.Name();
+            interstitial_partners[13] = LVDOConstants.PARTNER.Hyprmx.Name();
+            interstitial_partners[14] = LVDOConstants.PARTNER.Yahoo.Name();
+            interstitial_partners[15] = LVDOConstants.PARTNER.Prebid.Name();
 
-            banner_partners[0] = LVDOConstants.PARTNER.Amazon.Name();
-            banner_partners[1] = LVDOConstants.PARTNER.Applovin.Name();
-            banner_partners[2] = LVDOConstants.PARTNER.Criteo.Name();
-            banner_partners[3] = LVDOConstants.PARTNER.Chocolate.Name();
-            banner_partners[4] = LVDOConstants.PARTNER.Facebook.Name();
-            banner_partners[5] = LVDOConstants.PARTNER.Googleadmob.Name();
-            banner_partners[6] = LVDOConstants.PARTNER.Google.Name();
-            //banner_partners[7] = LVDOConstants.PARTNER.Mopub.Name();
-            banner_partners[7] = LVDOConstants.PARTNER.Unity.Name();
+            banner_partners[0] = LVDOConstants.PARTNER.Tam.Name();
+            banner_partners[1] = LVDOConstants.PARTNER.Adcolony.Name();
+            banner_partners[2] = LVDOConstants.PARTNER.Applovin.Name();
+            banner_partners[3] = LVDOConstants.PARTNER.Applovinmax.Name();
+            banner_partners[4] = LVDOConstants.PARTNER.Criteo.Name();
+            banner_partners[5] = LVDOConstants.PARTNER.Facebook.Name();
+            banner_partners[6] = LVDOConstants.PARTNER.Googleadmob.Name();
+            banner_partners[7] = LVDOConstants.PARTNER.Google.Name();
+            banner_partners[8] = LVDOConstants.PARTNER.Nimbus.Name();
+            banner_partners[9] = LVDOConstants.PARTNER.Unity.Name();
+            banner_partners[10] = LVDOConstants.PARTNER.Pangle.Name();
+            banner_partners[11] = LVDOConstants.PARTNER.Vungle.Name();
+            banner_partners[12] = LVDOConstants.PARTNER.Hyprmx.Name();
+            banner_partners[13] = LVDOConstants.PARTNER.Yahoo.Name();
+            banner_partners[14] = LVDOConstants.PARTNER.Prebid.Name();
 
             for (int i=0; i < NUM_BANNER;i++)
             {

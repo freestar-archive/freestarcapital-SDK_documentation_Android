@@ -1,8 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.V7.App;
-using Android.Runtime;
+using Android.Util;
 using Android.Widget;
 using Com.Freestar.Android.Ads;
 using Android.Views;
@@ -10,9 +9,8 @@ using Android.Views;
 namespace fs_sample
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity, IRewardedAdListener, IBannerAdListener, IInterstitialAdListener, IDialogInterfaceOnClickListener
+    public class MainActivity : Activity, IRewardedAdListener, IBannerAdListener, IInterstitialAdListener, IDialogInterfaceOnClickListener
     {
-        //const string FREESTAR_API_KEY = "dweT4z";
         const string FREESTAR_API_KEY = "XqjhRR";
         protected Button loadInterstitialButton, loadRewardedButton, bannerButton, mrecButton;
         private ViewGroup bannerAdContainer, mrecAdContainer;
@@ -29,12 +27,12 @@ namespace fs_sample
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            FreeStarAds.EnableLogging(true);
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             FreeStarAds.EnableTestAds(true);
-            FreeStarAds.EnableLogging(true);
             FreeStarAds.Init(this, FREESTAR_API_KEY);
             adRequest = new AdRequest(this);
 
@@ -59,15 +57,7 @@ namespace fs_sample
             banner_MREC_Ad = new BannerAd(this);
             banner_MREC_Ad.AdSize = AdSize.MediumRectangle300250;
             banner_MREC_Ad.SetBannerAdListener(this);
-   
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
 
         public void OnRewardedVideoLoaded(string placement)
         {
@@ -137,10 +127,12 @@ namespace fs_sample
             {
                 bannerAdContainer.RemoveAllViews();
                 bannerAdContainer.AddView(banner);
+                Log.Info("Xamarin", "Banner Ad.  partner: " + ad.WinningPartnerName);
             } else
             {
                 mrecAdContainer.RemoveAllViews();
                 mrecAdContainer.AddView(banner);
+                Log.Info("Xamarin", "MREC Ad.  partner: " + ad.WinningPartnerName);
             }
         }
 
