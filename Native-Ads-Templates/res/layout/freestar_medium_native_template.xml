@@ -24,45 +24,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/mopub_media"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"/>
     </FrameLayout>
-
-    <!-- facebook -->
-    <LinearLayout
-        android:id="@+id/ad_choices_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- mopub -->
-    <ImageView
-        android:id="@+id/native_privacy_information_icon_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="privacy info icon"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/middle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="@dimen/fs_nt_default_margin"
-        app:layout_constraintBottom_toTopOf="@+id/body"
+        app:layout_constraintBottom_toTopOf="@+id/body_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/media_view_container">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-
             android:layout_width="@dimen/fs_nt_no_size"
             android:layout_height="@dimen/fs_nt_no_size"
             android:orientation="horizontal"
@@ -85,12 +59,6 @@
                 app:layout_constraintEnd_toStartOf="@id/content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/mopub_icon"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
             </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,23 +83,32 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/primary"
+                    <FrameLayout
+                        android:id="@+id/primary_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/fs_nt_no_margin"
                         android:layout_marginTop="@dimen/fs_nt_no_margin"
                         android:layout_marginEnd="@dimen/fs_nt_no_margin"
                         android:layout_marginBottom="@dimen/fs_nt_no_margin"
-                        android:background="@color/fs_nt_white"
-                        android:lines="1"
-                        android:textColor="@color/fs_nt_gray"
-                        android:textSize="@dimen/fs_nt_text_size_large"
-                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        >
+
+                        <TextView
+                            android:id="@+id/primary"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/fs_nt_white"
+                            android:lines="1"
+                            android:textColor="@color/fs_nt_gray"
+                            android:textSize="@dimen/fs_nt_text_size_large"
+                            android:textStyle="bold"/>
+
+                    </FrameLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -185,59 +162,100 @@
 
                     </RatingBar>
 
-                    <TextView
-                        android:id="@+id/secondary"
+                    <FrameLayout
+                        android:id="@+id/secondary_container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/fs_nt_no_margin"
                         android:layout_marginTop="@dimen/fs_nt_no_margin"
                         android:layout_marginEnd="@dimen/fs_nt_no_margin"
                         android:layout_marginBottom="@dimen/fs_nt_no_margin"
-                        android:background="@color/fs_nt_white"
-                        android:gravity="top"
-                        android:lines="1"
-                        android:textColor="@color/fs_nt_gray"
-                        android:textSize="@dimen/fs_nt_text_size_small"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/ad_notification_view"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/secondary"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/fs_nt_white"
+                            android:gravity="top"
+                            android:lines="1"
+                            android:textColor="@color/fs_nt_gray"
+                            android:textSize="@dimen/fs_nt_text_size_small" />
+
+                    </FrameLayout>
 
                 </LinearLayout>
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/body"
+    <FrameLayout
+        android:id="@+id/body_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fs_nt_no_size"
         android:layout_marginBottom="@dimen/fs_nt_default_margin"
         android:paddingLeft="@dimen/fs_nt_default_margin"
         android:paddingBottom="@dimen/fs_nt_default_margin"
-        app:layout_constraintBottom_toTopOf="@+id/cta"
+        app:layout_constraintBottom_toTopOf="@+id/cta_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/middle" />
+        app:layout_constraintTop_toBottomOf="@id/middle">
 
-    <Button
-        android:id="@+id/cta"
+        <TextView
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/cta_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fs_nt_cta_button_height"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="@color/fs_nt_blue"
-        android:gravity="center"
-        android:lines="1"
-        android:textColor="@color/fs_nt_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/body" />
+        app:layout_constraintTop_toBottomOf="@id/body_container">
+
+        <Button
+            android:id="@+id/cta"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fs_nt_cta_button_height"
+            android:background="@color/fs_nt_blue"
+            android:gravity="center"
+            android:lines="1"
+            android:textColor="@color/fs_nt_white" />
+
+    </FrameLayout>
+
+    <!-- pangle -->
+    <ImageView
+        android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="privacy info icon"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- disclaimer_container only for yahoo/verizon (vz_*) -->
+    <FrameLayout
+        android:id="@+id/disclaimer_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="2dp"
+        android:layout_marginTop="4dp">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
