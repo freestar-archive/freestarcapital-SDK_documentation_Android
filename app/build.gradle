@@ -59,15 +59,12 @@ dependencies {
     //begin Freestar
     implementation 'com.freestar.android.ads:freestar:4.6.5'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.6.0.0'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.0'
-    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.0'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.3'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.0'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.6.0.0'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.1.0.0'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.0'
-    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.8.0.1'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.9.1.0'
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.10.4.1'
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
@@ -75,7 +72,6 @@ dependencies {
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.1'
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:1.13.1.0'
 
-    implementation 'com.applovin:applovin-sdk:11.3.3'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
     implementation 'com.google.android.gms:play-services-ads:20.6.0'
     implementation('com.google.android.ads.consent:consent-library:1.0.8') {
@@ -115,7 +111,7 @@ dependencies {
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //adcolony
-    implementation 'com.adcolony:sdk:4.7.1'
+    implementation 'com.adcolony:sdk:4.8.0'
 
     //hyprmx
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
@@ -131,7 +127,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-process:2.4.0"
 
     //GAM mediation adapters
-    implementation 'com.google.ads.mediation:applovin:11.4.3.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:12.10.0.0'
     implementation 'com.google.ads.mediation:facebook:6.8.0.0'
