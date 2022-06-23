@@ -87,7 +87,7 @@ dependencies {
         exclude group: 'com.google.android.gms'
         exclude group: 'com.android.support'
     }
-    implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
+    implementation 'com.tapjoy:tapjoy-android-sdk:12.10.0@aar'
 
     implementation 'com.vungle:publisher-sdk-android:6.10.5'
 
