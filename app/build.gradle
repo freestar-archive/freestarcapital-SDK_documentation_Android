@@ -118,7 +118,6 @@ dependencies {
 
     //yahoo
     implementation 'com.verizon.ads:android-vas-standard-edition:1.14.0'
-    //implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     implementation 'androidx.browser:browser:1.4.0'
 
     //App Open Support
