@@ -52,7 +52,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener {
 
-    public static final String API_KEY = "XqjhRR"; //test key
+    public static final String API_KEY = "37f63777-6e63-42f2-89b7-4b67689c2493"; //"XqjhRR"; //test key
     private static final String TAG = "FsMainActivity";
     private static final boolean DO_CHOOSE_PARTNERS = true; //purely for demonstration purposes.  set false later.
 
