@@ -114,6 +114,12 @@
             android:onClick="loadPrerollAdAsActivity"
             android:text="Load Preroll Ad (New Activity)" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="loadThumbnailAd"
+            android:text="Load Thumbnail Ad" />
+
         <!--
         NOTE: If you choose to embed Freestar ads in your xml layout
         as follows please note the ad will be automatically loaded and displayed.

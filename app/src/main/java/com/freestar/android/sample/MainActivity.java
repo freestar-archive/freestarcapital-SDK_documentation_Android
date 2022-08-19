@@ -1,6 +1,5 @@
 package com.freestar.android.sample;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,6 +39,10 @@ import com.freestar.android.ads.PrerollAd;
 import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
 import com.freestar.android.ads.RewardedAdListener;
+import com.freestar.android.ads.ThumbnailAd;
+import com.freestar.android.ads.ThumbnailAdGravity;
+import com.freestar.android.ads.ThumbnailAdListener;
+import com.freestar.android.sample.recyclerview.RecyclerViewFixedAdsActivity;
 import com.freestar.android.sample.recyclerview.RecyclerViewInfiniteAdsActivity;
 
 import androidx.annotation.NonNull;
@@ -50,9 +53,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener {
+public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener, ThumbnailAdListener {
 
-    public static final String API_KEY = "XqjhRR"; //test key
+    public static final String API_KEY = "XqjhRR"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
+
     private static final String TAG = "FsMainActivity";
     private static final boolean DO_CHOOSE_PARTNERS = true; //purely for demonstration purposes.  set false later.
 
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     private BannerAd bannerAd;
     private NativeAd nativeAd;
     private PrerollAd preRollVideoAd;
+    private ThumbnailAd thumbnailAd;
     private boolean doPrerollAdFragment;
 
     private VideoHelper videoHelper;
@@ -731,7 +736,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         CheckBox checkBox = (CheckBox) view;
         FreeStarAds.showAdaptiveBannerAdsWhenAvailable(checkBox.isChecked());
         ChocolateLogger.i(TAG, "onShowAdaptiveCheck: " + checkBox.isChecked());
-        showAlertDialog("For this it is recommended to restart app and then try; not intended to toggle back-n-forth within same session for small banner.");
     }
 
     public void onBanner320x50Checked(View view) {
@@ -759,8 +763,38 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         standard, wrapXwrap, fullXwrap
     }
 
-    private void showAlertDialog(String msg) {
-        new AlertDialog.Builder(this).setMessage(msg).show();
+    public void loadThumbnailAd(View view) {
+        thumbnailAd = new ThumbnailAd(this);
+        thumbnailAd.setListener(this);
+        thumbnailAd.loadAd(adRequest);
     }
 
+    @Override
+    public void onThumbnailAdLoaded(String placement) {
+        ((TextView) findViewById(R.id.textView)).setText("ThumbnailAd winner: " + thumbnailAd.getWinningPartnerName());
+        thumbnailAd.setGravity(ThumbnailAdGravity.topLeft);
+        //thumbnailAd.setMargins(40,40);
+        thumbnailAd.setBlackListActivities(RecyclerViewFixedAdsActivity.class, RecyclerViewInfiniteAdsActivity.class);
+        thumbnailAd.show();
+    }
+
+    @Override
+    public void onThumbnailAdFailed(String placement, int errorCode) {
+        ((TextView) findViewById(R.id.textView)).setText("ThumbnailAd failed: " + ErrorCodes.getErrorDescription(errorCode));
+    }
+
+    @Override
+    public void onThumbnailAdShown(String placement) {
+
+    }
+
+    @Override
+    public void onThumbnailAdClicked(String placement) {
+        ((TextView) findViewById(R.id.textView)).setText("ThumbnailAd clicked");
+    }
+
+    @Override
+    public void onThumbnailAdDismissed(String placement) {
+        ((TextView) findViewById(R.id.textView)).setText("ThumbnailAd dismissed");
+    }
 }
