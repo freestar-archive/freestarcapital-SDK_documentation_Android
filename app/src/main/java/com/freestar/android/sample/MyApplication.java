@@ -27,7 +27,7 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.enableTestAds(true);  //set false for production or don't call
 
         //Uncomment to utilize App Open Ads
-        FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
+        //FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
 
         //Turn off automated test mode just OMIT the next line
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
