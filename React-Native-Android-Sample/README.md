@@ -1,9 +1,11 @@
 # Freestar Ads Mediation - React Native
 
+App.js is a simple sample that shows how to integrate Freestar Mediation Ads.  Please treat as reference.
+
 Freestar Integration Docs:
 <a href="https://github.com/freestarcapital/SDK_documentation_Android/wiki/Freestar-Ads-Mediation---React-Native---Android">Freestar supports React Native</a>
 
-React Sample App Setup
+General React Native App Setup:
 https://reactnative.dev/docs/environment-setup
 
 1) npx react-native init AwesomeProject
