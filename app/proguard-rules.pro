@@ -140,3 +140,7 @@
 # verizon
 -keep class com.verizon.** { *; }
 -keep interface com.verizon.** { *; }
+
+# prebid
+-keep class org.prebid.** { *; }
+-keep interface org.prebid.** { *; }
