@@ -50,22 +50,32 @@ export default function App(props) {
         title={"Load Rewarded Ad"}
       />
 
-
-      <BannerAd
-         style={{width: 320, height: 50}}
-         requestOptions={
-            {
-               targetingParams: {
-                     'someparam1': 'somevalue1',
-                     'someparam2': 'somevalue2',
-                     'someparam3': 'somevalue3',
-               }
-            }
-         }
-         onBannerAdLoaded={bannerLoaded}
-         onBannerAdAdFailedToLoad={bannerFailed}
-         onBannerAdClicked={bannerAdClicked}
+      <Button
+        onPress={() => {
+          FreestarReactBridge.loadThumbnailAd(null);
+        }}
+        title={"Load Thumbnail Ad"}
       />
+
+       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+
+            <BannerAd
+               style={{width: 320, height: 50}}
+               requestOptions={
+                  {
+                     targetingParams: {
+                           'someparam1': 'somevalue1',
+                           'someparam2': 'somevalue2',
+                           'someparam3': 'somevalue3',
+                     }
+                  }
+               }
+               onBannerAdLoaded={bannerLoaded}
+               onBannerAdAdFailedToLoad={bannerFailed}
+               onBannerAdClicked={bannerAdClicked}
+            />
+
+      </View>
 
 
       <SmallNativeAd
@@ -98,8 +108,9 @@ function bannerAdClicked({nativeEvent}) {
 }
 
 function bannerLoaded({ nativeEvent }) {
-   console.log('loaded native ad. placement: ' + nativeEvent.placement + ' window width: '
-   + Dimensions.get('window').width + ' winningBidder: ' + nativeEvent.winningBidder);
+   console.log('loaded native ad. placement: ' + nativeEvent.placement + " window width: "
+   + Dimensions.get('window').width
+   + ' winningBidder: ' + nativeEvent.winningBidder);
 }
 
 function bannerFailed({ nativeEvent }) {
@@ -122,13 +133,14 @@ const styles = StyleSheet.create({
   },
 });
 
+FreestarReactBridge.enablePartnerChooserForTesting(true);
 FreestarReactBridge.initWithAdUnitID('XqjhRR');
 
 FreestarReactBridge.subscribeToInterstitialCallbacks2((eventName, placement, eventMap) => {
 
     if(eventName === "onInterstitialLoaded") {
 
-      Alert.alert('Interstitial: ' + eventMap.winningBidder);
+      console.log("Interstitial: " + eventMap.winningBidder);
 
       if (placement == 'not defined')
          placement = null;
@@ -162,7 +174,7 @@ FreestarReactBridge.subscribeToRewardCallbacks2((eventName, placement, rewardNam
 
      } else if(eventName === "onRewardedLoaded") {
 
-         Alert.alert('Rewarded: ' + eventMap.winningBidder);
+         console.log("Rewarded: " + eventMap.winningBidder);
 
          if (placement == 'not defined')
             placement = null;
@@ -183,3 +195,31 @@ FreestarReactBridge.subscribeToRewardCallbacks2((eventName, placement, rewardNam
         console.log("unknown event");
      }
    });
+
+FreestarReactBridge.subscribeToThumbnailAdCallbacks((eventName, placement, eventMap) => {
+
+    if(eventName === "onThumbnailAdLoaded") {
+
+      console.log("Thumbnail Ad: " + eventMap.winningBidder);
+
+      if (placement == 'not defined')
+         placement = null;
+
+      FreestarReactBridge.showThumbnailAd(placement, 'bottomLeft', 0, 0);
+
+    } else if (eventName === "onThumbnailAdClicked") {
+
+      Alert.alert('Thumbnail Ad clicked');
+
+    } else if (eventName === "onThumbnailAdShown") {
+
+    } else if (eventName === "onThumbnailAdFailed") {
+
+        Alert.alert('Thumbnail Ad not available');
+
+    } else if (eventName === "onThumbnailAdDismissed") {
+
+    } else {
+       console.log("unknown event");
+    }
+});
