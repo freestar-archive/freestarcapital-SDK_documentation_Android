@@ -144,3 +144,7 @@
 # prebid
 -keep class org.prebid.** { *; }
 -keep interface org.prebid.** { *; }
+
+# ogury
+-keep class com.ogury.** {*;}
+-keep interface com.ogury.** {*;}
