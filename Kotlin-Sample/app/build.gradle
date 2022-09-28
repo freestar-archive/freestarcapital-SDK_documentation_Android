@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.freestar.sample.kotlin"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -32,6 +32,10 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+    }
+
 }
 
 dependencies {
@@ -59,72 +63,82 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:4.6.0'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.3.0.0'
-    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:10.3.1.1'
-    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.2'
-    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.4.0'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.3.0.0'
-    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.2.1.2'
-    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:3.7.1.2'
-    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.2.2'
-    implementation 'com.freestar.android.ads.facebook:freestar-facebook-adapter:6.1.0.1'
-    implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.2.1.1'
-    implementation 'com.freestar.android.ads.mopub:freestar-mopub-adapter:5.18.0.0'
-    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:1.10.4.0'
-    implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.0'
-    implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.0'
+    implementation 'com.freestar.android.ads:freestar:5.0.0'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.6.0.1'
+    implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
+    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
+    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.4'
+    implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.1'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:20.6.0.1'
+    implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.4.0.1'
+    implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.1.0.1'
+    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.1'
+    implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.10.0.0'
+    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.0.0.0'
+    implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.1'
+    implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.1.1'
+    implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.3'
+    implementation 'com.freestar.android.ads.ogury:freestar-ogury-adapter:5.3.0.2'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.0.2.2'
 
-    implementation 'com.applovin:applovin-sdk:10.3.1'
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
-    implementation 'com.google.android.gms:play-services-ads:20.4.0'
-    implementation('com.google.android.ads.consent:consent-library:1.0.8') {
-        exclude group: 'com.android.support'
-        exclude group: 'com.google.code.gson', module: 'gson'
-    }
-    implementation 'com.mopub.mediation:facebookaudiencenetwork:6.5.1.0'
-    implementation('com.facebook.android:audience-network-sdk:6.5.1') {
-        exclude group: 'com.google.android.exoplayer'
-        exclude group: 'com.google.android.gms'
-        exclude group: 'com.android.support'
-    }
-    implementation 'com.tapjoy:tapjoy-android-sdk:12.4.2@aar'
+    implementation 'com.google.android.gms:play-services-ads:21.2.0'
+    implementation 'com.google.android.ads.consent:consent-library:1.0.8'
+    implementation 'com.facebook.android:audience-network-sdk:6.11.0'
+    implementation 'com.tapjoy:tapjoy-android-sdk:12.10.0@aar'
 
-    implementation 'com.vungle:publisher-sdk-android:6.10.2'
-
-    implementation('com.mopub:mopub-sdk:5.18.0@aar') {
-        transitive = true
-        exclude group: 'com.android.support'
-    }
+    implementation 'com.vungle:publisher-sdk-android:6.10.5'
 
     //amazon tam
-    implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+    implementation 'com.amazon.android:aps-sdk:9.2.1@aar'
+
+    //applovin & applovinMAX
+    implementation 'com.applovin:applovin-sdk:11.3.3'
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
-    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.0'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
-    implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
+    //implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.0'
+    //implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
+    //implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
+    //implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
     //end preroll
 
     implementation "com.github.bumptech.glide:glide:4.11.0"
     implementation "com.google.code.gson:gson:2.8.5"
 
     //nimbus
-    implementation "com.adsbynimbus.android:nimbus:1.10.4" // Full Nimbus SDK with NimbusAdManager
-    implementation "com.adsbynimbus.android:extension-okhttp:1.10.4" // Use OkHttp with NimbusAdManager
-    implementation "com.adsbynimbus.android:extension-facebook:1.10.4"
-    implementation "com.adsbynimbus.openrtb:kotlin:0.7.4"
+    implementation "com.adsbynimbus.android:nimbus:2.0.0"
+    implementation "com.adsbynimbus.android:extension-facebook:2.0.0"
 
     //pangle; also requires play-services-ads-identifier but already in criteo
-    implementation 'com.pangle.global:ads-sdk:3.6.0.4'
+    implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //adcolony
-    implementation 'com.adcolony:sdk:4.6.4'
+    implementation 'com.adcolony:sdk:4.8.0'
 
     //hyprmx
     implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
+
+    //yahoo
+    implementation 'com.verizon.ads:android-vas-standard-edition:1.14.0'
+    implementation 'androidx.browser:browser:1.4.0'
+
+    //ogury
+    implementation 'co.ogury:ogury-sdk:5.3.0'
+
+    //prebid
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.0.2.1'
+
+    //App Open Support
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-process:2.4.0"
+
+    //GAM mediation adapters
+    implementation 'com.google.ads.mediation:applovin:11.3.3.0'
+    implementation 'com.google.ads.mediation:adcolony:4.6.5.0'
+    implementation 'com.google.ads.mediation:tapjoy:12.10.0.0'
+    implementation 'com.google.ads.mediation:facebook:6.11.0.1'
 
     //end, FreeStar
 }
