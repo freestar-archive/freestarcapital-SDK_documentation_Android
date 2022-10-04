@@ -29,6 +29,8 @@ public class MediationPartners {
 
     static {
         sInterstitialPartners.add(LVDOConstants.PARTNER.ADCOLONY.name());
+        sInterstitialPartners.add(LVDOConstants.PARTNER.APPLOVIN.name());
+        sInterstitialPartners.add(LVDOConstants.PARTNER.APPLOVINMAX.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.CRITEO.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.GOOGLEADMOB.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.GOOGLE.name());
@@ -69,6 +71,8 @@ public class MediationPartners {
 
     static {
         sRewardedPartners.add(LVDOConstants.PARTNER.ADCOLONY.name());
+        sRewardedPartners.add(LVDOConstants.PARTNER.APPLOVIN.name());
+        sRewardedPartners.add(LVDOConstants.PARTNER.APPLOVINMAX.name());
         sRewardedPartners.add(LVDOConstants.PARTNER.CRITEO.name());
         sRewardedPartners.add(LVDOConstants.PARTNER.GOOGLEADMOB.name());
         sRewardedPartners.add(LVDOConstants.PARTNER.GOOGLE.name());
@@ -107,6 +111,8 @@ public class MediationPartners {
     static {
         sBannerPartners.add(LVDOConstants.PARTNER.TAM.name());
         sBannerPartners.add(LVDOConstants.PARTNER.ADCOLONY.name());
+        sBannerPartners.add(LVDOConstants.PARTNER.APPLOVIN.name());
+        sBannerPartners.add(LVDOConstants.PARTNER.APPLOVINMAX.name());
         sBannerPartners.add(LVDOConstants.PARTNER.CRITEO.name());
         sBannerPartners.add(LVDOConstants.PARTNER.GOOGLEADMOB.name());
         sBannerPartners.add(LVDOConstants.PARTNER.GOOGLE.name());
