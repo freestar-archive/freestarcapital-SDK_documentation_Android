@@ -62,6 +62,10 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.multidex:multidex:2.0.1'
 
+    //needed for sample, not sdk
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation "com.google.code.gson:gson:2.8.5"
+
     //begin Freestar
     implementation 'com.freestar.android.ads:freestar:5.0.0'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.6.0.1'
@@ -84,16 +88,16 @@ dependencies {
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
     implementation 'com.google.android.gms:play-services-ads:21.2.0'
     implementation 'com.google.android.ads.consent:consent-library:1.0.8'
-    implementation 'com.facebook.android:audience-network-sdk:6.11.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.12.0'
     implementation 'com.tapjoy:tapjoy-android-sdk:12.10.0@aar'
 
     implementation 'com.vungle:publisher-sdk-android:6.10.5'
 
     //amazon tam
-    implementation 'com.amazon.android:aps-sdk:9.2.1@aar'
+    implementation 'com.amazon.android:aps-sdk:9.5.3@aar'
 
     //applovin & applovinMAX
-    implementation 'com.applovin:applovin-sdk:11.3.3'
+    implementation 'com.applovin:applovin-sdk:11.5.2'
 
     //Note: if you are using Preroll, un-comment the following lines:
     //start preroll
@@ -102,9 +106,6 @@ dependencies {
     //implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
     //implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
     //end preroll
-
-    implementation "com.github.bumptech.glide:glide:4.11.0"
-    implementation "com.google.code.gson:gson:2.8.5"
 
     //nimbus
     implementation "com.adsbynimbus.android:nimbus:2.0.0"
