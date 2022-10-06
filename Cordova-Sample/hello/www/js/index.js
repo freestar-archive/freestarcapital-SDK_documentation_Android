@@ -70,5 +70,6 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
-    window.plugins.freestarPlugin.setTestModeEnabled(true, 'asdfasdf');
+    window.plugins.freestarPlugin.setTestModeEnabled(true, 'optional hash');
+    //window.plugins.freestarPlugin.setPartnerChooserEnabled(true);
 }
