@@ -1,4 +1,4 @@
-# Simple Cordova Sample
+# Freestar Mediation Cordova Sample
 
 ## Illustrates how to display Freestar Mediation ads in Cordova
 
