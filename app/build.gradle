@@ -53,8 +53,10 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.multidex:multidex:2.0.1'
 
-    //implementation(name:'ConfiantSDK_framework_5.0.1', ext:'aar')
-    implementation 'com.freestar.android.ads.confiant:freestar-confiant:5.0.1.2'
+    implementation(name:'ConfiantSDK_framework_5.0.3', ext:'aar')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.32'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0'
+    //implementation 'com.freestar.android.ads.confiant:freestar-confiant:5.0.1.2'
 
     //glide and gson needed for sample only, not freestar ads
     implementation "com.github.bumptech.glide:glide:4.11.0"

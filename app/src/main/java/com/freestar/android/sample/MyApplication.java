@@ -37,7 +37,7 @@ public class MyApplication extends MultiDexApplication {
         initializeConfiant();
 
         //Uncomment to utilize App Open Ads
-        FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
+        //FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
 
         //Turn off automated test mode just OMIT the next line
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
@@ -46,21 +46,33 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.init(this, MainActivity.API_KEY, adRequest);
     }
 
+    private Result<Settings, ConfiantError> createConfiantSettings() {
+        boolean confiantBlockAddAds = true;
+        String confiantAppId = "x0Jm1cYDEbEK1qln_DqWfmhw8zk";
+
+        if (confiantBlockAddAds) {
+            return Settings.with(confiantAppId,null,null,true);
+        } else {
+            return Settings.with(confiantAppId);
+        }
+    }
+
     private void initializeConfiant() {
 
         Settings settings = null;
 
-        final @NonNull Result<Settings, ConfiantError> settingsResult = Settings.with("Your Confiant Property ID here");
+        Result<Settings, ConfiantError> settingsResult = createConfiantSettings();
         if (settingsResult instanceof Result.Success) {
             settings = ((Result.Success<Settings, ConfiantError>) settingsResult).getValue();
+            ChocolateLogger.w(TAG, String.format("Confiant settings success"));
             /* see below */
         } else if (settingsResult instanceof Result.Failure) {
             final @NonNull ConfiantError settingsError = ((Result.Failure<Settings, ConfiantError>) settingsResult).getError();
             ChocolateLogger.w(TAG, String.format("Failed to create Confiant Settings: %s %d%n", settingsError.getDescription(), settingsError.getCode()));
-            assert false;
+            //assert false;
         } else {
             ChocolateLogger.w(TAG, String.format("Failed to create Confiant Settings%n"));
-            assert false;
+            //assert false;
         }
 
         Confiant.initialize(
