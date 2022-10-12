@@ -727,6 +727,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
             case R.id.menu_recyclerview:
                 startActivity(new Intent(this, RecyclerViewInfiniteAdsActivity.class));
                 return true;
+            case R.id.menu_webview:
+                startActivity(new Intent(this, WebviewActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
