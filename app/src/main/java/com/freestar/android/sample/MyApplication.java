@@ -3,15 +3,10 @@ package com.freestar.android.sample;
 
 import android.os.Build;
 
-import com.confiant.sdk.Confiant;
-import com.confiant.sdk.ConfiantError;
-import com.confiant.sdk.Result;
-import com.confiant.sdk.Settings;
 import com.freestar.android.ads.AdRequest;
-import com.freestar.android.ads.ChocolateLogger;
 import com.freestar.android.ads.FreeStarAds;
+import com.freestar.android.ads.quality.FreestarAdQuality;
 
-import androidx.annotation.NonNull;
 import androidx.multidex.MultiDexApplication;
 
 public class MyApplication extends MultiDexApplication {
@@ -34,7 +29,7 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.enableLogging(true);  //set false for production or don't call
         FreeStarAds.enableTestAds(true);  //set false for production or don't call
 
-        initializeConfiant();
+        FreestarAdQuality.initialize("x0Jm1cYDEbEK1qln_DqWfmhw8zk", true);
 
         //Uncomment to utilize App Open Ads
         //FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
@@ -46,49 +41,4 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.init(this, MainActivity.API_KEY, adRequest);
     }
 
-    private Result<Settings, ConfiantError> createConfiantSettings() {
-        boolean confiantBlockAddAds = true;
-        String confiantAppId = "x0Jm1cYDEbEK1qln_DqWfmhw8zk";
-
-        if (confiantBlockAddAds) {
-            return Settings.with(confiantAppId,null,null,true);
-        } else {
-            return Settings.with(confiantAppId);
-        }
-    }
-
-    private void initializeConfiant() {
-
-        Settings settings = null;
-
-        Result<Settings, ConfiantError> settingsResult = createConfiantSettings();
-        if (settingsResult instanceof Result.Success) {
-            settings = ((Result.Success<Settings, ConfiantError>) settingsResult).getValue();
-            ChocolateLogger.w(TAG, String.format("Confiant settings success"));
-            /* see below */
-        } else if (settingsResult instanceof Result.Failure) {
-            final @NonNull ConfiantError settingsError = ((Result.Failure<Settings, ConfiantError>) settingsResult).getError();
-            ChocolateLogger.w(TAG, String.format("Failed to create Confiant Settings: %s %d%n", settingsError.getDescription(), settingsError.getCode()));
-            //assert false;
-        } else {
-            ChocolateLogger.w(TAG, String.format("Failed to create Confiant Settings%n"));
-            //assert false;
-        }
-
-        Confiant.initialize(
-                settings,
-                (final @NonNull Result<Confiant, ConfiantError> confiantInitResult) -> {
-                    if (confiantInitResult instanceof Result.Success) {
-                        ChocolateLogger.w(TAG, String.format("Successfully initialized Confiant SDK%n"));
-                    } else if (confiantInitResult instanceof Result.Failure) {
-                        final @NonNull ConfiantError initError = ((Result.Failure<Confiant, ConfiantError>) confiantInitResult).getError();
-                        ChocolateLogger.w(TAG, String.format("Failed to initialize Confiant SDK: %s %d%n", initError.getDescription(), initError.getCode()));
-                        assert false;
-                    } else {
-                        assert false;
-                    }
-                }
-        );
-
-    }
 }
