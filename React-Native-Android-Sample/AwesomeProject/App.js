@@ -6,19 +6,8 @@ import FreestarReactBridge from '@freestar/freestar-plugin-react-native';
 import BannerAd from '@freestar/freestar-plugin-react-native/BannerAd';
 
 import MrecBannerAd from '@freestar/freestar-plugin-react-native/MrecBannerAd';
-import MrecBannerAd2 from '@freestar/freestar-plugin-react-native/MrecBannerAd2';
-import MrecBannerAd3 from '@freestar/freestar-plugin-react-native/MrecBannerAd3';
-import MrecBannerAd4 from '@freestar/freestar-plugin-react-native/MrecBannerAd4';
-
 import SmallNativeAd from '@freestar/freestar-plugin-react-native/SmallNativeAd';
-import SmallNativeAd2 from '@freestar/freestar-plugin-react-native/SmallNativeAd2';
-import SmallNativeAd3 from '@freestar/freestar-plugin-react-native/SmallNativeAd3';
-import SmallNativeAd4 from '@freestar/freestar-plugin-react-native/SmallNativeAd4';
-
 import MediumNativeAd from '@freestar/freestar-plugin-react-native/MediumNativeAd';
-import MediumNativeAd2 from '@freestar/freestar-plugin-react-native/MediumNativeAd2';
-import MediumNativeAd3 from '@freestar/freestar-plugin-react-native/MediumNativeAd3';
-import MediumNativeAd4 from '@freestar/freestar-plugin-react-native/MediumNativeAd4';
 
 export default function App(props) {
 
