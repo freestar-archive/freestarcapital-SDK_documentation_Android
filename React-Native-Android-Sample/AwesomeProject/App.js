@@ -52,6 +52,7 @@ export default function App(props) {
                style={{width: 320, height: 50}}
                requestOptions={
                   {
+                     size: 'BANNER',
                      targetingParams: {
                            'someparam1': 'somevalue1',
                            'someparam2': 'somevalue2',
@@ -59,9 +60,9 @@ export default function App(props) {
                      }
                   }
                }
-               onBannerAdLoaded={bannerLoaded}
-               onBannerAdAdFailedToLoad={bannerFailed}
-               onBannerAdClicked={bannerAdClicked}
+               onBannerAdLoaded={handleDisplayAdLoaded}
+               onBannerAdAdFailedToLoad={handleDisplayAdFailed}
+               onBannerAdClicked={handleDisplayAdClicked}
             />
 
       </View>
@@ -80,9 +81,9 @@ export default function App(props) {
                testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
             }
          }
-         onNativeAdLoaded={bannerLoaded}
-         onNativeAdFailedToLoad={bannerFailed}
-         onNativeAdClicked={nativeAdClicked}
+         onNativeAdLoaded={handleDisplayAdLoaded}
+         onNativeAdFailedToLoad={handleDisplayAdFailed}
+         onNativeAdClicked={handleDisplayAdClicked}
       />
 
     </ScrollView>
@@ -92,23 +93,19 @@ export default function App(props) {
   );
 }
 
-function bannerAdClicked({nativeEvent}) {
-   Alert.alert('banner ad clicked');
+function handleDisplayAdClicked({nativeEvent}) {
+   Alert.alert('display ad clicked');
 }
 
-function bannerLoaded({ nativeEvent }) {
-   console.log('loaded native ad. placement: ' + nativeEvent.placement + " window width: "
+function handleDisplayAdLoaded({ nativeEvent }) {
+   console.log('loaded display ad. placement: ' + nativeEvent.placement + " window width: "
    + Dimensions.get('window').width
    + ' winningBidder: ' + nativeEvent.winningBidder);
 }
 
-function bannerFailed({ nativeEvent }) {
+function handleDisplayAdFailed({ nativeEvent }) {
    //console.log('failed ' + nativeEvent.errorDesc + ' ' + nativeEvent.size + ' placement: ' + nativeEvent.placement);
-   Alert.alert('failed to load native ad. error: ' + nativeEvent.errorDesc + ' placement: ' + nativeEvent.placement);
-}
-
-function nativeAdClicked({nativeEvent}) {
-   Alert.alert('native ad clicked');
+   Alert.alert('failed to load display ad. error: ' + nativeEvent.errorDesc + ' placement: ' + nativeEvent.placement);
 }
 
 const styles = StyleSheet.create({
