@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:5.0.0'
+    implementation 'com.freestar.android.ads:freestar-beta:5.0.1-beta02'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:20.6.0.1'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
@@ -72,6 +72,7 @@ dependencies {
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.3'
     implementation 'com.freestar.android.ads.ogury:freestar-ogury-adapter:5.3.0.2'
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.0.2.2'
+    implementation 'com.freestar.android.ads.fyber:freestar-fyber-adapter-beta:8.2.0.1-beta01'
 
     implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
     implementation 'com.google.android.gms:play-services-ads:21.2.0'
@@ -119,6 +120,9 @@ dependencies {
 
     //prebid
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.0.2.1'
+
+    //fyber
+    implementation "com.fyber:marketplace-sdk:8.2.0"
 
     //App Open Support
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.4.0'
