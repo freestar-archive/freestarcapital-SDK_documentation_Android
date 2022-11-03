@@ -25,6 +25,7 @@ public class MyApplication extends MultiDexApplication {
         adRequest.addCustomTargeting("some target", "my value");
         FreeStarAds.enableLogging(true);  //set false for production or don't call
         FreeStarAds.enableTestAds(true);  //set false for production or don't call
+        FreeStarAds.enableAdQualityTestMode(true);
 
         //Uncomment to utilize App Open Ads
         FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
