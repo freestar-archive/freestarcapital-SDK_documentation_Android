@@ -292,6 +292,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
             @Override
             public void onBannerAdFailed(View view, String placement, int errorCode) {
                 ((TextView) findViewById(R.id.textView)).setText("Banner " + adSize + ": " + ErrorCodes.getErrorDescription(errorCode));
+                ChocolateLogger.i(TAG, "onBannerAdFailed(). " + ErrorCodes.getErrorDescription(errorCode));
             }
 
             @Override
@@ -726,9 +727,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
                 return true;
             case R.id.menu_recyclerview:
                 startActivity(new Intent(this, RecyclerViewInfiniteAdsActivity.class));
-                return true;
-            case R.id.menu_webview:
-                startActivity(new Intent(this, WebviewActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
