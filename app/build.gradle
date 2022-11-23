@@ -91,15 +91,15 @@ dependencies {
     //Important: Preroll is not compatible with Nimbus, so remove all 3 Nimbus
     //dependencies (above) before using Preroll video ads.
     //start preroll
-    //implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.23.0'
-    //implementation 'com.google.android.exoplayer:exoplayer-core:2.13.3'
-    //implementation 'com.google.android.exoplayer:exoplayer-ui:2.13.3'
-    //implementation 'com.google.android.exoplayer:extension-ima:2.13.3'
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.24.0'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
+    implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
     //end preroll
 
     //nimbus
-    implementation 'com.adsbynimbus.android:nimbus:2.0.0'
-    implementation 'com.adsbynimbus.android:extension-facebook:2.0.0'
+    implementation 'com.adsbynimbus.android:nimbus:2.1.0'
+    implementation 'com.adsbynimbus.android:extension-facebook:2.1.0'
 
     //pangle; also requires play-services-ads-identifier but already in criteo
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
@@ -108,7 +108,7 @@ dependencies {
     implementation 'com.adcolony:sdk:4.8.0'
 
     //hyprmx
-    implementation 'com.hyprmx.android:HyprMX-SDK:6.0.1'
+    implementation 'com.hyprmx.android:HyprMX-SDK:6.0.3'
 
     //yahoo
     implementation 'com.verizon.ads:android-vas-standard-edition:1.14.0'
