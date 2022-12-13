@@ -77,7 +77,7 @@ dependencies {
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.1.0.1'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.1'
     implementation 'com.freestar.android.ads.tapjoy:freestar-tapjoy-adapter:12.10.0.0'
-    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.1.1.0'
+    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.1.0.0'
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.1'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.3.0'
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.3'
@@ -130,6 +130,7 @@ dependencies {
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.0.2.1'
 
     //App Open Support
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
     implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
     implementation "androidx.lifecycle:lifecycle-process:2.5.1"
