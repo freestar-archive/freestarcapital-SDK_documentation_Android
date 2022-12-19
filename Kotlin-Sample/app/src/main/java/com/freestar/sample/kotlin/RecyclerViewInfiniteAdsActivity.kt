@@ -8,8 +8,6 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.freestar.android.ads.*
@@ -33,7 +31,7 @@ class RecyclerViewInfiniteAdsActivity : AppCompatActivity(), BannerAdListener, N
         super.onCreate(savedInstanceState)
         adRequest = AdRequest(this)
         adapter = Adapter(this, true)
-        DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_recyclerview)
+        setContentView(R.layout.activity_recyclerview)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this).also { lm = it }
         recyclerView.adapter = adapter

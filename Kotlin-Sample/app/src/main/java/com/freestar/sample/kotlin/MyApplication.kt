@@ -1,12 +1,11 @@
 package com.freestar.sample.kotlin
 
-import androidx.multidex.MultiDexApplication
+import android.app.Application
 import android.os.Build
 import com.freestar.android.ads.AdRequest
 import com.freestar.android.ads.FreeStarAds
-import com.freestar.sample.kotlin.MainActivity
 
-class MyApplication : MultiDexApplication() {
+class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         val countryCode: String
