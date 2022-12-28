@@ -65,7 +65,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
     implementation "androidx.lifecycle:lifecycle-process:2.5.1"
 
-    implementation 'com.freestar.android.ads:freestar:5.0.3'
+    implementation 'com.freestar.android.ads:freestar:5.0.4'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.3.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
