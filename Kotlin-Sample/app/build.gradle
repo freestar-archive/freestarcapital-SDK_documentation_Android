@@ -128,6 +128,9 @@ dependencies {
     //prebid
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.0.2.1'
 
+    //fyber
+    implementation 'com.fyber:marketplace-sdk:8.2.0'
+
     //GAM mediation adapters
     implementation 'com.google.ads.mediation:applovin:11.5.5.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
