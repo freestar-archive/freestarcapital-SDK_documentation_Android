@@ -65,7 +65,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
     implementation "androidx.lifecycle:lifecycle-process:2.5.1"
 
-    implementation 'com.freestar.android.ads:freestar:5.0.4'
+    implementation 'com.freestar.android.ads:freestar:5.0.5'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.3.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
@@ -80,7 +80,7 @@ dependencies {
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.1'
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.3.0'
     implementation 'com.freestar.android.ads.yahoo:freestar-yahoo-adapter:1.14.0.3'
-    implementation 'com.freestar.android.ads.ogury:freestar-ogury-adapter:5.3.0.2'
+    implementation 'com.freestar.android.ads.ogury:freestar-ogury-adapter:5.4.0.0'
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.0.2.2'
     implementation 'com.freestar.android.ads.fyber:freestar-fyber-adapter:8.2.0.1'
 
@@ -136,6 +136,9 @@ dependencies {
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:12.11.1.0'
     implementation 'com.google.ads.mediation:facebook:6.12.0.0'
+
+    //ad quality
+    implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
 
     // test
     testImplementation 'junit:junit:4.+'
