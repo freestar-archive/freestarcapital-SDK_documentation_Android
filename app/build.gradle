@@ -55,13 +55,13 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:5.0.5'
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.3.0.0'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.0-beta03'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:21.5.0.0-beta04'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.4'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.1'
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.3.0.0'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:21.5.0.0-beta04'
     implementation 'com.freestar.android.ads.criteo:freestar-criteo-adapter:4.4.0.1'
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.1.0.1'
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.1'

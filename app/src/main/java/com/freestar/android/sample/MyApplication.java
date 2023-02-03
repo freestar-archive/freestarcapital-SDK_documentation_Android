@@ -26,6 +26,8 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.enableLogging(true);  //set false for production or don't call
         FreeStarAds.enableTestAds(true);  //set false for production or don't call
 
+        FreeStarAds.setUserId(this, "my-test-user-id");
+
         //Uncomment to utilize App Open Ads
         FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
 

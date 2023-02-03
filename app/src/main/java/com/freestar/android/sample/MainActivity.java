@@ -35,6 +35,8 @@ import com.freestar.android.ads.InterstitialAd;
 import com.freestar.android.ads.InterstitialAdListener;
 import com.freestar.android.ads.NativeAd;
 import com.freestar.android.ads.NativeAdListener;
+import com.freestar.android.ads.OnPaidEventListener;
+import com.freestar.android.ads.PaidEvent;
 import com.freestar.android.ads.PrerollAd;
 import com.freestar.android.ads.PrerollAdListener;
 import com.freestar.android.ads.RewardedAd;
@@ -53,7 +55,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener, ThumbnailAdListener {
+public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener, ThumbnailAdListener,
+        OnPaidEventListener {
 
     public static final String API_KEY = "XqjhRR"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
 
@@ -279,6 +282,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     private void loadBannerAd(final AdSize adSize, final int resBannerContainer) {
         bannerAd = new BannerAd(this);
+        bannerAd.setOnPaidEventListener(this);
         bannerAd.setAdSize(adSize);
         bannerAd.setBannerAdListener(new BannerAdListener() {
             @Override
@@ -797,5 +801,10 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     @Override
     public void onThumbnailAdDismissed(String placement) {
         ((TextView) findViewById(R.id.textView)).setText("ThumbnailAd dismissed");
+    }
+
+    @Override
+    public void onPaidEvent(PaidEvent paidEvent) {
+        ChocolateLogger.i(TAG,"onPaidEvent: " + paidEvent);
     }
 }
