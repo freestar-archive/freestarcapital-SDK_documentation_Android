@@ -29,7 +29,7 @@ public class MyApplication extends MultiDexApplication {
         FreeStarAds.setUserId(this, "my-test-user-id");
 
         //Uncomment to utilize App Open Ads
-        FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
+        //FreeStarAds.requestAppOpenAds("app_open_p2", true, null);
 
         //Turn off automated test mode just OMIT the next line
         //FreeStarAds.setAutomatedTestMode(FreeStarAds.AutomatedTestMode.LIMITED_MEDIATION);
