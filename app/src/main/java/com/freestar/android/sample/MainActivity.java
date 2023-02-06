@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         adRequest.addCustomTargeting("my custom target", "value");
         pageNum = savedInstanceState != null ? savedInstanceState.getInt("page", 0) : 0;
         setTitle("Freestar Page " + (pageNum + 1));
+        FreeStarAds.setOnPaidEventListener(this);
     }
 
     @Override
@@ -282,7 +283,6 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     private void loadBannerAd(final AdSize adSize, final int resBannerContainer) {
         bannerAd = new BannerAd(this);
-        bannerAd.setOnPaidEventListener(this);
         bannerAd.setAdSize(adSize);
         bannerAd.setBannerAdListener(new BannerAdListener() {
             @Override
