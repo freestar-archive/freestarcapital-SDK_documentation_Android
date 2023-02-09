@@ -1,10 +1,10 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { StyleSheet, Text, View, Alert, ScrollView } from 'react-native';
 import { AppRegistry, Button } from 'react-native';
 import { Dimensions } from 'react-native';
 import FreestarReactBridge from '@freestar/freestar-plugin-react-native';
 import BannerAd from '@freestar/freestar-plugin-react-native/BannerAd';
-
 import MrecBannerAd from '@freestar/freestar-plugin-react-native/MrecBannerAd';
 import SmallNativeAd from '@freestar/freestar-plugin-react-native/SmallNativeAd';
 import MediumNativeAd from '@freestar/freestar-plugin-react-native/MediumNativeAd';
@@ -49,10 +49,10 @@ export default function App(props) {
        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
             <BannerAd
-               style={{width: 320, height: 50}}
+               style={{width: 300, height: 250}}
                requestOptions={
                   {
-                     size: 'BANNER',
+                     size: 'MREC',
                      targetingParams: {
                            'someparam1': 'somevalue1',
                            'someparam2': 'somevalue2',
@@ -60,13 +60,37 @@ export default function App(props) {
                      }
                   }
                }
-               onBannerAdLoaded={handleDisplayAdLoaded}
-               onBannerAdAdFailedToLoad={handleDisplayAdFailed}
-               onBannerAdClicked={handleDisplayAdClicked}
+               onBannerAdLoaded={someBannerAdLoaded}
+               onBannerAdAdFailedToLoad={displayAdFailed}
+               onBannerAdClicked={displayAdClicked}
             />
 
       </View>
 
+      <Text> {'\n'} Freestar Ads - React Native Sample! {'\n'} </Text>
+
+       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+
+            <BannerAd
+               style={{width: 300, height: 250}}
+               requestOptions={
+                  {
+                     size: 'MREC',
+                     targetingParams: {
+                           'someparam1': 'somevalue1',
+                           'someparam2': 'somevalue2',
+                           'someparam3': 'somevalue3',
+                     }
+                  }
+               }
+               onBannerAdLoaded={someBannerAdLoaded}
+               onBannerAdAdFailedToLoad={displayAdFailed}
+               onBannerAdClicked={displayAdClicked}
+            />
+
+      </View>
+
+      <Text> {'\n'} Freestar Ads - React Native Sample! {'\n'} </Text>
 
       <SmallNativeAd
          style={{width: 360, height: 100}}
@@ -81,9 +105,65 @@ export default function App(props) {
                testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
             }
          }
-         onNativeAdLoaded={handleDisplayAdLoaded}
-         onNativeAdFailedToLoad={handleDisplayAdFailed}
-         onNativeAdClicked={handleDisplayAdClicked}
+         onNativeAdLoaded={someNativeAdLoaded}
+         onNativeAdFailedToLoad={displayAdFailed}
+      />
+
+      <Text> {'\n'} Freestar Ads - React Native Sample! {'\n'} </Text>
+
+      <SmallNativeAd
+         style={{width: 360, height: 100}}
+         requestOptions={
+            {
+               //placement: 'home_page_p1' //NOTE: if this placement has not been setup in the back-end, then do NOT specify placement
+               targetingParams: {
+                     'someparam1': 'somevalue1',
+                     'someparam2': 'somevalue2',
+                     'someparam3': 'somevalue3',
+               },
+               testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
+            }
+         }
+         onNativeAdLoaded={someNativeAdLoaded}
+         onNativeAdFailedToLoad={displayAdFailed}
+      />
+
+      <Text> {'\n'} Freestar Ads - React Native Sample! {'\n'} </Text>
+
+      <MediumNativeAd
+         style={{width: 360, height: 350}}
+         requestOptions={
+            {
+               //placement: 'home_page_p1' //NOTE: if this placement has not been setup in the back-end, then do NOT specify placement
+               targetingParams: {
+                     'someparam1': 'somevalue1',
+                     'someparam2': 'somevalue2',
+                     'someparam3': 'somevalue3',
+               },
+               testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
+            }
+         }
+         onNativeAdLoaded={someNativeAdLoaded}
+         onNativeAdFailedToLoad={displayAdFailed}
+      />
+
+      <Text> {'\n'} Freestar Ads - React Native Sample! {'\n'} </Text>
+
+      <MediumNativeAd
+         style={{width: 360, height: 350}}
+         requestOptions={
+            {
+               //placement: 'home_page_p1' //NOTE: if this placement has not been setup in the back-end, then do NOT specify placement
+               targetingParams: {
+                     'someparam1': 'somevalue1',
+                     'someparam2': 'somevalue2',
+                     'someparam3': 'somevalue3',
+               },
+               testDeviceIds: ['deviceId1','deviceId2', 'deviceId3']
+            }
+         }
+         onNativeAdLoaded={someNativeAdLoaded}
+         onNativeAdFailedToLoad={displayAdFailed}
       />
 
     </ScrollView>
@@ -93,19 +173,24 @@ export default function App(props) {
   );
 }
 
-function handleDisplayAdClicked({nativeEvent}) {
+function displayAdClicked({nativeEvent}) {
    Alert.alert('display ad clicked');
 }
 
-function handleDisplayAdLoaded({ nativeEvent }) {
-   console.log('loaded display ad. placement: ' + nativeEvent.placement + " window width: "
+function someNativeAdLoaded({ nativeEvent }) {
+   console.log('loaded native ad. placement: ' + nativeEvent.placement + " window width: "
    + Dimensions.get('window').width
    + ' winningBidder: ' + nativeEvent.winningBidder);
 }
 
-function handleDisplayAdFailed({ nativeEvent }) {
-   //console.log('failed ' + nativeEvent.errorDesc + ' ' + nativeEvent.size + ' placement: ' + nativeEvent.placement);
-   Alert.alert('failed to load display ad. error: ' + nativeEvent.errorDesc + ' placement: ' + nativeEvent.placement);
+function someBannerAdLoaded({ nativeEvent }) {
+   console.log('loaded banner ad. placement: ' + nativeEvent.placement + " window width: "
+   + Dimensions.get('window').width
+   + ' winningBidder: ' + nativeEvent.winningBidder);
+}
+
+function displayAdFailed({ nativeEvent }) {
+   Alert.alert('failed to load native ad. error: ' + nativeEvent.errorDesc + ' placement: ' + nativeEvent.placement);
 }
 
 const styles = StyleSheet.create({
@@ -119,14 +204,37 @@ const styles = StyleSheet.create({
   },
 });
 
-FreestarReactBridge.enablePartnerChooserForTesting(true);
+FreestarReactBridge.setUserId('my-test-user-id');
+FreestarReactBridge.enablePartnerChooserForTesting(false);
 FreestarReactBridge.initWithAdUnitID('XqjhRR');
+
+FreestarReactBridge.subscribeToOnPaidEvents((eventName, paidEvent) => {
+
+   if(eventName === "onPaidEvent") {
+     console.log(
+
+               "PaidEvent{ " +
+                   "adType='" + paidEvent.adType + '\'' +
+                   ", adSize='" + paidEvent.adSize + '\'' +
+                   ", placement='" + paidEvent.placement + '\'' +
+                   ", nativeAdTemplate=" + paidEvent.nativeAdTemplate +
+                   ", cpm=" + paidEvent.cpm +
+                   ", winningPartner='" + paidEvent.winningPartner + '\'' +
+                   ", winnerBidder='" + paidEvent.winningBidder + '\'' +
+                   ", userId='" + paidEvent.userId + '\'' +
+                   ", ifa='" + paidEvent.ifa + '\'' +
+                   ", status='" + paidEvent.status + '\'' +
+                   '}'
+
+     );
+   }
+});
 
 FreestarReactBridge.subscribeToInterstitialCallbacks2((eventName, placement, eventMap) => {
 
     if(eventName === "onInterstitialLoaded") {
 
-      console.log("Interstitial: " + eventMap.winningBidder);
+      console.log("Interstitial ad loaded: " + eventMap.winningBidder);
 
       if (placement == 'not defined')
          placement = null;
@@ -137,6 +245,8 @@ FreestarReactBridge.subscribeToInterstitialCallbacks2((eventName, placement, eve
       Alert.alert('Interstitial Ad clicked');
 
       } else if (eventName === "onInterstitialShown") {
+
+        console.log("Interstitial ad shown: " + eventMap.winningBidder);
 
       } else if (eventName === "onInterstitialFailed") {
 
@@ -160,7 +270,7 @@ FreestarReactBridge.subscribeToRewardCallbacks2((eventName, placement, rewardNam
 
      } else if(eventName === "onRewardedLoaded") {
 
-         console.log("Rewarded: " + eventMap.winningBidder);
+         console.log("Rewarded ad loaded: " + eventMap.winningBidder);
 
          if (placement == 'not defined')
             placement = null;
@@ -186,7 +296,7 @@ FreestarReactBridge.subscribeToThumbnailAdCallbacks((eventName, placement, event
 
     if(eventName === "onThumbnailAdLoaded") {
 
-      console.log("Thumbnail Ad: " + eventMap.winningBidder);
+      console.log("Thumbnail Ad loaded: " + eventMap.winningBidder);
 
       if (placement == 'not defined')
          placement = null;
