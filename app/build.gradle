@@ -58,7 +58,7 @@ dependencies {
     implementation 'com.freestar.android.ads:freestar:5.1.0'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
-    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.3.3.1'
+    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.5.5.0'
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.4'
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.1'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.0'
@@ -130,7 +130,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
 
     //GAM mediation adapters
-    implementation 'com.google.ads.mediation:applovin:11.5.5.0'
+    implementation 'com.google.ads.mediation:applovin:11.6.1.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:12.11.1.0'
     implementation 'com.google.ads.mediation:facebook:6.12.0.0'
@@ -142,8 +142,8 @@ dependencies {
 
     //start, test dependencies
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //end, test dependencies
 
 }
