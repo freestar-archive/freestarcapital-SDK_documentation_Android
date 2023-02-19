@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:5.1.0'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.1-beta01'
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.0'
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.5.5.0'
@@ -79,13 +79,13 @@ dependencies {
     implementation 'com.facebook.android:audience-network-sdk:6.12.0'
     implementation 'com.tapjoy:tapjoy-android-sdk:12.11.1@aar'
 
-    implementation 'com.vungle:publisher-sdk-android:6.10.5'
+    implementation 'com.vungle:publisher-sdk-android:6.12.1'
 
     //amazon tam
     implementation 'com.amazon.android:aps-sdk:9.5.3@aar'
 
     //applovin & applovinMAX
-    implementation 'com.applovin:applovin-sdk:11.5.5'
+    implementation 'com.applovin:applovin-sdk:11.6.1'
 
     //Note: If you want to use Preroll video ads, un-comment the following lines:
     //Important: Preroll is not compatible with Nimbus, so remove all 3 Nimbus
@@ -130,7 +130,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
 
     //GAM mediation adapters
-    implementation 'com.google.ads.mediation:applovin:11.6.1.0'
+    implementation 'com.google.ads.mediation:applovin:11.7.1.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:12.11.1.0'
     implementation 'com.google.ads.mediation:facebook:6.12.0.0'
