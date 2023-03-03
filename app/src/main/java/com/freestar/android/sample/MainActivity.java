@@ -192,6 +192,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     }
 
     private void loadNativeAd(int template) {
+        if (nativeAd != null) {
+            nativeAd.destroyView();
+        }
         nativeAd = new NativeAd(this);
         nativeAd.setTemplate(template);
         nativeAd.setNativeAdListener(new NativeAdListener() {
@@ -282,6 +285,10 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     }
 
     private void loadBannerAd(final AdSize adSize, final int resBannerContainer) {
+        if (bannerAd != null) {
+            bannerAd.destroyView();
+        }
+        ((ViewGroup) findViewById(resBannerContainer)).removeAllViews();
         bannerAd = new BannerAd(this);
         bannerAd.setAdSize(adSize);
         bannerAd.setBannerAdListener(new BannerAdListener() {
