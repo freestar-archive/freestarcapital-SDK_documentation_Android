@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.1.2-beta02'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.2-beta03'
 
     //Freestar Ad Quality
     implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
