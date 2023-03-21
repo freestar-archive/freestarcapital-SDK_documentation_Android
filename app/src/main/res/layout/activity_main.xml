@@ -181,8 +181,10 @@
 
         <FrameLayout
             android:id="@+id/mrec_container"
-            android:layout_width="300dp"
-            android:layout_height="250dp"/>
+            android:layout_width="350dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            />
 
         <TextView
             android:layout_marginTop="16dp"
