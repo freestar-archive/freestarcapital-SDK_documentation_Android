@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.1.2-beta06'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.2-beta07'
 
     //Freestar Ad Quality
     implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
@@ -64,22 +64,22 @@ dependencies {
     implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.0'
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.0'
     implementation 'com.google.android.gms:play-services-ads:21.5.0'
-    implementation 'com.facebook.android:audience-network-sdk:6.12.0' //req'd for mediation in GAM
+    implementation 'com.facebook.android:audience-network-sdk:6.13.7' //req'd for mediation in GAM
 
     //GAM mediation adapters
-    implementation 'com.google.ads.mediation:applovin:11.5.5.0'
+    implementation 'com.google.ads.mediation:applovin:11.8.2.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:12.11.1.0'
-    implementation 'com.google.ads.mediation:facebook:6.12.0.0'
+    implementation 'com.google.ads.mediation:facebook:6.13.7.0'
 
     //AppLovin, AppLovinMAX
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter:11.3.3.1'
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter:11.5.5.0'
-    implementation 'com.applovin:applovin-sdk:11.5.5'
+    implementation 'com.applovin:applovin-sdk:11.8.2'
 
     //Amazon TAM (Transparent Ads Marketplace)
-    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.4'
-    implementation 'com.amazon.android:aps-sdk:9.5.3@aar'
+    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter-beta:9.7.0.0-beta01'
+    implementation 'com.amazon.android:aps-sdk:9.7.0@aar'
 
     //AdColony
     implementation 'com.freestar.android.ads.adcolony:freestar-adcolony-adapter:4.6.5.1'
