@@ -308,7 +308,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         }
         ((ViewGroup) findViewById(resBannerContainer)).removeAllViews();
         bannerAd = new BannerAd(this);
-        bannerAd.setBannerAdSizeChangedListener(this);
+        bannerAd.setOnBannerAdSizeChangedListener(this);
         bannerAd.setAdSize(adSize);
         bannerAd.setBannerAdListener(new BannerAdListener() {
             @Override
