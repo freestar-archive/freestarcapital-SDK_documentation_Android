@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,6 +29,7 @@ import com.freestar.android.ads.AdRequest;
 import com.freestar.android.ads.AdSize;
 import com.freestar.android.ads.BannerAd;
 import com.freestar.android.ads.BannerAdListener;
+import com.freestar.android.ads.OnBannerAdSizeChangedListener;
 import com.freestar.android.ads.ChocolateLogger;
 import com.freestar.android.ads.ErrorCodes;
 import com.freestar.android.ads.FreeStarAds;
@@ -55,8 +57,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity implements RewardedAdListener, InterstitialAdListener, PrerollAdListener, ThumbnailAdListener,
-        OnPaidEventListener {
+public class MainActivity extends AppCompatActivity implements RewardedAdListener,
+        InterstitialAdListener, PrerollAdListener, ThumbnailAdListener,
+        OnPaidEventListener, OnBannerAdSizeChangedListener {
 
     public static final String API_KEY = "XqjhRR"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
 
@@ -192,6 +195,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     }
 
     private void loadNativeAd(int template) {
+        if (nativeAd != null) {
+            nativeAd.destroyView();
+        }
         nativeAd = new NativeAd(this);
         nativeAd.setTemplate(template);
         nativeAd.setNativeAdListener(new NativeAdListener() {
@@ -281,8 +287,28 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).forceLayout();
     }
 
+    @Override
+    public void onBannerAdSizeChanged(AdSize adSize, boolean isNativeAd) {
+        ChocolateLogger.i(TAG,"onBannerAdSizeChanged: " + adSize + " isNative: " + isNativeAd);
+        if (adSize.equals(AdSize.NATIVE)) {
+            findViewById(R.id.mrec_container)
+                    .setLayoutParams(new LinearLayout.LayoutParams(dpToPx(350),dpToPx(280)));
+        } else if (adSize.equals(AdSize.BANNER_320_50)) {
+            findViewById(R.id.mrec_container)
+                    .setLayoutParams(new LinearLayout.LayoutParams(dpToPx(320),dpToPx(50)));
+        } else if (adSize.equals(AdSize.MEDIUM_RECTANGLE_300_250)) { //mrec
+            findViewById(R.id.mrec_container)
+                    .setLayoutParams(new LinearLayout.LayoutParams(dpToPx(300),dpToPx(250)));
+        }
+    }
+
     private void loadBannerAd(final AdSize adSize, final int resBannerContainer) {
+        if (bannerAd != null) {
+            bannerAd.destroyView();
+        }
+        ((ViewGroup) findViewById(resBannerContainer)).removeAllViews();
         bannerAd = new BannerAd(this);
+        bannerAd.setOnBannerAdSizeChangedListener(this);
         bannerAd.setAdSize(adSize);
         bannerAd.setBannerAdListener(new BannerAdListener() {
             @Override
@@ -806,5 +832,13 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     @Override
     public void onPaidEvent(PaidEvent paidEvent) {
         ChocolateLogger.i(TAG,"onPaidEvent: " + paidEvent);
+    }
+
+    private int dpToPx(int dp) {
+        return (int)TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dp,
+                getResources().getDisplayMetrics()
+        );
     }
 }
