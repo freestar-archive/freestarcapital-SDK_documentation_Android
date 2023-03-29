@@ -78,7 +78,7 @@ dependencies {
     implementation 'com.applovin:applovin-sdk:11.8.2'
 
     //Amazon TAM (Transparent Ads Marketplace)
-    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:8.4.3.4'
+    implementation 'com.freestar.android.ads.tam:freestar-tam-adapter:9.7.0.0'
     implementation 'com.amazon.android:aps-sdk:9.7.0@aar'
 
     //AdColony
