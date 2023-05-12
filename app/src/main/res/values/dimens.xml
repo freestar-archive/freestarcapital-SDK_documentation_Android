@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <dimen name="fs_nt_medium_ad_template_height">300dp</dimen>   <!-- anurag changed from 350 -->
+  <dimen name="fs_nt_ad_media_height">140dp</dimen> <!-- anurag changed from 200 -->
+  <dimen name="fs_nt_ad_icon_size">62dp</dimen>
+
+
+</resources>
