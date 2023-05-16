@@ -108,8 +108,8 @@ dependencies {
 
     //Nimbus
     implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.1.1.0'
-    implementation "com.adsbynimbus.android:nimbus:2.8.0"
-    implementation "com.adsbynimbus.android:extension-facebook:2.8.0"
+    implementation "com.adsbynimbus.android:nimbus:2.5.0"
+    implementation "com.adsbynimbus.android:extension-facebook:2.5.0"
 
     //Pangle
     implementation 'com.freestar.android.ads.pangle:freestar-pangle-adapter:3.6.0.1'
