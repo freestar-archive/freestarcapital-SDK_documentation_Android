@@ -246,7 +246,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- disclaimer_container only for yahoo/verizon (vz_*) -->
+    <!-- contains sponsor info - only pertains to prebid partner -->
     <FrameLayout
         android:id="@+id/disclaimer_container"
         android:layout_width="wrap_content"
