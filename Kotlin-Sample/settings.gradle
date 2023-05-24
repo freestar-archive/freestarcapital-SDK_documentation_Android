@@ -20,6 +20,7 @@ dependencyResolutionManagement {
         maven { url "https://sdk.tapjoy.com/" }
         maven { url "https://hyprmx.jfrog.io/artifactory/hyprmx" }
         maven { url "https://maven.ogury.co" }
+        maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }
     }
 }
 rootProject.name = "FreestarKotlin"

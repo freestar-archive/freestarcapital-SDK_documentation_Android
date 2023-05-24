@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:5.1.4'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.4-beta02'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.5.1'
@@ -137,6 +137,15 @@ dependencies {
     //Fyber
     implementation 'com.freestar.android.ads.fyber:freestar-fyber-adapter:8.2.0.1'
     implementation 'com.fyber:marketplace-sdk:8.2.0'
+
+    //smaato
+    implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter-beta:22.1.1.0-beta01'
+    implementation 'com.smaato.android.sdk:smaato-sdk-unified-bidding:22.1.1'
+    implementation 'com.smaato.android.sdk:smaato-sdk:22.1.1'
+    implementation 'com.smaato.android.sdk:smaato-sdk-native:22.1.1'
+    implementation 'com.smaato.android.sdk:smaato-sdk-banner:22.1.1'
+    implementation 'com.smaato.android.sdk:smaato-sdk-interstitial:22.1.1'
+    implementation 'com.smaato.android.sdk:smaato-sdk-rewarded-ads:22.1.1'
 
     //uncomment if your app is a React Native app
     //implementation 'com.freestar.android.ads:react-native-android:1.2.1'

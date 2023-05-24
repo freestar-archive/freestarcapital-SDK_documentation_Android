@@ -27,6 +27,7 @@ allprojects {
         maven { url 'https://adsbynimbus-public.s3.amazonaws.com/android/sdks' }
         maven { url 'https://artifactory.verizonmedia.com/artifactory/maven/' }
         maven { url "https://maven.ogury.co" }
+        maven { url "https://s3.amazonaws.com/smaato-sdk-releases/" }
     }
 }
 

@@ -5,16 +5,12 @@ import android.content.Context
 import android.content.DialogInterface
 import com.freestar.android.ads.AdRequest
 import com.freestar.android.ads.LVDOConstants.PARTNER
-import java.util.*
+import java.util.Collections
 
 /**
  * Only for testing purposes!
  */
 object MediationPartners {
-    private const val numInterstitial = 14
-    private const val numRewarded = 13
-    private const val numInview = 13
-    private const val numPreroll = 2
     const val ADTYPE_INTERSTITIAL = 0
     const val ADTYPE_REWARDED = 1
     const val ADTYPE_BANNER = 2
@@ -23,13 +19,40 @@ object MediationPartners {
     /**
      * INTERSTITIAL
      */
-    private val interstitial_partners = arrayOfNulls<String>(numInterstitial)
-    private val interstitial_parters_selected = BooleanArray(numInterstitial)
+    private val sInterstitialPartners: MutableList<String> = ArrayList(30)
+    private val sSelectedInterstitialPartners: BooleanArray
+
+    init {
+        sInterstitialPartners.add(PARTNER.ADCOLONY.name)
+        sInterstitialPartners.add(PARTNER.APPLOVIN.name)
+        sInterstitialPartners.add(PARTNER.APPLOVINMAX.name)
+        sInterstitialPartners.add(PARTNER.CRITEO.name)
+        sInterstitialPartners.add(PARTNER.GOOGLEADMOB.name)
+        sInterstitialPartners.add(PARTNER.GOOGLE.name)
+        sInterstitialPartners.add(PARTNER.HYPRMX.name)
+        sInterstitialPartners.add(PARTNER.NIMBUS.name)
+        sInterstitialPartners.add(PARTNER.PANGLE.name)
+        sInterstitialPartners.add(PARTNER.TAM.name)
+        sInterstitialPartners.add(PARTNER.TAPJOY.name)
+        sInterstitialPartners.add(PARTNER.UNITY.name)
+        sInterstitialPartners.add(PARTNER.VUNGLE.name)
+        sInterstitialPartners.add(PARTNER.YAHOO.name)
+        sInterstitialPartners.add(PARTNER.PREBID.name)
+        sInterstitialPartners.add(PARTNER.OGURY.name)
+        sInterstitialPartners.add(PARTNER.FYBER.name)
+        sInterstitialPartners.add(PARTNER.SMAATO.name)
+        Collections.sort(sInterstitialPartners)
+        sSelectedInterstitialPartners = BooleanArray(sInterstitialPartners.size)
+        for (i in sInterstitialPartners.indices) {
+            sSelectedInterstitialPartners[i] = true
+        }
+    }
+
     private fun setInterstitialPartners(adRequest: AdRequest): List<PARTNER> {
-        val list: MutableList<PARTNER> = ArrayList(numInterstitial)
-        for (i in 0 until numInterstitial) {
-            if (interstitial_parters_selected[i]) {
-                list.add(PARTNER.valueOf(interstitial_partners[i]!!))
+        val list: MutableList<PARTNER> = ArrayList(sInterstitialPartners.size)
+        for (i in sInterstitialPartners.indices) {
+            if (sSelectedInterstitialPartners[i]) {
+                list.add(PARTNER.valueOf(sInterstitialPartners[i]))
             }
         }
         adRequest.partnerNames = list
@@ -39,13 +62,38 @@ object MediationPartners {
     /**
      * REWARDED
      */
-    private val rewarded_partners = arrayOfNulls<String>(numRewarded)
-    private val rewarded_parters_selected = BooleanArray(numRewarded)
+    private val sRewardedPartners: MutableList<String> = ArrayList(30)
+    private val sSelectedRewardedPartners: BooleanArray
+
+    init {
+        sRewardedPartners.add(PARTNER.ADCOLONY.name)
+        sRewardedPartners.add(PARTNER.APPLOVIN.name)
+        sRewardedPartners.add(PARTNER.APPLOVINMAX.name)
+        sRewardedPartners.add(PARTNER.CRITEO.name)
+        sRewardedPartners.add(PARTNER.GOOGLEADMOB.name)
+        sRewardedPartners.add(PARTNER.GOOGLE.name)
+        sRewardedPartners.add(PARTNER.NIMBUS.name)
+        sRewardedPartners.add(PARTNER.TAPJOY.name)
+        sRewardedPartners.add(PARTNER.UNITY.name)
+        sRewardedPartners.add(PARTNER.VUNGLE.name)
+        sRewardedPartners.add(PARTNER.PANGLE.name)
+        sRewardedPartners.add(PARTNER.HYPRMX.name)
+        sRewardedPartners.add(PARTNER.PREBID.name)
+        sRewardedPartners.add(PARTNER.OGURY.name)
+        sRewardedPartners.add(PARTNER.FYBER.name)
+        sRewardedPartners.add(PARTNER.SMAATO.name)
+        Collections.sort(sRewardedPartners)
+        sSelectedRewardedPartners = BooleanArray(sRewardedPartners.size)
+        for (i in sRewardedPartners.indices) {
+            sSelectedRewardedPartners[i] = true
+        }
+    }
+
     private fun setRewardedPartners(adRequest: AdRequest): List<PARTNER> {
-        val list: MutableList<PARTNER> = ArrayList(numRewarded)
-        for (i in 0 until numRewarded) {
-            if (rewarded_parters_selected[i]) {
-                list.add(PARTNER.valueOf(rewarded_partners[i]!!))
+        val list: MutableList<PARTNER> = ArrayList(sRewardedPartners.size)
+        for (i in sRewardedPartners.indices) {
+            if (sSelectedRewardedPartners[i]) {
+                list.add(PARTNER.valueOf(sRewardedPartners[i]))
             }
         }
         adRequest.partnerNames = list
@@ -55,13 +103,39 @@ object MediationPartners {
     /**
      * NATIVE INVIEW
      */
-    private val inview_partners = arrayOfNulls<String>(numInview)
-    private val inview_parters_selected = BooleanArray(numInview)
+    private val sBannerPartners: MutableList<String> = ArrayList(30)
+    private val sSelectedBannerPartners: BooleanArray
+
+    init {
+        sBannerPartners.add(PARTNER.TAM.name)
+        sBannerPartners.add(PARTNER.ADCOLONY.name)
+        sBannerPartners.add(PARTNER.APPLOVIN.name)
+        sBannerPartners.add(PARTNER.APPLOVINMAX.name)
+        sBannerPartners.add(PARTNER.CRITEO.name)
+        sBannerPartners.add(PARTNER.GOOGLEADMOB.name)
+        sBannerPartners.add(PARTNER.GOOGLE.name)
+        sBannerPartners.add(PARTNER.NIMBUS.name)
+        sBannerPartners.add(PARTNER.UNITY.name)
+        sBannerPartners.add(PARTNER.PANGLE.name)
+        sBannerPartners.add(PARTNER.VUNGLE.name)
+        sBannerPartners.add(PARTNER.HYPRMX.name)
+        sBannerPartners.add(PARTNER.YAHOO.name)
+        sBannerPartners.add(PARTNER.PREBID.name)
+        sBannerPartners.add(PARTNER.OGURY.name)
+        sBannerPartners.add(PARTNER.FYBER.name)
+        sBannerPartners.add(PARTNER.SMAATO.name)
+        Collections.sort(sBannerPartners)
+        sSelectedBannerPartners = BooleanArray(sBannerPartners.size)
+        for (i in sBannerPartners.indices) {
+            sSelectedBannerPartners[i] = true
+        }
+    }
+
     private fun setInviewPartners(adRequest: AdRequest): List<PARTNER> {
-        val list: MutableList<PARTNER> = ArrayList(numInview)
-        for (i in 0 until numInview) {
-            if (inview_parters_selected[i]) {
-                list.add(PARTNER.valueOf(inview_partners[i]!!))
+        val list: MutableList<PARTNER> = ArrayList(sBannerPartners.size)
+        for (i in sBannerPartners.indices) {
+            if (sSelectedBannerPartners[i]) {
+                list.add(PARTNER.valueOf(sBannerPartners[i]))
             }
         }
         adRequest.partnerNames = list
@@ -71,13 +145,24 @@ object MediationPartners {
     /**
      * PRE-ROLL
      */
-    private val preroll_partners = arrayOfNulls<String>(numPreroll)
-    private val preroll_parters_selected = BooleanArray(numPreroll)
+    private val sPrerollPartners: MutableList<String> = ArrayList(30)
+    private val sSelectedPrerollPartners: BooleanArray
+
+    init {
+        sPrerollPartners.add(PARTNER.GOOGLE.name)
+        sPrerollPartners.add(PARTNER.NIMBUS.name)
+        Collections.sort(sPrerollPartners)
+        sSelectedPrerollPartners = BooleanArray(sPrerollPartners.size)
+        for (i in sPrerollPartners.indices) {
+            sSelectedPrerollPartners[i] = true
+        }
+    }
+
     private fun setPrerollPartners(adRequest: AdRequest): List<PARTNER> {
-        val list: MutableList<PARTNER> = ArrayList(numPreroll)
-        for (i in 0 until numPreroll) {
-            if (preroll_parters_selected[i]) {
-                list.add(PARTNER.valueOf(preroll_partners[i]!!))
+        val list: MutableList<PARTNER> = ArrayList(sPrerollPartners.size)
+        for (i in sPrerollPartners.indices) {
+            if (sSelectedPrerollPartners[i]) {
+                list.add(PARTNER.valueOf(sPrerollPartners[i]))
             }
         }
         adRequest.partnerNames = list
@@ -89,7 +174,6 @@ object MediationPartners {
      * @param context
      * @param listener
      */
-    @JvmStatic
     fun choosePartners(
         context: Context?,
         adRequest: AdRequest,
@@ -100,20 +184,22 @@ object MediationPartners {
         val selected: BooleanArray
         val title: String
         if (adUnitType == ADTYPE_INTERSTITIAL) {
-            partners = interstitial_partners
-            selected = interstitial_parters_selected
+            //partners = arrayOfNulls(sInterstitialPartners.size)
+            //sInterstitialPartners.toArray<String>(partners)
+            partners = sInterstitialPartners.toTypedArray()
+            selected = sSelectedInterstitialPartners
             title = "Interstitial"
         } else if (adUnitType == ADTYPE_REWARDED) {
-            partners = rewarded_partners
-            selected = rewarded_parters_selected
+            partners = sRewardedPartners.toTypedArray()
+            selected = sSelectedRewardedPartners
             title = "Rewarded"
         } else if (adUnitType == ADTYPE_BANNER) {
-            partners = inview_partners
-            selected = inview_parters_selected
+            partners = sBannerPartners.toTypedArray()
+            selected = sSelectedBannerPartners
             title = "Display"
         } else {
-            partners = preroll_partners
-            selected = preroll_parters_selected
+            partners = sPrerollPartners.toTypedArray()
+            selected = sSelectedPrerollPartners
             title = "Pre-Roll"
         }
         //w/out the listener, even though it does nothing, things don't work so well
@@ -126,8 +212,7 @@ object MediationPartners {
                     ADTYPE_BANNER -> setInviewPartners(adRequest)
                     ADTYPE_PREROLL -> setPrerollPartners(adRequest)
                     ADTYPE_REWARDED -> setRewardedPartners(adRequest)
-                    else -> {
-                    }
+                    else -> {}
                 }
                 listener.onClick(dialog, which)
             }
@@ -147,25 +232,25 @@ object MediationPartners {
         val chosen: Array<String?>
         val total: Int
         if (adUnitType == ADTYPE_INTERSTITIAL) {
-            partners = interstitial_partners
-            selected = interstitial_parters_selected
-            total = numInterstitial
-            chosen = arrayOfNulls(numInterstitial)
+            partners = sInterstitialPartners.toTypedArray()
+            selected = sSelectedInterstitialPartners
+            total = sInterstitialPartners.size
+            chosen = arrayOfNulls(sInterstitialPartners.size)
         } else if (adUnitType == ADTYPE_REWARDED) {
-            partners = rewarded_partners
-            selected = rewarded_parters_selected
-            total = numRewarded
-            chosen = arrayOfNulls(numRewarded)
+            partners = sRewardedPartners.toTypedArray()
+            selected = sSelectedRewardedPartners
+            total = sRewardedPartners.size
+            chosen = arrayOfNulls(sRewardedPartners.size)
         } else if (adUnitType == ADTYPE_BANNER) {
-            partners = inview_partners
-            selected = inview_parters_selected
-            total = numInview
-            chosen = arrayOfNulls(numInview)
+            partners = sBannerPartners.toTypedArray()
+            selected = sSelectedBannerPartners
+            total = sBannerPartners.size
+            chosen = arrayOfNulls(sBannerPartners.size)
         } else {
-            partners = preroll_partners
-            selected = preroll_parters_selected
-            total = numPreroll
-            chosen = arrayOfNulls(numPreroll)
+            partners = sPrerollPartners.toTypedArray()
+            selected = sSelectedPrerollPartners
+            total = sPrerollPartners.size
+            chosen = arrayOfNulls(sPrerollPartners.size)
         }
         var j = 0
         for (i in 0 until total) {
@@ -174,83 +259,5 @@ object MediationPartners {
             }
         }
         return chosen
-    }
-
-    init {
-        interstitial_partners[0] = PARTNER.TAM.name
-        interstitial_partners[1] = PARTNER.ADCOLONY.name
-        interstitial_partners[2] = PARTNER.APPLOVIN.name
-        interstitial_partners[3] = PARTNER.CRITEO.name
-        interstitial_partners[4] = PARTNER.FACEBOOK.name
-        interstitial_partners[5] = PARTNER.GOOGLEADMOB.name
-        interstitial_partners[6] = PARTNER.GOOGLE.name
-        interstitial_partners[7] = PARTNER.MOPUB.name
-        interstitial_partners[8] = PARTNER.NIMBUS.name
-        interstitial_partners[9] = PARTNER.TAPJOY.name
-        interstitial_partners[10] = PARTNER.UNITY.name
-        interstitial_partners[11] = PARTNER.VUNGLE.name
-        interstitial_partners[12] = PARTNER.PANGLE.name
-        interstitial_partners[13] = PARTNER.HYPRMX.name
-    }
-
-    init {
-        for (i in 0 until numInterstitial) {
-            interstitial_parters_selected[i] = true
-        }
-    }
-
-    init {
-        rewarded_partners[0] = PARTNER.ADCOLONY.name
-        rewarded_partners[1] = PARTNER.APPLOVIN.name
-        rewarded_partners[2] = PARTNER.CRITEO.name
-        rewarded_partners[3] = PARTNER.FACEBOOK.name
-        rewarded_partners[4] = PARTNER.GOOGLEADMOB.name
-        rewarded_partners[5] = PARTNER.GOOGLE.name
-        rewarded_partners[6] = PARTNER.MOPUB.name
-        rewarded_partners[7] = PARTNER.NIMBUS.name
-        rewarded_partners[8] = PARTNER.TAPJOY.name
-        rewarded_partners[9] = PARTNER.UNITY.name
-        rewarded_partners[10] = PARTNER.VUNGLE.name
-        rewarded_partners[11] = PARTNER.PANGLE.name
-        rewarded_partners[12] = PARTNER.HYPRMX.name
-    }
-
-    init {
-        for (i in 0 until numRewarded) {
-            rewarded_parters_selected[i] = true
-        }
-    }
-
-    init {
-        inview_partners[0] = PARTNER.TAM.name
-        inview_partners[1] = PARTNER.ADCOLONY.name
-        inview_partners[2] = PARTNER.APPLOVIN.name
-        inview_partners[3] = PARTNER.CRITEO.name
-        inview_partners[4] = PARTNER.FACEBOOK.name
-        inview_partners[5] = PARTNER.GOOGLEADMOB.name
-        inview_partners[6] = PARTNER.GOOGLE.name
-        inview_partners[7] = PARTNER.MOPUB.name
-        inview_partners[8] = PARTNER.NIMBUS.name
-        inview_partners[9] = PARTNER.UNITY.name
-        inview_partners[10] = PARTNER.PANGLE.name
-        inview_partners[11] = PARTNER.VUNGLE.name
-        inview_partners[12] = PARTNER.HYPRMX.name
-    }
-
-    init {
-        for (i in 0 until numInview) {
-            inview_parters_selected[i] = true
-        }
-    }
-
-    init {
-        preroll_partners[0] = PARTNER.GOOGLE.name
-        preroll_partners[1] = PARTNER.NIMBUS.name
-    }
-
-    init {
-        for (i in 0 until numPreroll) {
-            preroll_parters_selected[i] = true
-        }
     }
 }
