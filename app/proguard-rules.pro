@@ -148,3 +148,11 @@
 # ogury
 -keep class com.ogury.** {*;}
 -keep interface com.ogury.** {*;}
+
+# fyber
+-keep class com.fyber.** {*;}
+-keep interface com.fyber.** {*;}
+
+# smaato
+-keep class com.smaato.** { *; }
+-keep interface com.smaato.** { *; }
