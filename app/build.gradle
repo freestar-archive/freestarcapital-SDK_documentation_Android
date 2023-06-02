@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar:5.1.4'
+    implementation 'com.freestar.android.ads:freestar-beta:5.1.4-beta02'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.5.1'
@@ -120,8 +120,8 @@ dependencies {
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //Prebid
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.1'
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.1'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter-beta:2.1.0.2-beta01'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
     implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
