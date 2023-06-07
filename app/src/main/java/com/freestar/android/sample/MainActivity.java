@@ -285,6 +285,8 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).removeAllViews();
         ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).setLayoutParams(params);
         ((FrameLayout) findViewById(R.id.banner_wrap_wrap)).forceLayout();
+
+        ((FrameLayout) findViewById(R.id.mrec_container)).removeAllViews();
     }
 
     @Override
