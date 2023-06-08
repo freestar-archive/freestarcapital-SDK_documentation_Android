@@ -120,7 +120,7 @@ dependencies {
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //Prebid
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter-beta:2.1.0.2-beta01'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.2'
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
