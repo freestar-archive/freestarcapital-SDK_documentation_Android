@@ -59,7 +59,7 @@ dependencies {
     implementation "com.google.code.gson:gson:2.8.5"
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.1.4-beta02'
+    implementation 'com.freestar.android.ads:freestar:5.1.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-runtime:2.5.1'
@@ -124,8 +124,8 @@ dependencies {
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //Prebid
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.1'
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.1'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.2'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
     implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
@@ -143,7 +143,7 @@ dependencies {
     implementation 'com.fyber:marketplace-sdk:8.2.0'
 
     //smaato
-    implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter-beta:22.1.1.0-beta01'
+    implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter:22.1.1.0'
     implementation 'com.smaato.android.sdk:smaato-sdk-unified-bidding:22.1.1'
     implementation 'com.smaato.android.sdk:smaato-sdk:22.1.1'
     implementation 'com.smaato.android.sdk:smaato-sdk-native:22.1.1'
