@@ -139,7 +139,7 @@ dependencies {
     implementation 'com.fyber:marketplace-sdk:8.2.0'
 
     //Smaato
-    implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter-beta:22.1.1.1-beta02'
+    implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter:22.1.1.1'
     implementation 'com.smaato.android.sdk:smaato-sdk:22.1.1'
     implementation 'com.smaato.android.sdk:smaato-sdk-native:22.1.1'
     implementation 'com.smaato.android.sdk:smaato-sdk-banner:22.1.1'
