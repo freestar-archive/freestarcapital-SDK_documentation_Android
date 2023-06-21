@@ -140,7 +140,7 @@ dependencies {
 
     //Fyber
     implementation 'com.freestar.android.ads.fyber:freestar-fyber-adapter:8.2.0.1'
-    implementation 'com.fyber:marketplace-sdk:8.2.0'
+    implementation 'com.fyber:marketplace-sdk:8.2.3'
 
     //Smaato
     implementation 'com.freestar.android.ads.smaato:freestar-smaato-adapter:22.1.1.1'
