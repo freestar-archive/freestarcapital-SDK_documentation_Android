@@ -125,10 +125,10 @@ dependencies {
 
     //Prebid
     implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.2'
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.0.2'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
-    implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.1.0'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.19.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.0'
+    implementation 'com.google.android.exoplayer:extension-ima:2.19.0'
 
     //HyprMX
     implementation 'com.freestar.android.ads.hyprmx:freestar-hyprmx-adapter:6.0.3.0'
