@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         pageNum = savedInstanceState != null ? savedInstanceState.getInt("page", 0) : 0;
         setTitle("Freestar Page " + (pageNum + 1));
         FreeStarAds.setOnPaidEventListener(this);
+        FreeStarAds.setUserIdentityAsEmail("test@liveramp.com", false);
     }
 
     @Override
