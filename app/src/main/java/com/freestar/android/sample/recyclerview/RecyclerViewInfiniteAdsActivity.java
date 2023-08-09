@@ -120,16 +120,31 @@ public class RecyclerViewInfiniteAdsActivity extends AppCompatActivity implement
         }
         if (!flip) {
             flip = true;
+            cleanupBannerAd();
             bannerAd = new BannerAd(this);
             bannerAd.setBannerAdListener(this);
             bannerAd.setAdSize(AdSize.MEDIUM_RECTANGLE_300_250);
             bannerAd.loadAd(adRequest);
         } else {
             flip = false;
+            cleanupNativeAd();
             nativeAd = new NativeAd(this);
             nativeAd.setTemplate(NativeAd.TEMPLATE_MEDIUM);
             nativeAd.setNativeAdListener(this);
             nativeAd.loadAd(adRequest);
+        }
+    }
+
+    private void cleanupBannerAd() {
+        if (bannerAd != null) {
+            bannerAd.destroyView();
+            bannerAd = null;
+        }
+    }
+    private void cleanupNativeAd() {
+        if (nativeAd != null) {
+            nativeAd.destroyView();
+            nativeAd = null;
         }
     }
 
@@ -207,6 +222,8 @@ public class RecyclerViewInfiniteAdsActivity extends AppCompatActivity implement
     protected void onDestroy() {
         super.onDestroy();
         adapter.cleanupAll();
+        cleanupNativeAd();
+        cleanupBannerAd();
     }
 
     @Override
