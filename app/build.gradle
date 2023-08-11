@@ -81,11 +81,11 @@ dependencies {
     implementation "androidx.room:room-ktx:2.5.2"
 
     //Google Ads Manager (GAM)
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.1'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:22.2.0.0-beta01'
     implementation 'com.google.android.gms:play-services-ads:22.2.0'
 
     //AdMob
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.1'
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:22.2.0.0-beta01'
     implementation 'com.google.android.gms:play-services-ads:22.2.0'  //can remove if already used
 
     //GAM mediation adapters
