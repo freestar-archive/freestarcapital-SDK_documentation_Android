@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         InterstitialAdListener, PrerollAdListener, ThumbnailAdListener,
         OnPaidEventListener, OnBannerAdSizeChangedListener {
 
-    public static final String API_KEY = "XqjhRR"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
+    public static final String API_KEY = "f7bee8c9-f7e9-4289-908a-a84eaa8f98eb"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
 
     private static final String TAG = "FsMainActivity";
     private static final boolean DO_CHOOSE_PARTNERS = true; //purely for demonstration purposes.  set false later.
