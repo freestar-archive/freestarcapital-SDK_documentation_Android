@@ -70,12 +70,12 @@ dependencies {
     implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
 
     //Google Ads Manager (GAM)
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:21.5.0.1'
-    implementation 'com.google.android.gms:play-services-ads:22.1.0'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter:22.2.0.0'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
 
     //AdMob
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:21.5.0.1'
-    implementation 'com.google.android.gms:play-services-ads:22.1.0'  //can remove if already used
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:22.2.0.0'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'  //can remove if already used
 
     //GAM mediation adapters
     implementation 'com.google.ads.mediation:applovin:11.10.1.0'
@@ -125,8 +125,8 @@ dependencies {
     implementation 'com.pangle.global:ads-sdk:3.7.1.4'
 
     //Prebid
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.0.2'
-    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.1.0'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-adapter:2.1.1.1'
+    implementation 'com.freestar.android.ads.prebid:freestar-prebid-core:2.1.1.1'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.19.0'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.0'
     implementation 'com.google.android.exoplayer:extension-ima:2.19.0'
@@ -160,10 +160,10 @@ dependencies {
     //dependencies (above) before using Preroll video ads (freestar-nimbus-adapter,
     //and nimbus section).
     //start preroll
-    //implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.24.0'
-    //implementation 'com.google.android.exoplayer:exoplayer-core:2.15.1'
-    //implementation 'com.google.android.exoplayer:exoplayer-ui:2.15.1'
-    //implementation 'com.google.android.exoplayer:extension-ima:2.15.1'
+    //implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.28.0'
+    //implementation 'com.google.android.exoplayer:exoplayer-core:2.19.0'
+    //implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.0'
+    //implementation 'com.google.android.exoplayer:extension-ima:2.19.0'
     //end preroll
 
     //end, FreeStar
