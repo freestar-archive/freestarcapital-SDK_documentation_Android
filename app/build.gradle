@@ -96,7 +96,7 @@ dependencies {
     implementation 'com.facebook.android:audience-network-sdk:6.14.0' //req'd for mediation in GAM
 
     //AppLovinMAX
-    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.10.1.0-beta01'
+    implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.10.1.0-beta02'
     implementation 'com.applovin:applovin-sdk:11.10.1'
 
     //AppLovin
