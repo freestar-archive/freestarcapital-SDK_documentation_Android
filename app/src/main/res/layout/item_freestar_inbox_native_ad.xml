@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/native_ad_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/media_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="@dimen/dp_18"
+        android:layout_marginHorizontal="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <FrameLayout
+            android:id="@+id/icon_container"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_weight="0"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/applovin_icon_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/dp_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_container"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/fs_nt_text_row_weight"
+                android:background="@color/fs_nt_headline_bg_color"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/row_two"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:id="@+id/primary_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/email_ui_text_unread"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        tools:text='Free Human Resources'
+                        android:textSize="@dimen/font_size_16"
+                        android:textStyle="bold" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_two"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_weight="@dimen/fs_nt_text_row_weight"
+                android:layout_marginTop="@dimen/dp_2"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@id/cta_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline">
+
+                <TextView
+                    android:id="@+id/ad_notification_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/freestar_native_rounded_corners_shape"
+                    android:layout_gravity="center_vertical"
+                    android:paddingHorizontal="3dp"
+                    android:paddingVertical="1dp"
+                    android:text="@string/ad"
+                    android:textColor="@color/email_ui_light_blue"
+                    android:textSize="@dimen/font_size_8"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/ad_subject"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="4dp"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:ellipsize="end"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/email_ui_text_unread"-->
+<!--                    android:textSize="@dimen/font_size_14"-->
+<!--                    tools:text='Search for free human resources' />-->
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/fs_nt_no_margin"
+                    android:layout_marginTop="@dimen/fs_nt_no_margin"
+                    android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                    android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                    android:background="@color/fs_nt_white"
+                    android:lines="0"
+                    android:numStars="0"
+                    android:textColor="@color/fs_nt_gray"
+                    android:textSize="@dimen/fs_nt_text_size_small"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/ad_notification_view"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </RatingBar>
+
+                <FrameLayout
+                    android:id="@+id/secondary_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fs_nt_no_margin"
+                    android:layout_marginTop="@dimen/fs_nt_no_margin"
+                    android:layout_marginEnd="@dimen/fs_nt_no_margin"
+                    android:layout_marginBottom="@dimen/fs_nt_no_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ad_notification_view"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:textStyle="bold"
+                        android:textColor="@color/email_ui_text_unread"
+                        android:textSize="@dimen/font_size_14"
+                        tools:text='Search for free human resources'/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row_three"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@id/cta_container"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/row_two">
+
+<!--                app:layout_constraintEnd_toStartOf="@id/spon_cta"-->
+<!--                app:layout_constraintStart_toStartOf="@id/spon_sender"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/spon_subject"-->
+
+                    <TextView
+                        android:id="@+id/body"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="@dimen/font_size_14"
+                        android:textColor="@color/email_iap_walkthrough_unselected_text"
+
+                        tools:text='free human resources app what if this text is very long then what' />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/cta_container"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="@id/gl_cta_start"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headline"
+                app:layout_constraintBottom_toBottomOf="@id/row_three">
+
+<!--                android:background="@drawable/bg_button_cta_inbox_native"
+android:theme="@style/material_button_minimal_letter_spacing"
+-->
+
+
+                <Button
+                    android:id="@+id/cta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+
+
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:paddingHorizontal="@dimen/dp_15"
+                    android:textAllCaps="false"
+                    android:stateListAnimator="@null"
+                    tools:text="See it"
+                    android:textColor="@color/white"
+                    android:layout_gravity="end"/>
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_cta_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".6" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- only pertains to pangle partner -->
+    <ImageView
+        android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="privacy info icon"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- applovin MAX:    'ad options' -->
+    <FrameLayout
+        android:id="@+id/disclaimer_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="2dp">
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

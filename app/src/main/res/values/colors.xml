@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="email_ui_text_unread">#000000</color>
+    <color name="email_ui_light_blue">#8DA7C8</color>
+    <color name="email_iap_walkthrough_unselected_text">#5A5050</color>
+
+
 </resources>

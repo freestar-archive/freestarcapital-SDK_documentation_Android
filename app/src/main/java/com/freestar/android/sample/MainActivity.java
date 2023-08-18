@@ -201,6 +201,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         }
         nativeAd = new NativeAd(this);
         nativeAd.setTemplate(template);
+        if (template == NativeAd.TEMPLATE_SMALL) {
+            nativeAd.setCustomTemplateResourceId(R.layout.item_freestar_inbox_native_ad);
+        }
         nativeAd.setNativeAdListener(new NativeAdListener() {
             @Override
             public void onNativeAdLoaded(View nativeAdView, String placement) {
