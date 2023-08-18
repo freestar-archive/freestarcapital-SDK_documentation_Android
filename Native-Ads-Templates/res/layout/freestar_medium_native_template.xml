@@ -59,6 +59,13 @@
                 app:layout_constraintEnd_toStartOf="@id/content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/applovin_icon_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                />
+
             </FrameLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -154,12 +161,11 @@
                         android:numStars="0"
                         android:textColor="@color/fs_nt_gray"
                         android:textSize="@dimen/fs_nt_text_size_small"
-                        android:visibility="invisible"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/ad_notification_view"
                         app:layout_constraintTop_toTopOf="parent">
-
                     </RatingBar>
 
                     <FrameLayout
@@ -246,7 +252,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- contains sponsor info - only pertains to prebid partner -->
+    <!-- prebid, smaato:  'sponsor'
+         applovin MAX:    'ad options' -->
     <FrameLayout
         android:id="@+id/disclaimer_container"
         android:layout_width="wrap_content"
