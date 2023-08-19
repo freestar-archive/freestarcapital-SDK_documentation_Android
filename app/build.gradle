@@ -112,7 +112,7 @@ dependencies {
     implementation 'com.tapjoy:tapjoy-android-sdk:13.0.1@aar'
 
     //Nimbus
-    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.10.0.0'
+    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter:2.10.0.1'
     implementation "com.adsbynimbus.android:nimbus:2.10.0"
     implementation "com.adsbynimbus.android:extension-facebook:2.10.0"
 
