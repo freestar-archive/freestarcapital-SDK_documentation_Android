@@ -149,7 +149,7 @@ dependencies {
     implementation 'com.smaato.android.sdk:smaato-sdk-rewarded-ads:22.3.1'
 
     //Smaato Bid
-    implementation 'com.freestar.android.ads.smaatobid:freestar-smaato-bid-adapter-beta:22.3.1.0-beta02'
+    implementation 'com.freestar.android.ads.smaatobid:freestar-smaato-bid-adapter-beta:22.3.1.0-beta03'
     implementation 'com.smaato.android.sdk:smaato-sdk:22.3.1'
     implementation 'com.smaato.android.sdk:smaato-sdk-unified-bidding:22.3.1'
     implementation 'com.smaato.android.sdk:smaato-sdk-native:22.3.1'
