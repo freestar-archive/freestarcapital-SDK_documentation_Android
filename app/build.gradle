@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta02'
+    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta03'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
@@ -64,6 +64,17 @@ dependencies {
 
     //Freestar Ad Quality
     implementation 'com.freestar.android.ads.quality:quality:5.0.3.2'
+
+    //Freestar Identity
+    implementation 'com.freestar.android.ads.identity:identity:2.0.6'
+    implementation 'com.liveramp:ats:v2.1.0'
+    implementation "androidx.preference:preference-ktx:1.2.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0"
+    implementation "androidx.room:room-runtime:2.5.2"
+    annotationProcessor "androidx.room:room-compiler:2.5.2"
+    implementation "androidx.room:room-ktx:2.5.2"
 
     //Google Ads Manager (GAM)
     implementation 'com.freestar.android.ads.google:freestar-google-adapter:22.2.0.0'
