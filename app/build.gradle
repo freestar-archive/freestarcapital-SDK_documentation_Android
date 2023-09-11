@@ -113,6 +113,7 @@ dependencies {
 
     //Unity Ads
     implementation 'com.freestar.android.ads.unityads:freestar-unity-adapter:4.7.1.0'
+    implementation "androidx.webkit:webkit:1.7.0"
 
     //Vungle
     implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter:6.10.4.1'
