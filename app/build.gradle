@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta03'
+    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta04'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
@@ -77,27 +77,27 @@ dependencies {
     implementation "androidx.room:room-ktx:2.5.2"
 
     //Google Ads Manager (GAM)
-    implementation 'com.freestar.android.ads.google:freestar-google-adapter:22.2.0.0'
-    implementation 'com.google.android.gms:play-services-ads:22.2.0'
+    implementation 'com.freestar.android.ads.google:freestar-google-adapter-beta:22.3.0.0-beta01'
+    implementation 'com.google.android.gms:play-services-ads:22.3.0'
 
     //AdMob
-    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter:22.2.0.0'
-    implementation 'com.google.android.gms:play-services-ads:22.2.0'  //can remove if already used
+    implementation 'com.freestar.android.ads.admob:freestar-admob-adapter-beta:22.3.0.0-beta01'
+    implementation 'com.google.android.gms:play-services-ads:22.3.0'  //can remove if already used
 
     //GAM mediation adapters
-    implementation 'com.google.ads.mediation:applovin:11.10.1.0'
+    implementation 'com.google.ads.mediation:applovin:11.11.3.0'
     implementation 'com.google.ads.mediation:adcolony:4.8.0.0'
     implementation 'com.google.ads.mediation:tapjoy:13.0.1.0'
-    implementation 'com.google.ads.mediation:facebook:6.14.0.0'
-    implementation 'com.facebook.android:audience-network-sdk:6.14.0' //req'd for mediation in GAM
+    implementation 'com.google.ads.mediation:facebook:6.16.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.16.0' //req'd for mediation in GAM
 
     //AppLovinMAX
     implementation 'com.freestar.android.ads.applovinmax:freestar-applovinmax-adapter-beta:11.11.2.0-beta01'
-    implementation 'com.applovin:applovin-sdk:11.11.2'
+    implementation 'com.applovin:applovin-sdk:11.11.3'
 
     //AppLovin
     implementation 'com.freestar.android.ads.applovin:freestar-applovin-adapter-beta:11.11.2.0-beta01'
-    implementation 'com.applovin:applovin-sdk:11.11.2' //can remove if already used
+    implementation 'com.applovin:applovin-sdk:11.11.3' //can remove if already used
 
     //Amazon TAM (Transparent Ads Marketplace)
     implementation 'com.freestar.android.ads.tam:freestar-tam-adapter-beta:9.8.2.0-beta01'
@@ -116,7 +116,7 @@ dependencies {
     implementation "androidx.webkit:webkit:1.7.0"
 
     //Vungle
-    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter-beta:6.12.1.0-beta01'
+    implementation 'com.freestar.android.ads.vungle:freestar-vungle-adapter-beta:6.12.1.0-beta02'
     implementation 'com.vungle:publisher-sdk-android:6.12.1'
 
     //Tapjoy
