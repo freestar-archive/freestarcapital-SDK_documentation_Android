@@ -163,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         }
         if (videoHelper != null)
             videoHelper.cleanUp();
+        FreeStarAds.clearAdCache();
     }
 
     /**
@@ -176,6 +177,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
      */
     public void loadInterstitialAd(View view) {
 
+        if (interstitialAd != null) {
+            interstitialAd.destroyView();
+        }
         interstitialAd = new InterstitialAd(this, this);
 
         if (DO_CHOOSE_PARTNERS) {
@@ -249,6 +253,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
      */
     public void loadRewardedAd(View view) {
 
+        if (rewardedAd != null) {
+            rewardedAd.destroyView();
+        }
         rewardedAd = new RewardedAd(this, this);
 
         if (DO_CHOOSE_PARTNERS) {

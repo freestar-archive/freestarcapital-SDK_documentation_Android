@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     //begin Freestar
-    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta04'
+    implementation 'com.freestar.android.ads:freestar-beta:5.2.0-beta05'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.5.1'
@@ -124,7 +124,7 @@ dependencies {
     implementation 'com.tapjoy:tapjoy-android-sdk:13.0.1@aar'
 
     //Nimbus
-    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter-beta:2.10.0.2-beta03'
+    implementation 'com.freestar.android.ads.nimbus:freestar-nimbus-adapter-beta:2.10.0.2-beta09'
     implementation "com.adsbynimbus.android:nimbus:2.10.0"
     implementation "com.adsbynimbus.android:extension-facebook:2.10.0"
 
