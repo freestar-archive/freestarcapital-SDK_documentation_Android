@@ -46,6 +46,7 @@ public class MediationPartners {
         sInterstitialPartners.add(LVDOConstants.PARTNER.OGURY.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.FYBER.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.SMAATO.name());
+        sInterstitialPartners.add(LVDOConstants.PARTNER.SMAATO_BID.name());
         Collections.sort(sInterstitialPartners);
         sSelectedInterstitialPartners = new boolean[sInterstitialPartners.size()];
         for (int i = 0; i < sInterstitialPartners.size(); i++) {
@@ -88,6 +89,7 @@ public class MediationPartners {
         sRewardedPartners.add(LVDOConstants.PARTNER.OGURY.name());
         sRewardedPartners.add(LVDOConstants.PARTNER.FYBER.name());
         sRewardedPartners.add(LVDOConstants.PARTNER.SMAATO.name());
+        sRewardedPartners.add(LVDOConstants.PARTNER.SMAATO_BID.name());
         Collections.sort(sRewardedPartners);
         sSelectedRewardedPartners = new boolean[sRewardedPartners.size()];
         for (int i = 0; i < sRewardedPartners.size(); i++) {
@@ -130,6 +132,7 @@ public class MediationPartners {
         sBannerPartners.add(LVDOConstants.PARTNER.OGURY.name());
         sBannerPartners.add(LVDOConstants.PARTNER.FYBER.name());
         sBannerPartners.add(LVDOConstants.PARTNER.SMAATO.name());
+        sBannerPartners.add(LVDOConstants.PARTNER.SMAATO_BID.name());
         Collections.sort(sBannerPartners);
         sSelectedBannerPartners = new boolean[sBannerPartners.size()];
         for (int i = 0; i < sBannerPartners.size(); i++) {
