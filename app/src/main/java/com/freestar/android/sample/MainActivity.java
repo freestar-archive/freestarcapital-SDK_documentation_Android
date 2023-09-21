@@ -150,10 +150,10 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     protected void onDestroy() {
         super.onDestroy();
         if (interstitialAd != null) {
-            interstitialAd.destroyView();
+            interstitialAd.destroy();
         }
         if (rewardedAd != null) {
-            rewardedAd.destroyView();
+            rewardedAd.destroy();
         }
         if (bannerAd != null) {
             bannerAd.destroyView();
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     public void loadInterstitialAd(View view) {
 
         if (interstitialAd != null) {
-            interstitialAd.destroyView();
+            interstitialAd.destroy();
         }
         interstitialAd = new InterstitialAd(this, this);
 
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
     public void loadRewardedAd(View view) {
 
         if (rewardedAd != null) {
-            rewardedAd.destroyView();
+            rewardedAd.destroy();
         }
         rewardedAd = new RewardedAd(this, this);
 
