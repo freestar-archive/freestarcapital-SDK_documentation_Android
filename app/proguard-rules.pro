@@ -156,3 +156,42 @@
 # smaato
 -keep class com.smaato.** { *; }
 -keep interface com.smaato.** { *; }
+
+
+# Liveramp
+-keep class com.liveramp.** { *; }
+-keep interface com.liveramp.** { *; }
+
+# kotlinx
+-keepattributes *Annotation*,InnerClasses,InnerClasses
+-dontnote kotlinx.serialization.AnnotationsKt # core serialization annotations
+
+# kotlinx-serialization-json specific. Add this if you have java.lang.NoClassDefFoundError kotlinx.serialization.json.JsonObjectSerializer
+-keepclassmembers class kotlinx.serialization.json.** {
+    *** Companion;
+}
+-keepclasseswithmembers class kotlinx.serialization.json.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+-keep,includedescriptorclasses class com.liveramp.mobilesdk.**$$serializer { *; }
+-keepclassmembers class com.liveramp.mobilesdk.** {
+    *** Companion;
+}
+-keepclasseswithmembers class com.liveramp.mobilesdk.** {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+-keep class **.R
+-keep class **.R$* {
+    <fields>;
+}
+
+# Preserve all annotations.
+-keepattributes *Annotation*
+
+-keep public class * {
+    public protected *;
+}
+
+-ignorewarnings
