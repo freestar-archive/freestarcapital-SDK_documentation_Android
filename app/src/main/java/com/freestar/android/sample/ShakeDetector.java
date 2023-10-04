@@ -1,6 +1,6 @@
 package com.freestar.android.sample;
 
-import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -11,30 +11,31 @@ import static android.content.Context.SENSOR_SERVICE;
 
 class ShakeDetector implements SensorEventListener {
 
+    private static String TAG = "SHAKE_DETECTOR";
+
     private static final float TRIGGER_THRESHOLD = 50f;
     private long lastTriggerTime, lastShakeTime;
-    private SensorManager mSensorMgr;
+    private SensorManager sensorManager;
     private Sensor accelerometer;
-    private Activity activity;
-    private static String TAG = "SHAKE_DETECTOR";
-    private ShakeListener listener;
+    private final Context context;
+    private final ShakeListener listener;
+
+    private int triggerCounter;
 
     private int count;
 
-    public ShakeDetector(Activity activity, ShakeListener listener) {
-        this.activity = activity;
+    public ShakeDetector(Context activity, ShakeListener listener) {
+        this.context = activity;
         this.listener = listener;
         init();
         startListening();
     }
 
     private void init() {
-        mSensorMgr = (SensorManager) activity.getSystemService(SENSOR_SERVICE);
-        assert mSensorMgr != null;
-        accelerometer = mSensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        sensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
+        assert sensorManager != null;
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
-
-    private int triggerCounter;
 
     @Override
     public void onSensorChanged(SensorEvent event) {
@@ -43,6 +44,7 @@ class ShakeDetector implements SensorEventListener {
 
             long curTime = System.currentTimeMillis();
 
+            //must wait at least 3 seconds to detect the next shake
             if ((curTime - lastShakeTime) > 3000) {
 
                 float x = event.values[0];
@@ -55,15 +57,16 @@ class ShakeDetector implements SensorEventListener {
                 //Log.d(TAG, "Acceleration is " + acceleration + "m/s^2");
                 if (acceleration > TRIGGER_THRESHOLD) {
 
-                    Log.d(TAG, "triggered. diff since last trigger time: "  + (curTime - lastTriggerTime));
+                    Log.d(TAG, "triggered. diff since last trigger time: " + (curTime - lastTriggerTime));
 
-                    //happened too fast; over-sensitive sensor, calibrate here
+                    //happened too fast; was likely only one motion as sensor can be over-sensitive
+                    // calibrate here
                     if ((curTime - lastTriggerTime) < 64) {
                         lastTriggerTime = curTime; //still a trigger event
                         return; //but don't go further
                     }
 
-                    //took too long in between trigger events
+                    //valid trigger events must be within 2 seconds!
                     if ((curTime - lastTriggerTime) > 2000) {
                         triggerCounter = 0; //so reset
                         lastTriggerTime = curTime; //still a trigger event
@@ -74,15 +77,11 @@ class ShakeDetector implements SensorEventListener {
                     triggerCounter++;
 
                     if (triggerCounter % 2 == 0) {
-
-                        Log.d(TAG, "shaked. diff since last shake time: "  + (curTime - lastShakeTime));
-
-                        if ((curTime - lastShakeTime) > 3000) {
-                            listener.onShake();
-                            lastShakeTime = curTime;
-                            Log.d(TAG, "Shake, Rattle, and Roll.");
-                            lastTriggerTime = curTime;
-                        }
+                        Log.d(TAG, "shaked. diff since last shake time: " + (curTime - lastShakeTime));
+                        listener.onShake();
+                        lastShakeTime = curTime;
+                        Log.d(TAG, "Shake, Rattle, and Roll.");
+                        lastTriggerTime = curTime;
                         triggerCounter = 0;
                     }
                 }
@@ -98,13 +97,13 @@ class ShakeDetector implements SensorEventListener {
     }
 
     public void stopListening() {
-        mSensorMgr.unregisterListener(this);
+        sensorManager.unregisterListener(this);
         Log.d(TAG, "stopped");
     }
 
     public void startListening() {
         if (accelerometer != null) {
-            mSensorMgr.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 }
