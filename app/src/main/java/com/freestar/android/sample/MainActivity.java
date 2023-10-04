@@ -56,10 +56,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.SavedStateHandle;
 
 public class MainActivity extends AppCompatActivity implements RewardedAdListener,
         InterstitialAdListener, PrerollAdListener, ThumbnailAdListener,
-        OnPaidEventListener, OnBannerAdSizeChangedListener {
+        OnPaidEventListener, OnBannerAdSizeChangedListener, ShakeListener {
 
     public static final String API_KEY = "XqjhRR"; //"37f63777-6e63-42f2-89b7-4b67689c2493";// "ef8d3a3f-3516-4386-85a5-01e2e86f3499"; //"XqjhRR"; //"3QpLSQ" mopub/fb
 
@@ -81,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
 
     private BannerAdContainer bannerAdContainer = BannerAdContainer.wrapXwrap;
 
+    private ShakeDetector shakeDetector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -92,6 +95,12 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         pageNum = savedInstanceState != null ? savedInstanceState.getInt("page", 0) : 0;
         setTitle("Freestar Page " + (pageNum + 1));
         FreeStarAds.setOnPaidEventListener(this);
+        shakeDetector = new ShakeDetector(this, this);
+    }
+
+    @Override
+    public void onShake() {
+        Toast.makeText(this, "shake", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -124,6 +133,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         if (videoHelper != null) {
             videoHelper.resume();
         }
+        if (shakeDetector != null) {
+            shakeDetector.startListening();
+        }
     }
 
     @Override
@@ -143,6 +155,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         }
         if (videoHelper != null) {
             videoHelper.pause();
+        }
+        if (shakeDetector != null) {
+            shakeDetector.stopListening();
         }
     }
 
@@ -164,6 +179,9 @@ public class MainActivity extends AppCompatActivity implements RewardedAdListene
         if (videoHelper != null)
             videoHelper.cleanUp();
         FreeStarAds.clearAdCache();
+        if (shakeDetector != null) {
+            shakeDetector.stopListening();
+        }
     }
 
     /**
