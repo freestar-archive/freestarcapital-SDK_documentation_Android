@@ -11,9 +11,8 @@ import static android.content.Context.SENSOR_SERVICE;
 
 class ShakeDetector implements SensorEventListener {
 
-    private static final float SHAKE_THRESHOLD = 50f;
-    private static final int MIN_TIME_BETWEEN_SHAKES_MILLISECS = 3000;
-    private long mLastShakeTime;
+    private static final float TRIGGER_THRESHOLD = 50f;
+    private long lastTriggerTime, lastShakeTime;
     private SensorManager mSensorMgr;
     private Sensor accelerometer;
     private Activity activity;
@@ -35,16 +34,16 @@ class ShakeDetector implements SensorEventListener {
         accelerometer = mSensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
-    private long diff;
+    private int triggerCounter;
 
     @Override
     public void onSensorChanged(SensorEvent event) {
 
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            long curTime = System.currentTimeMillis();
-            diff = curTime - mLastShakeTime;
 
-            if (diff > MIN_TIME_BETWEEN_SHAKES_MILLISECS) {
+            long curTime = System.currentTimeMillis();
+
+            if ((curTime - lastShakeTime) > 3000) {
 
                 float x = event.values[0];
                 float y = event.values[1];
@@ -54,11 +53,35 @@ class ShakeDetector implements SensorEventListener {
                         Math.pow(y, 2) +
                         Math.pow(z, 2)) - SensorManager.GRAVITY_EARTH;
                 //Log.d(TAG, "Acceleration is " + acceleration + "m/s^2");
-                if (acceleration > SHAKE_THRESHOLD) {
-                    mLastShakeTime = curTime;
-                    listener.onShake();
-                    Log.d(TAG, "Shake, Rattle, and Roll.  diff: " + diff);
+                if (acceleration > TRIGGER_THRESHOLD) {
+
+                    Log.d(TAG, "triggered. diff since last trigger time: "  + (curTime - lastTriggerTime));
+
+                    //took too long in between trigger events
+                    if ((curTime - lastTriggerTime) > 2000) {
+                        triggerCounter = 0; //so reset
+                        lastTriggerTime = curTime; //still a trigger event
+                        return; //but don't go further
+                    }
+
+                    lastTriggerTime = curTime; //within the previous trigger threshold of 2 seconds
+                    triggerCounter++;
+
+                    if (triggerCounter % 2 == 0) {
+
+                        Log.d(TAG, "shaked. diff since last shake time: "  + (curTime - lastShakeTime));
+
+                        if ((curTime - lastShakeTime) > 3000) {
+                            listener.onShake();
+                            lastShakeTime = curTime;
+                            Log.d(TAG, "Shake, Rattle, and Roll.");
+                            lastTriggerTime = curTime;
+                        }
+                        triggerCounter = 0;
+                    }
                 }
+            } else {
+                triggerCounter = 0;
             }
         }
     }
@@ -77,13 +100,5 @@ class ShakeDetector implements SensorEventListener {
         if (accelerometer != null) {
             mSensorMgr.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         }
-    }
-
-    public void setShakeThreshold(float threshold) {
-        threshold = SHAKE_THRESHOLD;
-    }
-
-    public void setMinTimeBetweenShakesMillisecs(int time) {
-        time = MIN_TIME_BETWEEN_SHAKES_MILLISECS;
     }
 }
