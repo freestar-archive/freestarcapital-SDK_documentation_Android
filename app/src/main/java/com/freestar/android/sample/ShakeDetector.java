@@ -57,6 +57,12 @@ class ShakeDetector implements SensorEventListener {
 
                     Log.d(TAG, "triggered. diff since last trigger time: "  + (curTime - lastTriggerTime));
 
+                    //happened too fast; over-sensitive sensor, calibrate here
+                    if ((curTime - lastTriggerTime) < 64) {
+                        lastTriggerTime = curTime; //still a trigger event
+                        return; //but don't go further
+                    }
+
                     //took too long in between trigger events
                     if ((curTime - lastTriggerTime) > 2000) {
                         triggerCounter = 0; //so reset
