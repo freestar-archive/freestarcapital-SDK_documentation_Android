@@ -41,7 +41,6 @@ public class MediationPartners {
         sInterstitialPartners.add(LVDOConstants.PARTNER.TAPJOY.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.UNITY.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.VUNGLE.name());
-        sInterstitialPartners.add(LVDOConstants.PARTNER.YAHOO.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.PREBID.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.OGURY.name());
         sInterstitialPartners.add(LVDOConstants.PARTNER.FYBER.name());
@@ -127,7 +126,6 @@ public class MediationPartners {
         sBannerPartners.add(LVDOConstants.PARTNER.PANGLE.name());
         sBannerPartners.add(LVDOConstants.PARTNER.VUNGLE.name());
         sBannerPartners.add(LVDOConstants.PARTNER.HYPRMX.name());
-        sBannerPartners.add(LVDOConstants.PARTNER.YAHOO.name());
         sBannerPartners.add(LVDOConstants.PARTNER.PREBID.name());
         sBannerPartners.add(LVDOConstants.PARTNER.OGURY.name());
         sBannerPartners.add(LVDOConstants.PARTNER.FYBER.name());
